@@ -48,3 +48,26 @@ gem "capybara"
 gem "pg"
 gem "friendly_id"
 gem "devise"
+gem 'bootstrap-sass', '>= 3.0.0.0'
+gem 'devise'
+gem 'devise_invitable'
+gem 'pg'
+gem 'simple_form'
+gem 'therubyracer', :platform=>:ruby
+
+group :development do
+  gem 'quiet_assets'
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner', '1.0.1'
+  gem 'email_spec'
+end
+
