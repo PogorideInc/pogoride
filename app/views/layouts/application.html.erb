@@ -8,7 +8,75 @@
 </head>
 <body>
 
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div class="headerLogo">
+            <h1 id="logo"><a href="#"><img src="interface/logo.png" alt="Pogoride" /></a></h1>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="navbar">
+              
+                  <ul class="nav navbar-nav">
+                    <li><a class="test"  href="dashboard.html" title="Login">Login with Facebook</a></li>
+                    <!--<li><a class=""  href="#" title="Sign Up">Sign Up</a></li>-->
+                    <li><a class="" href="#" title="Post A Ride">Post a Ride</a></li>
+                  </ul>
+          </div>
+        </div>
+      </div><!--row close-->
+    </div><!--container close-->
+  </header>
+
 <%= yield %>
+
+  <footer>
+    <div class="footerTop">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3">
+            <h3>Info</h3>
+            <ul>
+              <li><a href="#">Overview</a></li>
+              <li><a href="#">Safety</a></li>
+              <li><a href="#">Drivers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><a href="#">Support</a> </li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <h3>Policies</h3>
+            <ul>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Rules of the Road</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footerBott">
+      <div class="container">
+        <p>Copyright 2013 Pogoride, All Rights Reserved.</p>    
+      </div>
+    </div>  
+  </footer>
 
 </body>
 </html>
