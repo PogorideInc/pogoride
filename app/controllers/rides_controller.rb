@@ -22,11 +22,18 @@ class RidesController < ApplicationController
 
   def update
     @ride = Ride.find(params[:id])
-
+    @ride.update_attributes(ride_params)
+    if @ride.save
+      redirect_to ride_path(@ride)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @ride = Ride.find(params[:id])
+    @ride.save
+    redirect_to rides_path
   end
 
   protected

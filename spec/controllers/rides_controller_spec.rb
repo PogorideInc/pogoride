@@ -1,3 +1,5 @@
+
+=begin
 require 'spec_helper'
 
 describe RidesController do
@@ -38,3 +40,4 @@ describe RidesController do
   end
 
 end
+=end

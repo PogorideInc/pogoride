@@ -2,14 +2,14 @@
 
 FactoryGirl.define do
   factory :ride do
-    from "MyString"
-    to "MyString"
+    from "Vancouver"
+    to "Seattle"
     ride_date "2014-02-16 01:39:32"
-    no_of_seats 1
+    no_of_seats 3
     no_booked_seats 1
-    description "MyText"
-    donation_amt 1
-    luggage_space false
+    description "I need someone that doesnt yak"
+    donation_amt 30
+    luggage_space true
     ski_rack false
     bike_rack false
     user_id 1
