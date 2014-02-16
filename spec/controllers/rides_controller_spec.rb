@@ -1,43 +1,52 @@
 
-=begin
-require 'spec_helper'
+ require 'spec_helper'
 
 describe RidesController do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+  describe'GET#show' do
+    
+    it "assigns the requested ride to @ride" do
+      ride = FactoryGirl.create(:ride)
+      get :show, id: ride
+      expect(assigns(:ride)).to eq ride
     end
+
+    it "renders the :show template" do
+      ride = FacotryGirl.create(:ride)
+      get :show, id: ride 
+      expect(response).to render_template :show
+    end 
+
   end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+  describe 'GET#index' do 
+
+    it "assigns all rides to @rides" do
+      rides = FactoryGirl.create(:ride)
+      get :index
+      expect(assigns(:ride)).to eq([rides])
     end
+
+    it "renders the :index template" do 
+      get :index
+      expect(response).to render_template :index
+    end
+
   end
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
+  describe 'GET#new' do 
 
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
+    it "assigns a new ride to @ride" do 
+      get :new
+      expect(assigns(:ride)).to be_a_new(Ride)
     end
-  end
 
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
+    it "renders the :new template" do 
+      get :new
+      expect(respons).to render_template :new
     end
+
   end
 
 end
-=end
+ 

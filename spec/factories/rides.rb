@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :ride do
+    association :user
     from "Vancouver"
     to "Seattle"
     ride_date "2014-02-16 01:39:32"
