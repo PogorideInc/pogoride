@@ -1,14 +1,266 @@
 <!DOCTYPE html>
-
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Pogoride</title>
-
-</head>
-
-<body>
+  <meta name="language" content="en"> 
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="true">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/home/jquery-ui.css" rel="stylesheet" media="screen">
+  <link href="css/home/jquery-ui-timepicker-addon.css" rel="stylesheet" media="screen">
+  <link href="css/home/themes/base/jquery.ui.all.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="css/default.css" rel="stylesheet" media="screen">
+  <!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="css/ie.css" />
+  <![endif]-->
   
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.ie.css" />
+  <![endif]-->
+  
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Oleo+Script|Pontano+Sans|Open+Sans:300' rel='stylesheet' type='text/css'>
+  
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="js/default/common.js"></script>
+  <script type="text/javascript" src="js/jquery/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/home/viewrideresult.js"></script>
+  <script type="text/javascript" src="js/jquery/jquery-ui-timepicker-addon.js"></script>
+  <script type="text/javascript" src="js/jquery/jquery-ui-sliderAccess.js"></script>
+  <script type="text/javascript" src="js/jquery/jquery.placeholder.min.js"></script>  
+  <script src="js/modernizr.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.js"></script>
+</head>
+<body>
+  <!--[if lt IE 9]>
+      <p class="chromeframe">Uh oh! It looks like you're viewing this website with an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience. Thanks!</p>
+    <![endif]-->
+  <div id="homeBg">
   <header>
-   
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div class="headerLogo">
+            <h1 id="logo"><a href="#"><img src="interface/logo.png" alt="Pogoride" /></a></h1>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="navbar">
+              
+                  <ul class="nav navbar-nav">
+                    <li><a class="test"  href="dashboard.html" title="Login">Login with Facebook</a></li>
+                    <!--<li><a class=""  href="#" title="Sign Up">Sign Up</a></li>-->
+                    <li><a class="" href="#" title="Post A Ride">Post a Ride</a></li>
+                  </ul>
+          </div>
+        </div>
+      </div><!--row close-->
+    </div><!--container close-->
   </header>
+  
+  <div role="main" id="homeContent">
+    <div class="container contMain">
+      <div class="row">
+        <div class="col-lg-12 findInn">
+          <h2>Find your ride.</h2>
+        </div>
+        <div class="col-lg-12 findInn">
+          <h4 class="whitetxt">We're beta testing! Search select routes &amp; tell us what you think.</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 searchBox">
+          <form id="searchARideForm" name="searchARideForm" method="get" action="http://www.pogoride.com/public/index/view-ride-result">
+            <div class="common-row searchbig">
+              <div class="ui-widget">
+                <select id="combobox" name="from">
+                  <option value=""></option>
+                  <option value="vancouver">Vancouver</option>
+                  <option value="victoria">Victoria</option>
+                  <option value="kelowna">Kelowna</option>
+                  <option value="squamish">Squamish</option>
+                  <option value="seattle">Seattle</option>
+                  <option value="tofino">Tofino</option>
+                  <option value="whistler">Whistler</option>
+                </select>
+              </div>
+            <!--<button id="toggle">Show underlying select</button>-->
+            </div>
+            <div class="common-row searchbig">
+              <div class="ui-widget">
+                <select id="combobox2" name="to">
+                  <option value=""></option>
+                  <option value="vancouver">Vancouver</option>
+                  <option value="victoria">Victoria</option>
+                  <option value="kelowna">Kelowna</option>
+                  <option value="squamish">Squamish</option>
+                  <option value="seattle">Seattle</option>
+                  <option value="tofino">Tofino</option>
+                  <option value="whistler">Whistler</option>
+                </select>
+              </div>
+            <!--<button id="toggle">Show underlying select</button>-->
+            </div>
+            <div class="common-row datesm">
+                <input id="start_time" class="form_input" type="text" readonly="readonly"  value="" name="time" placeholder="Date">
+            </div>
+            <div class="common-row searchsm">
+              <div class="ui-widget">
+                <select id="combobox3" name="seats">
+                  <option value=""></option>
+                  <option  value="1">1</option>
+                  <option  value="2">2</option>
+                  <option  value="3">3</option>
+                  <option  value="4">4</option>
+                  <option  value="5">5</option>
+                  <option  value="6">6</option>
+                  <option  value="7">7</option>
+                </select>
+              </div>
+            </div>
+            <div class="common-row searchBtn">
+              <div class="input-box">
+                <div class="button">
+                  <input class="btn btn-primary" type="submit" tabindex="4" value="Search" id="submitbutton" name="submit">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div><!--searchBox close-->
+      </div><!--row close-->
+    </div><!--container close-->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div id="mapContent">
+          <h2>Your Rideshare Marketplace</h2>
+          <h3>Pogoride is your one-stop ridesharing app connecting you to all the hottest places in and around British Columbia.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--main close-->
+  </div><!--homeBg close-->
+  <div id="map">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-sm-5">
+          <div id="mapInner">
+          <h2>Ride Between:</h2>
+          <h3>Vancouver, Victoria, Tofino, Squamish, Whistler, Kelowna and Seattle</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
 
+    var map = L.map('map', {
+      center: [49, -126],
+      zoom: 7,
+      scrollWheelZoom: false,
+    });
+    
+    var blueIcon = L.icon({
+      iconUrl: 'interface/marker-icon.png',
+      shadowUrl: 'interface/marker-shadow.png',
+
+      iconSize:     [25, 41], // size of the icon
+      shadowSize:   [41, 41], // size of the shadow
+      iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
+      shadowAnchor: [25, 41],  // the same for the shadow
+      popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+    });
+    
+    L.tileLayer('http://{s}.tile.cloudmade.com/ace05b64377e4ac0aff3c9fabfb23f4d/105217/256/{z}/{x}/{y}.png', {
+      maxZoom: 14
+    }).addTo(map);
+
+    L.marker([49.2505, -123.1119], {icon: blueIcon}).addTo(map).bindPopup("Vancouver");
+    L.marker([48.4328, -123.3347], {icon: blueIcon}).addTo(map).bindPopup("Victoria");
+    L.marker([49.8849, -119.4907], {icon: blueIcon}).addTo(map).bindPopup("Kelowna");
+    L.marker([49.7017, -123.1588], {icon: blueIcon}).addTo(map).bindPopup("Squamish");
+    L.marker([47.6097, -122.3331], {icon: blueIcon}).addTo(map).bindPopup("Seattle");
+    L.marker([49.1525, -125.9033], {icon: blueIcon}).addTo(map).bindPopup("Tofino");
+    L.marker([50.1159, -122.9490], {icon: blueIcon}).addTo(map).bindPopup("Whistler");
+
+
+  </script>
+  <div class="aboutTxt">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <h3>Amazing Destinations</h3>
+          <p>Escape to the best urban and outdoor places around.</p>
+        </div>
+      </div><!--row close-->
+      <div class="row">
+        <div class="col-lg-6 col-sm-6 col-lg-offset-6 col-sm-offset-6">
+          <h3>A Reliable Community</h3>
+          <p>Embrace the trusted and reviewed network of drivers and riders.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <h3>Affordable and Convenient</h3>
+          <p>Find your trip at the best price, everytime.</p>
+        </div>
+      </div>
+    </div><!--container close-->
+  </div><!--aboutTxt close-->
+
+  
+  <footer>
+    <div class="footerTop">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3">
+            <h3>Info</h3>
+            <ul>
+              <li><a href="#">Overview</a></li>
+              <li><a href="#">Safety</a></li>
+              <li><a href="#">Drivers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><a href="#">Support</a> </li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <h3>Policies</h3>
+            <ul>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Rules of the Road</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footerBott">
+      <div class="container">
+        <p>Copyright 2013 Pogoride, All Rights Reserved.</p>    
+      </div>
+    </div>  
+  </footer>
+  
 </body>
+</html>
