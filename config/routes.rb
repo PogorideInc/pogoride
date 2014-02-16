@@ -1,13 +1,5 @@
 LhlPogorider::Application.routes.draw do
-  get "rides/index"
-
-  get "rides/new"
-
-  get "rides/create"
-
-  get "rides/edit"
-
-  get "rides/destroy"
+  resources :rides
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

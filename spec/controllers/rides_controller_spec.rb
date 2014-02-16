@@ -12,7 +12,7 @@ describe RidesController do
     end
 
     it "renders the :show template" do
-      ride = FacotryGirl.create(:ride)
+      ride = FactoryGirl.create(:ride)
       get :show, id: ride 
       expect(response).to render_template :show
     end 
@@ -24,7 +24,7 @@ describe RidesController do
     it "assigns all rides to @rides" do
       rides = FactoryGirl.create(:ride)
       get :index
-      expect(assigns(:ride)).to eq([rides])
+      expect(assigns(:rides)).to eq([rides])
     end
 
     it "renders the :index template" do 
@@ -43,7 +43,7 @@ describe RidesController do
 
     it "renders the :new template" do 
       get :new
-      expect(respons).to render_template :new
+      expect(response).to render_template :new
     end
 
   end

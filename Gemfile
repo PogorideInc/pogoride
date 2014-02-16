@@ -42,6 +42,7 @@ gem 'jbuilder', '~> 1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "awesome_print"
 gem "omniauth-facebook"
 gem "koala"
 gem "capybara"

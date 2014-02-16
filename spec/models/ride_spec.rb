@@ -18,7 +18,7 @@ describe Ride do
 
   it "is invalid without a donation amount" do 
     ride = FactoryGirl.build(:ride, donation_amt: nil)
-    expect(ride).to have(1).errors_on(:donation_amt)
+    expect(ride).to have(2).errors_on(:donation_amt)
   end
 
   it "is invalid with donation of $0" do 

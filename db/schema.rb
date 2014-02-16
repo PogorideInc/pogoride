@@ -11,6 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140216013932) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "rides", force: true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.datetime "ride_date"
+    t.integer  "no_of_seats"
+    t.integer  "no_booked_seats"
+    t.text     "description"
+    t.integer  "donation_amt"
+    t.boolean  "luggage_space"
+    t.boolean  "ski_rack"
+    t.boolean  "bike_rack"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
