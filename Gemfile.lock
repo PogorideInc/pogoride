@@ -232,6 +232,7 @@ DEPENDENCIES
   jquery-rails
   koala
   launchy
+  minitest
   omniauth-facebook
   pg
   quiet_assets
