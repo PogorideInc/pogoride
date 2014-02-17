@@ -35,4 +35,15 @@ ActiveRecord::Schema.define(version: 20140217204742) do
 
   add_index "rides", ["user_id"], name: "index_rides_on_user_id", using: :btree
 
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "email"
+    t.text     "about_me"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
