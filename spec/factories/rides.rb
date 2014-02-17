@@ -5,11 +5,10 @@ FactoryGirl.define do
     #association :user
     from "Vancouver"
     to "Seattle"
-    #ride_date "2014-02-16 01:39:32"
     ride_date (Date.today) + 1
     no_of_seats 3
     no_booked_seats 1
-    description "I need someone that doesnt yak"
+    description "I need someone that doesn't yak"
     donation_amt 30
     luggage_space true
     ski_rack false

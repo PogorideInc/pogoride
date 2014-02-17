@@ -1,18 +1,17 @@
 
- require 'spec_helper'
+require 'spec_helper'
 
 describe RidesController do
 
   describe'GET#show' do
-    
+    let(:ride) { FactoryGirl.create(:ride) }
+
     it "assigns the requested ride to @ride" do
-      ride = FactoryGirl.create(:ride)
       get :show, id: ride
       expect(assigns(:ride)).to eq ride
     end
 
     it "renders the :show template" do
-      ride = FactoryGirl.create(:ride)
       get :show, id: ride 
       expect(response).to render_template :show
     end 
@@ -24,7 +23,7 @@ describe RidesController do
     it "assigns all rides to @rides" do
       rides = FactoryGirl.create(:ride)
       get :index
-      expect(assigns(:rides)).to eq([rides])
+      expect(assigns(:rides)).to match_array([rides])
     end
 
     it "renders the :index template" do 
