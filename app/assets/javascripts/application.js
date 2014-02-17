@@ -14,3 +14,53 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+  $('.nav li a').bind('click',function(event){
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top
+      }, 2000,'easeInOutQuad');
+      event.preventDefault();
+  });
+});
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+$( document ).ready(function() {
+var is_touch_device = 'ontouchstart' in document.documentElement;
+
+if(!is_touch_device){
+  $('body').attr('id','skrollr-body');
+  var s = skrollr.init({
+    });
+}
+
+$( document ).ready(function() {
+var is_touch_device = 'ontouchstart' in document.documentElement;
+
+if(!is_touch_device){
+  $('body').attr('id','skrollr-body');
+  var s = skrollr.init({
+    });
+}
+
+
+$('#secondband').backstretch("/public/images/frontpage.jpg");
+});
+
+$('#secondband').backstretch([
+  "http://www.pogoride.com/public/images/vancouver01.jpg"
+, "http://www.pogoride.com/public/images/photoslide/garibaldi01.jpg"
+, "http://www.pogoride.com/public/images/photoslide/driving01.jpg"
+, "http://www.pogoride.com/public/images/photoslide/mtwashington01.jpg"
+, "http://www.pogoride.com/public/images/photoslide/roadtrip01.jpg"
+], {duration: 9000, fade: 750});
+});

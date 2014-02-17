@@ -3,197 +3,347 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--NOTES: Added several custom javascript links and all styles changes can be found in default.css... Essentially, Bootstrap 3 has been implemented with the existing back-end code... refer to the new bootstrap documentation at boostrap.com! thank you! :) -->
 <head>
-  <meta charset="utf-8"/>
+  
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Pogoride</title>
+  <meta name="keywords" content="Bus Uber Lyft Greyhound rideshare option">
+  <meta name="description" content="Travel and rideshare in Vancouver Whistler and Seattle">
   <meta name="language" content="en"> 
   <meta name="MobileOptimized" content="320">
   <meta name="HandheldFriendly" content="true">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="css/home/jquery-ui.css" rel="stylesheet" media="screen">
-  <link href="css/home/jquery-ui-timepicker-addon.css" rel="stylesheet" media="screen">
-  <link href="css/home/themes/base/jquery.ui.all.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="css/default.css" rel="stylesheet" media="screen">
-  <!--[if IE]>
-  <link rel="stylesheet" type="text/css" href="css/ie.css" />
+  <script type='text/javascript'>
+    var baseUrl = '';
+  </script>
+
+
+
+<link href="/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/jquery.alerts.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/home/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/home/jquery-ui-timepicker-addon.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/home/themes/base/jquery.ui.all.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/default.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans|Pontano+Sans|Open+Sans:300" media="screen" rel="stylesheet" type="text/css" /><!-- start 
+
+Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("3a13c83dd93811a57e268fb85713f56d");</script><!-- end Mixpanel -->
+
+
+<script type="text/javascript" src="/js/jquery/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/js/default/common.js"></script>
+<script type="text/javascript" src="/js/jquery/bootstrap.min.custom.js"></script>
+<script type="text/javascript" src="/js/jquery/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="/js/jquery/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/js/jquery/respond.js"></script>
+<script type="text/javascript" src="/js/jquery/modernizr.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/home/viewrideresult.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-ui-sliderAccess.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/jquery/alphanumeric.pack.js"></script>
+<script type="text/javascript" src="/js/default/skrollr.min.js"></script>
+<script type="text/javascript" src="/js/default/skrollr.ie.min.js"></script>
+<script type="text/javascript" src="/js/default/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="/js/login/login.js"></script><script>
+    mixpanel.track("Video played", {
+    "length": 213,
+    "id": "hY7gQr0"
+});
+</script> <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.css" />
-  <!--[if lte IE 8]>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.ie.css" />
-  <![endif]-->
-  
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Oleo+Script|Pontano+Sans|Open+Sans:300' rel='stylesheet' type='text/css'>
-  
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script type="text/javascript" src="js/default/common.js"></script>
-  <script type="text/javascript" src="js/jquery/jquery-ui.js"></script>
-  <script type="text/javascript" src="js/home/viewrideresult.js"></script>
-  <script type="text/javascript" src="js/jquery/jquery-ui-timepicker-addon.js"></script>
-  <script type="text/javascript" src="js/jquery/jquery-ui-sliderAccess.js"></script>
-  <script type="text/javascript" src="js/jquery/jquery.placeholder.min.js"></script>  
-  <script src="js/modernizr.js"></script>
-  <script src="http://cdn.leafletjs.com/leaflet-0.6.3/leaflet.js"></script>
-</head>
+  <!--Favicons-->
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <script type='text/javascript'>
+    var baseUrl = '';
+  </script>
+  <script src='/google_analytics_auto.js'></script></head>
 <body>
   <!--[if lt IE 9]>
       <p class="chromeframe">Uh oh! It looks like you're viewing this website with an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience. Thanks!</p>
-    <![endif]-->
+       <![endif]-->
   <div id="homeBg">
+  <!-- Primary Page Layout --> 
+  <!--  Container -->
 
+  <!-- inner Container -->
+  <script type="text/javascript">
+    $(function() {
+      $('.nav li a').bind('click',function(event){
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+          scrollTop: $($anchor.attr('href')).offset().top
+          }, 2000,'easeInOutQuad');
+          event.preventDefault();
+      });
+    });
+  </script>
   
-  <div role="main" id="homeContent">
-    <div class="container contMain">
-      <div class="row">
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-42750483-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+
+ga.src = ('https:www.pogoride.com' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>  
+  
+
+<div role="main" id="homeContent">
+        <div class="container contMain">
+               <div class="row">
         <div class="col-lg-12 findInn">
-          <h2>Find your ride.</h2>
+          <h2 class="whitetxt">Find your ride.</h2>
+       
         </div>
-        <div class="col-lg-12 findInn">
-          <h4 class="whitetxt">We're beta testing! Search select routes &amp; tell us what you think.</h4>
+         </div>
+               <div class="row">
+         
+                   
+        <div class="col-lg-12 searchBox" >
+   <h4 class="whitetxt">Book rides in British Columbia and Washington today. Beta.</h4>   
+  <form id="searchARideForm" name="searchARideForm" method="get" action="/index/view-ride-result">
+          
+    <div class="common-row searchbig">
+          
+        <div class="ui-widget">
+
+        <select id="combobox" name="from">
+        <option value=""></option>
+                <option selected="selected" value="Vancouver">Vancouver</option>
+                <option  value="Bellingham">Bellingham</option>
+                <option  value="Kelowna">Kelowna</option>
+                <option  value="Squamish">Squamish</option>
+                <option  value="Seattle">Seattle</option>
+                <option  value="Victoria">Victoria</option>
+                <option  value="Whistler">Whistler</option>
+                <option  value="">Cypress</option>
+                <option  value="#TheHTML500">#TheHTML500</option>
+                </select>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 searchBox">
-          <form id="searchARideForm" name="searchARideForm" method="get" action="http://www.pogoride.com/public/index/view-ride-result">
-            <div class="common-row searchbig">
-              <div class="ui-widget">
-                <select id="combobox" name="from">
-                  <option value=""></option>
-                  <option value="vancouver">Vancouver</option>
-                  <option value="victoria">Victoria</option>
-                  <option value="kelowna">Kelowna</option>
-                  <option value="squamish">Squamish</option>
-                  <option value="seattle">Seattle</option>
-                  <option value="tofino">Tofino</option>
-                  <option value="whistler">Whistler</option>
-                </select>
-              </div>
-            <!--<button id="toggle">Show underlying select</button>-->
-            </div>
-            <div class="common-row searchbig">
-              <div class="ui-widget">
-                <select id="combobox2" name="to">
-                  <option value=""></option>
-                  <option value="vancouver">Vancouver</option>
-                  <option value="victoria">Victoria</option>
-                  <option value="kelowna">Kelowna</option>
-                  <option value="squamish">Squamish</option>
-                  <option value="seattle">Seattle</option>
-                  <option value="tofino">Tofino</option>
-                  <option value="whistler">Whistler</option>
-                </select>
-              </div>
-            <!--<button id="toggle">Show underlying select</button>-->
-            </div>
-            <div class="common-row datesm">
-                <input id="start_time" class="form_input" type="text" readonly="readonly"  value="" name="time" placeholder="Date">
-            </div>
-            <div class="common-row searchsm">
-              <div class="ui-widget">
-                <select id="combobox3" name="seats">
-                  <option value=""></option>
-                  <option  value="1">1</option>
+     
+    </div>
+       
+    <div class="common-row searchbig">
+           
+       <div class="ui-widget">
+
+       <select id="combobox2" name="to">
+       <option value=""></option>
+              <option  value="Vancouver">Vancouver</option>
+              <option  value="Bellingham">Bellingham</option>
+              <option  value="Kelowna">Kelowna</option>
+              <option  value="Squamish">Squamish</option>
+              <option  value="Seattle">Seattle</option>
+              <option  value="Victoria">Victoria</option>
+              <option  value="Whistler">Whistler</option>
+              <option selected="selected" value="">Cypress</option>
+              <option  value="#TheHTML500">#TheHTML500</option>
+              </select>
+       </div>
+       <!--<button id="toggle">Show underlying select</button>-->
+    </div>
+
+    <div class="common-row datesm">
+      <input id="start_time" class="form_input" type="text" readonly="readonly"  value="" name="time"  placeholder="Date">
+    </div>
+
+ 
+    <div class="common-row searchsm">
+                
+      <div class="ui-widget">
+        <select id="combobox3" name="seats">
+        <option value=""></option>
+                          <option  value="1">1</option>
                   <option  value="2">2</option>
                   <option  value="3">3</option>
                   <option  value="4">4</option>
                   <option  value="5">5</option>
                   <option  value="6">6</option>
                   <option  value="7">7</option>
-                </select>
-              </div>
-            </div>
+                 </select>
+      </div>
+      
+    </div>
+    <input type="hidden" name="seeallflag" value="0">
+    <div class="common-row searchBtn">
+      <div class="input-box"><div class="button">
+      <input type="submit" tabindex="4" value="Search" id="submitbutton" name="submit" class="btn btn-primary"></div>
+      </div>
+     </div>
+   </form>
+
+   </div>
+   <div style="display:none;" id="search-error" class="error"></div>
+   <div class="">
+    <div class="col-lg-2 searchBox">
+              <form action="/index/view-ride-result" method="get" name="seeAllRides" id="seeAllRides">            
             <div class="common-row searchBtn">
-              <div class="input-box">
-                <div class="button">
-                  <input class="btn btn-primary" type="submit" tabindex="4" value="Search" id="submitbutton" name="submit">
+                                <input type="hidden" name="seeallflag" value="1">
+                <div class="input-box"><div class="button">
+                    <input type="submit" class="btn btn-primary" name="submit" id="searchall" value="All Rides" tabindex="" style="height:45px;"></div>
+                   
                 </div>
-              </div>
+                
             </div>
-          </form>
-        </div><!--searchBox close-->
-      </div><!--row close-->
-    </div><!--container close-->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8">
-          <div id="mapContent">
-          <h2>Your Rideshare Marketplace</h2>
-          <h3>Pogoride is your one-stop ridesharing app connecting you to all the hottest places in and around British Columbia.</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!--main close-->
-  </div><!--homeBg close-->
-  <div id="map">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 col-sm-5">
-          <div id="mapInner">
-          <h2>Ride Between:</h2>
-          <h3>Vancouver, Victoria, Tofino, Squamish, Whistler, Kelowna and Seattle</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-
-    var map = L.map('map', {
-      center: [49, -126],
-      zoom: 7,
-      scrollWheelZoom: false,
-    });
-    
-    var blueIcon = L.icon({
-      iconUrl: 'interface/marker-icon.png',
-      shadowUrl: 'interface/marker-shadow.png',
-
-      iconSize:     [25, 41], // size of the icon
-      shadowSize:   [41, 41], // size of the shadow
-      iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
-      shadowAnchor: [25, 41],  // the same for the shadow
-      popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-    });
-    
-    L.tileLayer('http://{s}.tile.cloudmade.com/ace05b64377e4ac0aff3c9fabfb23f4d/105217/256/{z}/{x}/{y}.png', {
-      maxZoom: 14
-    }).addTo(map);
-
-    L.marker([49.2505, -123.1119], {icon: blueIcon}).addTo(map).bindPopup("Vancouver");
-    L.marker([48.4328, -123.3347], {icon: blueIcon}).addTo(map).bindPopup("Victoria");
-    L.marker([49.8849, -119.4907], {icon: blueIcon}).addTo(map).bindPopup("Kelowna");
-    L.marker([49.7017, -123.1588], {icon: blueIcon}).addTo(map).bindPopup("Squamish");
-    L.marker([47.6097, -122.3331], {icon: blueIcon}).addTo(map).bindPopup("Seattle");
-    L.marker([49.1525, -125.9033], {icon: blueIcon}).addTo(map).bindPopup("Tofino");
-    L.marker([50.1159, -122.9490], {icon: blueIcon}).addTo(map).bindPopup("Whistler");
+        </form>
 
 
-  </script>
-  <div class="aboutTxt">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-sm-6">
-          <h3>Amazing Destinations</h3>
-          <p>Escape to the best urban and outdoor places around.</p>
-        </div>
-      </div><!--row close-->
-      <div class="row">
-        <div class="col-lg-6 col-sm-6 col-lg-offset-6 col-sm-offset-6">
-          <h3>A Reliable Community</h3>
-          <p>Embrace the trusted and reviewed network of drivers and riders.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-sm-6">
-          <h3>Affordable and Convenient</h3>
-          <p>Find your trip at the best price, everytime.</p>
-        </div>
-      </div>
-    </div><!--container close-->
-  </div><!--aboutTxt close-->
+    </div>  
+ 
   
+
+</div>  
+
+
+ 
+                         
+               </div>
+        
+        </div>
+
+    </div><!--container close-->
+    </div>
+</div><!--homeBg close - This div contains the background image-->
+
+<div id="newfirstband">
+  <div class="container" style="color:#555">
+    <div class="row first" >
+      <div class="col-xs-12 col-sm-4">
+        <h2 class="text-right" style="margin: 50px auto 10px">Need a ride?</h2>
+        
+        <p class="text-right">Sit back and relax on your next trip </br>with our trusted community of drivers </br><a href="https://www.pogoride.com/index/view-ride-result?seeallflag=1&submit=All+Rides" <!--style="color:#2a6496;" class="modallogin" id="modallogin" href="javascript:window.scrollTo(0, 0);"--><b>See beta rides</b></a></p> 
+      </div>
+      <div class="col-xs-12 col-sm-8" style="margin: 50px auto 10px">
+        <div id="backseat"><img style="max-width: 100%;" src="/public/js/common/tiny_mce/plugins/imagemanager/files/road-trip-photo-2.png"></div>
+      </div>
+    </div>         
+    <div class="row second" style="margin-bottom: 70px;">
+      <div class="col-xs-12 col-sm-4 col-lg-3 col-lg-offset-1">
+        <h2 class="text-right" style="margin: 20px auto 10px;">Driving?</h2>
+       
+        <p class="text-right">We want to help you meet amazing </br>people and get paid on your trips</br> <a style="color:#2a6496;" class="modallogin" id="modallogin" href="javascript:window.scrollTo(0, 0);"><b>Post your trip</b></a></p>  
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <p class="text-center" style="margin: 60px auto 10px;">Make around </br>$30 per rider</p>
+        <img style="display:block; margin: 0px auto" src="/public/js/common/tiny_mce/plugins/imagemanager/files/wallet-icon-2.png" width="50px">
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <p class="text-center" style="margin: 60px auto 10px;">Connect with </br>trusted people</p>
+        <img style="display:block; margin: 0px auto" src="/public/js/common/tiny_mce/plugins/imagemanager/files/people-icon-2.png" width="50px">
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <p class="text-center" style="margin: 60px auto 10px;">Get goodies </br> on your trips</p>
+        <img style="display:block; margin: 0px auto" src="/public/js/common/tiny_mce/plugins/imagemanager/files/coffee-icon-2.png" width="50px">
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <p class="text-center" style="margin: 60px auto 10px;">See your travel </br>analytics</p>
+        <img style="display:block; margin: 0px auto" src="/public/js/common/tiny_mce/plugins/imagemanager/files/analytics-icon-2.png" width="50px">
+      </div>
+    </div><!--second row close-->   
+  </div><!--container close-->
+</div><!--newfirstband close-->
+
+<div id="firstband">
+    <div class="container">
+        <div class="row first" style="margin-bottom: 60px;">
+            <h2 class="text-center" style="margin: 50px auto 10px;">An easier way to get away.</h2>
+            <hr style="margin-bottom:20px;">
+            <!--<div class="col-xs-12 col-sm-2">
+                <h3 class="text-center numberoff" data-0="background-color:rgb(167,167,175);" data-150="background-color:rgb(167,167,175);" data-250="background-color:rgb(30,130,180);">1</h3>
+                
+            </div>-->
+            <div class="col-xs-12 col-sm-4 col-lg-offset-2" data-0="opacity:0;" data-525="opacity:0;" data-675="opacity:1;">
+                <p >1. Enter your destination</p>
+                <img src="http://www.pogoride.com/public/js/common/tiny_mce/plugins/imagemanager/files/searchride-01.png">
+            </div>
+            <!--<div class="col-xs-12 col-sm-2">
+                <h3 class="text-center numberoff topmarg" data-0="background-color:rgb(167,167,175);" data-250="background-color:rgb(167,167,175);" data-350="background-color:rgb(30,130,180);">2</h3>
+                
+            </div>-->
+            <div class="col-xs-12 col-sm-4" data-0="opacity:0;" data-550="opacity:0;" data-700="opacity:1;">
+                <p >2. Connect with <br>trusted drivers</p>
+                <img src="http://www.pogoride.com/public/js/common/tiny_mce/plugins/imagemanager/files/sendmessage-01.png">
+            </div>
+        </div>
+        <div class="row second" style="margin-bottom: 10px;">
+            <!-- Add the extra clearfix for only the required viewport -->
+
+            <!--<div class="col-xs-12 col-sm-2 col-lg-offset-1">
+                <h3 class="text-center numberoff" data-0="background-color:rgb(167,167,175);" data-350="background-color:rgb(167,167,175);" data-450="background-color:rgb(30,130,180);">3</h3>
+                
+            </div>-->
+            <div class="col-xs-12 col-sm-4 col-lg-offset-3" data-0="opacity:0;" data-600="opacity:0;" data-800="opacity:1;">
+                <p>3. Book your ride, <br>securely</p>
+                <img src="http://www.pogoride.com/public/js/common/tiny_mce/plugins/imagemanager/files/creditcard-01.png">
+            </div>
+            <!--<div class="col-xs-12 col-sm-2">
+                <h3 class="text-center numberoff topmarg" data-0="background-color:rgb(167,167,175);" data-450="background-color:rgb(167,167,175);" data-550="background-color:rgb(30,130,180);" >4</h3>
+                
+            </div>     -->     
+            <div class="col-xs-12 col-sm-4 col-lg-3"  data-0="opacity:0;" data-625="opacity:0;" data-800="opacity:1;">
+                <p style="width:160px;">4. Meet up and <br>hit the road</p>
+                <img src="http://www.pogoride.com/public/js/common/tiny_mce/plugins/imagemanager/files/hittheroad-01.png" style="margin-top:10px;">
+            </div></div>
+            <div class="col-lg-12"><h3 class="text-center" style="margin-bottom:60px;"><a class="modallogin" id="modallogin" href="javascript:window.scrollTo(0, 0);"></br>Get early access and sign up for free today!</a></h3></div>
+        </div>
+    </div>
+</div>
+
+<div id="secondband">
+  <div class="container" style="">
+  <h2 class="text-center">Welcome to the Pacific Northwest <small style="color:#0184D1">Beta</small></h2>
+      <!--<img class="route" src="/public/images/route2.png" >-->
+  <p class="text-center" >Rides available between Whistler, Vancouver, and Seattle.<br>Where do you want to go?</p>
+      
+
+    <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 648px; width: 1151px; z-index: -999998; position: absolute;"><%= image_tag"frontpage.jpg", :id => 'frontpageimg' %></div>
+ 
+
+
+  </div>
+</div>
+
+
+
+<div class="clrFix"></div> <!--  End inner Container -->
+ 
+
+
+   
+  
+
+                
+                </div>
+              </form>
+          </div>
+          </div>
+          </div>
+          </div>
+        
+        
+  
+          </div>
+            
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          </div>
+ 
 </body>
 </html>
+
+
+
