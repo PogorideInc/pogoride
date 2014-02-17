@@ -1,0 +1,29 @@
+/*------- Header SCSS -------*/
+
+header .nav {
+  float:right;
+  li {
+    margin-right:10px;  
+    float:left;
+    a {
+      background:#f5f5f5; 
+      border-radius:3px; 
+      font-family: 'Droid Sans', sans-serif; 
+      font-weight:400; 
+      color:#0184d1;
+      position:relative; 
+      border: 1px solid #0184d1;
+      padding: 2px;
+      text-decoration: none;
+      &:hover {
+        box-shadow: 0px 0px 3px 0px;
+      }
+    }
+  }
+}
+
+header .navbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
