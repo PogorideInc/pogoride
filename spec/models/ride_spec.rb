@@ -26,4 +26,9 @@ describe Ride do
     expect(ride).to have(1).errors_on(:donation_amt)
   end
     
+  it "date must be in the future" do
+    ride = FactoryGirl.build(:ride, ride_date: Date.today)
+    expect(ride).to have(1).errors_on(:ride_date)
+  end
+
 end

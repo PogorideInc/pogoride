@@ -48,5 +48,54 @@ describe RidesController do
 
   end
 
+  describe 'POST#Create' do 
+
+    it "saves the ride to the database" do 
+      expect{
+        post :create, ride: FactoryGirl.attributes_for(:ride)
+      }.to change(Ride, :count).by(1)
+    end
+
+    it "redirects to :show template" do 
+      post :create, ride: FactoryGirl.attributes_for(:ride)
+      expect(response).to redirect_to :action => :show, :id => assigns(:ride).id
+    end
+
+  end
+
+  describe 'PATCH#Update' do 
+    before :each do 
+      @ride = FactoryGirl.create(:ride)
+    end
+
+    it "updates ride attributes" do 
+      patch :update, id: @ride, ride: FactoryGirl.attributes_for(:ride, donation_amt: 100)
+      @ride.reload
+      expect(@ride.donation_amt).to eq(100)
+    end
+
+    it "redirects to :show template" do 
+      patch :update, id: @ride, ride: FactoryGirl.attributes_for(:ride)
+      expect(response).to redirect_to @ride
+    end
+
+  end
+
+  describe 'DELETE#Destroy' do 
+    before :each do 
+      @ride = FactoryGirl.create(:ride)
+    end
+
+    it "deletes the ride" do 
+      expect{ delete :destroy, id: @ride }.to change(Ride, :count).by(-1) 
+    end
+
+    it "redirects to :index template" do 
+      delete :destroy, id: @ride
+      expect(response).to redirect_to rides_path      
+    end
+
+  end
+
 end
  
