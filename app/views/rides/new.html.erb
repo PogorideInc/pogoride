@@ -1,0 +1,20 @@
+<h1>Post a Ride</h1>
+
+
+<!-- Placeholders - will be switched to pull downs, check boxes, will include the passengers registered -->
+<%= form_for @ride do |f| %>
+  From:             <%= f.text_field  :from %><br />
+  To:               <%= f.text_field  :to %><br />
+  Ride Date:        <%= f.date_field   :ride_date %><br />
+  Ride Time:        <%= f.time_field   :ride_time %><br />
+  Number of Seats:  <%= f.text_field   :no_of_seats%><br />
+  Description:      <%= f.text_area   :description %><br />
+  Donation Amount:  <%= f.text_field  :donation_amt %><br />
+  Luggage space?    <%= f.check_box   :luggage_space %><br />
+  Ski Rack?         <%= f.check_box   :ski_rack %><br />
+  Bike Rack?        <%= f.check_box   :bike_rack %><br />
+                    <%= f.submit %>
+<% end %>
+<br />
+
+The following passengers are already confirmed on this ride:(name, picture)
