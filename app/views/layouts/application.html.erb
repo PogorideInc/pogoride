@@ -11,20 +11,69 @@
 
     <!-- Header -->
     <header>
-      <script type="text/javascript" src="/public/js/jquery/bootstrap-modal.js"></script>
-      <div class="headerLogo">
-        <h1 id="logo"><a href="https://www.pogoride.com"><%= image_tag("logo-beta.png", :alt => "Pogoride") %></a></h1>
+      <div class="hcontainer">
+        <script type="text/javascript" src="/public/js/jquery/bootstrap-modal.js"></script>
+        <div class="headerLogo">
+          <h1 id="logo"><a href="https://www.pogoride.com"><%= image_tag("logo-beta.png", :alt => "Pogoride") %></a></h1>
+        </div>
+        <nav class="navbar">
+          <ul class="nav">
+            <li><a class="modallogin" id="modallogin" data-toggle="modal" href="myModal" title="Sign Up">Sign Up</a></li>
+            <li><a class="modalsignin" data-toggle="modal" href="myModalSignIn" title="Login">Login</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="navbar">
-        <ul class="nav">
-          <li><a class="modallogin" id="modallogin" data-toggle="modal" href="myModal" title="Sign Up">Sign Up</a></li>
-          <li><a class="modalsignin" data-toggle="modal" href="myModalSignIn" title="Login">Login</a></li>
-        </ul>
-      </nav>
     </header> 
     <!-- Header End -->
 
   <%= yield %>
+
+
+    <!--Footer-->
+      <!--  -->
+      <footer><!--footer has been changed quite dramatically-->
+        <div class="footer">
+          <div class="container">
+            <div class="row" >
+              
+              <div class="col-sm-3 col-xs-12">
+                <h4>Pogoride</h4>
+                <hr />
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Trust & Safety</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#" target="_top">Contact Us</a></li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-xs-12">
+                <h4>Connect</h4>
+                <hr />
+                <ul>
+                  <li><a href="http://blog.pogoride.com">Blog</a></li>
+                  <li><a href="#">Media</a></li>
+                  <li><a href="#">Partners</a></li>
+                  <li><a href="#">Careers</a></li>
+                </ul>
+              </div>
+
+              <div> 
+            
+                <ul>
+                  <li><p style=margin-top:60px;><a href="https://www.facebook.com/Pogoride" class="footfacebook"></a><a href="https://twitter.com/pogoride" class="foottwitter"></a></li></br>
+                  <li><small><a href="#">Terms & Privacy</a></small></li>
+                 
+                  <li><small> &copy 2014 Pogoride All Rights Reserved</small></p></li>
+                  
+                  
+                </ul>
+                </br>
+              </div>
+     
+        </div>
+        </div>
+        </footer>
 
     <!--  Olark  -->
      <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){

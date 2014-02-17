@@ -1,0 +1,98 @@
+/*------- Footer CSS -------*/
+footer {
+  color:#ddd;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding-top: 10px;
+}
+
+footer ul {
+  padding-left:0; 
+  margin:0;
+}
+
+footer li {
+  margin: 0 10px 10px 0;
+}
+
+footer li a {
+  color:#ddd; 
+  padding:5px 5px; 
+  font-size:1em;
+  text-decoration: none;
+  -moz-transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+footer a:hover {
+  color:#666; 
+  background:#eee; 
+  text-decoration:none;
+}
+
+footer p {
+  padding:5px 0;
+}
+
+.footer {
+  background-color:rgb(40,40,40); 
+  padding-top:10px; 
+  color:#999;
+}
+
+footer .footfacebook, footer .foottwitter{ 
+  -webkit-transition: background 0.3s ease; 
+  -moz-transition: background 0.3s ease; 
+  -ms-transition: background 0.3s ease; 
+  -o-transition: background 0.3s ease; 
+  transition: background 0.3s ease; 
+  float:left; 
+  display:block; 
+  width:28px; 
+  height:28px; 
+  margin: -10px 10px 0;
+}
+
+footer hr{
+  margin:0 0 10px;
+}
+
+footer .row div{  
+  margin-top:20px;
+}
+
+a.foottwitter{ 
+  background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat 0 0; 
+}
+
+a.foottwitter:hover{ 
+  background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat 0 -39px; 
+}
+
+a.footfacebook{ 
+  background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat -39px 0;
+}
+
+a.footfacebook:hover{ 
+  background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat -39px -39px;
+}
+
+.col-sm-3 {
+  width: 25%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: block;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
