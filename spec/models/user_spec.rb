@@ -26,7 +26,12 @@ describe User do
 
   it "is invalid without a password" do
     # will throw 2 errors on password as there is the associated confirmation (password_digest)
-    expect(build(:user, password: nil)).to have(2).errors_on(:password)
+    expect(build(:user, password: nil)).to have(1).errors_on(:password)
+  end
+
+  it "is invalid without password confirmation" do
+    # will throw 2 errors on password as there is the associated confirmation (password_digest)
+    expect(build(:user, password_confirmation: nil)).to have(1).errors_on(:password_confirmation)
   end
 
 end
