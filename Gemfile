@@ -63,11 +63,15 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+
 end
 
 group :test do
-  gem 'capybara'
+  gem 'faker', '~> 1.1.2'
+  gem 'shoulda'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
+  gem 'launchy'
+  gem 'selenium-webdriver', '~>2.35.1'
 end
 
