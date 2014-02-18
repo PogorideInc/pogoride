@@ -3,7 +3,7 @@ LhlPogorider::Application.routes.draw do
   get "static/index"
 
   get 'rides' => "static#rides_index"
-
+  get 'signup' => "users#new"
   root to: "static#index"
   
   resources :users, except: [:index, :destroy] do
