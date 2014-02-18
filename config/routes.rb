@@ -8,7 +8,7 @@ LhlPogorider::Application.routes.draw do
   
   resources :users, except: [:index, :destroy] do
     resources :rides
-    resources :request_rides
+    #resources :request_rides
   end
 
   resources :sessions, only: [:new, :create, :destroy]

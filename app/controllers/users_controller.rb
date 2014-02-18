@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :current_user, :if_not_user_redirect
+
+
   def show
     @user = User.where(id: params[:id]).first
   end
