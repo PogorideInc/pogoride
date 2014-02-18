@@ -1,4 +1,4 @@
-class Passenger < ActiveRecord::Base
+class RideRequest < ActiveRecord::Base
 
   belongs_to :ride
 

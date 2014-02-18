@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Passenger do
+describe RideRequest do
   
   it { should belong_to(:ride) }
   it { should validate_presence_of(:ride_id) }

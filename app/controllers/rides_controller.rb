@@ -13,9 +13,10 @@ class RidesController < ApplicationController
   end
 
   def create
-    @ride = Ride.create(ride_params)
+    @ride = current_user.rides.new(ride_params)
+
     if @ride.save
-      redirect_to ride_path(@ride)
+      redirect_to user_ride_path(@ride)
     else
       render :new
     end
@@ -28,7 +29,7 @@ class RidesController < ApplicationController
   def update
     @ride = Ride.find(params[:id])
     if @ride.update_attributes(ride_params)
-      redirect_to ride_path(@ride)
+      redirect_to user_ride_path(@ride)
     else
       render :edit
     end
@@ -37,7 +38,7 @@ class RidesController < ApplicationController
   def destroy
     @ride = Ride.find(params[:id])
     @ride.destroy
-    redirect_to rides_path
+    redirect_to user_rides_path
   end
 
   protected
@@ -47,5 +48,8 @@ class RidesController < ApplicationController
       :from, :to, :ride_date, :no_of_seats, :no_booked_seats, :description, :donation_amt, :luggage_space, :ski_rack, :bike_rack, :user_id
     )
   end
+
+
+
 
 end
