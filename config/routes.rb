@@ -5,6 +5,7 @@ LhlPogorider::Application.routes.draw do
 
   resources :rides
   resources :users, except: [:index, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

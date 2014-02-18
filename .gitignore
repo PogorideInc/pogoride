@@ -83,6 +83,3 @@ pickle-email-*.html
 .powenv
 
 
-#ignoring spec/helper file
-/spec/helper/*
-
