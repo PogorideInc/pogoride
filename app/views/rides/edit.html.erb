@@ -1,0 +1,36 @@
+<h1>Rides#edit</h1>
+
+<%= form_for @ride do |f| %>
+  <%= f.label :from %>:
+  <%= f.text_field  :from %><br />
+
+  <%= f.label :to %>:
+  <%= f.text_field  :to %><br />
+  
+  <%= f.label :ride_date %>:
+  <%= f.date_field   :ride_date %><br />
+  
+  <%= f.label :ride_time %>:
+  <%= f.time_field   :ride_time %><br />
+  
+  <%= f.label :no_of_seats %>:
+  <%= f.text_field   :no_of_seats%><br />
+  
+  <%= f.label :description %>:
+  <%= f.text_area   :description %><br />
+  
+  <%= f.label :donation_amt %>:
+  <%= f.text_field  :donation_amt %><br />
+  
+  <%= f.label :luggage_space %>:
+  <%= f.check_box   :luggage_space %><br />
+  
+  <%= f.label :ski_rack %>:
+  <%= f.check_box   :ski_rack %><br />
+  
+  <%= f.label :bike_rack %>:
+  <%= f.check_box   :bike_rack %><br />
+  
+<%= f.submit %>
+<% end %>
+<br />

@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 1.2'
   # bundle exec rake doc:rails generates the API under doc/api.
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -42,6 +42,7 @@ gem 'jbuilder', '~> 1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "minitest"
 gem "omniauth-facebook"
 gem "koala"
 gem "capybara"
@@ -63,11 +64,15 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+
 end
 
 group :test do
-  gem 'capybara'
+  gem 'faker', '~> 1.1.2'
+  gem 'shoulda'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
+  gem 'launchy'
+  gem 'selenium-webdriver', '~>2.35.1'
 end
 
