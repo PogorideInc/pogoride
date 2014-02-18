@@ -18,6 +18,7 @@ describe UsersController do
   describe "GET #show" do
     before :each do
       @user1 = create(:user)
+      session[:user_id] = @user1.id
     end
 
     it "assign the requested user to @user" do
@@ -34,6 +35,7 @@ describe UsersController do
   describe "GET #edit" do
     before :each do
       @user1 = create(:user)
+      session[:user_id] = @user1.id
     end
 
     it "assigns the requested community to @user" do
@@ -80,6 +82,7 @@ describe UsersController do
   describe "PATCH #update" do
     before :each do
       @user1 = create(:user, username: "user", email: "user@exmaple.com")
+      session[:user_id] = @user1.id
     end
 
     context "valid attributes" do
