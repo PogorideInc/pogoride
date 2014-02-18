@@ -12,63 +12,64 @@
  *= require_tree .
  */
 
+@import "bootstrap";
 
 /*Top level / Global CSS */
 
 .container {
-  max-width:1200px; 
-  margin:0 auto; 
-  display:block;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  display: block;
 }
 
 .row {
-  margin:0;
+  margin: 0;
 }
 
 .row .row {
-  margin:0;
+  margin: 0;
 }
 
 body {
   background:url(./images/chruch.png) repeat #ddd; 
   font-family: 'Pontano Sans', sans-serif; 
-  font-weight:400; 
-  font-size:16px; 
-  color:#555;
+  font-weight: 400; 
+  font-size: 16px; 
+  color: #555;
 }
 
 h1,h2,h3 {
-  line-height:1.25em;
+  line-height: 1.25em;
 }
 
 h1 {
-  color:#fff; 
-  font-size:7em; 
-  margin-top:30px;
+  color: #fff; 
+  font-size: 7em; 
+  margin-top: 30px;
 }
 
 #logo img {
-  max-width:400px; 
-  height:auto;
+  max-width: 400px; 
+  height: auto;
 }
 
 h1 a {
-  color:#fff;
+  color: #fff;
 }
 
 h1 a:hover, h1 a:active, h1 a:focus {
-  color:#fff; 
-  text-decoration:none;
+  color: #fff; 
+  text-decoration: none;
 }
 
 h2 {
   font-family: 'Open Sans', sans-serif; 
-  font-weight:300; 
-  font-size:3em;
+  font-weight: 300; 
+  font-size: 3em;
 }
 
 .whitetxt {
-  color:#fff
+  color: #fff
 }
 
 .findInn h2 {
@@ -77,43 +78,43 @@ h2 {
 
 h3 {
   font-family: 'Droid Sans', sans-serif; 
-  font-weight:400; 
-  font-size:1.75em;
+  font-weight: 400; 
+  font-size: 1.75em;
 }
 
 h4 {
   font-family: 'Droid Sans', sans-serif; 
-  font-weight:400;
+  font-weight: 400;
 }
 
 .btn {
   font-family: 'Droid Sans', sans-serif; 
-  font-weight:400;
+  font-weight: 400;
 }
 
 p {
-  font-size:1.125em; 
-  line-height:1.45em;
+  font-size: 1.125em; 
+  line-height: 1.45em;
 }
 
 a {
-  color:#0184d1;
+  color: #0184d1;
 }
 
 .largetext {
-  font-size:1.5em;
+  font-size: 1.5em;
 }
 
 .fleft {
-  float:left;
+  float: left;
 }
 
 .fright {
-  float:right;
+  float: right;
 }
 
 ul {
-  margin-left:0;
+  margin-left: 0;
 }
 
 ul li {
@@ -121,7 +122,7 @@ ul li {
 }
 
 .glyphicon {
-  padding:0 5px;
+  padding: 0 5px;
 }
 
 
