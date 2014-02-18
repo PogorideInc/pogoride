@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217204742) do
+ActiveRecord::Schema.define(version: 20140218200017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ride_requests", force: true do |t|
+    t.integer  "ride_id"
+    t.integer  "passenger_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "status_code",   limit: 2
+    t.integer  "message_id"
+    t.datetime "date_modified"
+  end
 
   create_table "rides", force: true do |t|
     t.string   "from"
