@@ -1,10 +1,16 @@
 LhlPogorider::Application.routes.draw do
 
   get "static/index"
-  root to: "static#index"
 
-  resources :rides
-  resources :users, except: [:index, :destroy]
+  get 'rides' => "static#rides_index"
+
+  root to: "static#index"
+  
+  resources :users, except: [:index, :destroy] do
+    resources :rides
+    resources :request_rides
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
 
 
