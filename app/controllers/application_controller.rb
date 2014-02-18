@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def if_not_user_redirect
-  	unless current_user.id
+  	unless current_user
 		  redirect_to root_path
     end
   end
