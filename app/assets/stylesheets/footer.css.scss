@@ -7,7 +7,6 @@ footer {
   left: 0px;
   bottom: 0px;
   width: 100%;
-  padding-top: 10px;
   ul {
     padding-left: 0; 
     margin: 0;
@@ -27,21 +26,20 @@ footer {
       &:hover {
         color: #666; 
         background: #eee; 
-        text-decoration:none;
+        text-decoration: none;
       }
     }
   }
   p {
     padding: 5px 0;
   }
-  hr{
+  hr {
     margin: 0 0 10px;
   }
 }
 
 .footer {
   background-color: rgb(40,40,40); 
-  padding-top: 10px; 
   color: #999;
   height: 270px;
 }
