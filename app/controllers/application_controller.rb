@@ -11,12 +11,12 @@ class ApplicationController < ActionController::Base
 
   def if_not_user_redirect
   	if current_user
-    	unless current_user.id
-    	  redirect_to root_path, notice: "You need to sign up to access these features."
+  		unless current_user.id == params[:id].to_i
+    		redirect_to root_path
     	end
-    else 
+    else
     	redirect_to root_path
-    end
+    end	
   end
 
 end
