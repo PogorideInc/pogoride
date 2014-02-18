@@ -112,10 +112,10 @@
 }
 
 #secondband{
-  border-top:1px solid rgb(30,30,30);
-  border-bottom:1px solid rgb(30,30,30);
+  border-top: 1px solid rgb(30,30,30);
+  border-bottom: 1px solid rgb(30,30,30);
   width: 100%;
-  height:650px;
+  height: 650px;
   overflow:hidden;
   background: url(https://www.pogoride.com/public/images/frontpage.jpg) no-repeat center center;
   background-size: cover;
@@ -129,7 +129,6 @@
 
 #secondband p{
   background: none;
-  /*float: right;*/
   padding: 20px;
   color: #0184d1;
   font-size: 1.3em;
@@ -141,21 +140,21 @@
 
 #secondband img{
   display: block;
-  width:80%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 35px;
 }
 
 #thirdband{
-  height:550px;
+  height: 550px;
   width: 100%;
   background:#FFF;
   position:relative;
 }
 
 #thirdband h2{
-  margin-top:40px;
+  margin-top: 40px;
 }
 
 #thirdband ul{
@@ -169,7 +168,7 @@
 }
 
 img.floatinggear{
-  margin-top:5px;
+  margin-top: 5px;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -178,10 +177,10 @@ img.floatinggear{
 
 #thirdband #bluebar{
   background-color: rgb(1, 132, 209);
-  height:200px;
-  position:absolute;
-  top:150px;
-  width:100%;
+  height: 200px;
+  position: absolute;
+  top: 150px;
+  width: 100%;
 }
 
 #firstband h3.numberoff{
@@ -218,8 +217,3 @@ body {
   font-size: 16px;
   color: #555;
 }
-
-.homebandimg{
-
-}
-
