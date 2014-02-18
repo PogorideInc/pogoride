@@ -3,13 +3,13 @@
 /*------- Header SCSS -------*/
 
 .hcontainer {
-top: 0px;
+top: -20px;
 left: 0px;
 height: 430px;
 background: url(https://www.pogoride.com/css/images/seattle-image-2.jpg) no-repeat center center;
 background-size: cover;
 width: 100%;
-position: absolute;
+position: relative;
 z-index: -10;
 }
 
