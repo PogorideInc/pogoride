@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Ride do
+
+  it { should have_many(:passengers) }
   
   it "has a valid factory" do 
     FactoryGirl.create(:ride).should be_valid
