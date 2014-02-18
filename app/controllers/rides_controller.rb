@@ -14,13 +14,14 @@ class RidesController < ApplicationController
   end
 
   def create
-    @ride = current_user.rides.new(ride_params)
+    @ride = @current_user.rides.new(ride_params)
 
     if @ride.save
-      redirect_to user_ride_path(@ride)
+      redirect_to user_ride_path(@current_user, @ride)
     else
       render :new
     end
+    
   end
 
   def edit
@@ -30,7 +31,7 @@ class RidesController < ApplicationController
   def update
     @ride = Ride.find(params[:id])
     if @ride.update_attributes(ride_params)
-      redirect_to user_ride_path(@ride)
+      redirect_to user_ride_path(@current_user, @ride)
     else
       render :edit
     end
