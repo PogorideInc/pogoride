@@ -11,6 +11,6 @@
     Luggage Space:          <%= @ride.luggage_space %><br/>
     Ski Rack?               <%= @ride.ski_rack %><br/>
     Bike Rack?              <%= @ride.bike_rack %><br/><br/>
-    <%= link_to "Delete Ride", ride_path(@ride), :method => :delete %>
+    <%= link_to "Delete Ride", user_ride_path(@user, @ride), :method => :delete %>
 </p>
 

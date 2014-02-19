@@ -6,11 +6,13 @@ class RidesController < ApplicationController
   end
 
   def show
-    @ride = Ride.find(params[:id])
+    @user = @current_user
+    @ride = @current_user.rides.where(id: params[:id]).first
   end
 
   def new
-    @ride = Ride.new
+    @user = User.where(id: @current_user.id).first
+    @ride = @user.rides.new
   end
 
   def create
