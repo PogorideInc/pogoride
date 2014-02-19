@@ -2,16 +2,19 @@ LhlPogorider::Application.routes.draw do
 
   get "static/index"
 
-  get 'rides' => "static#rides_index"
-  get 'signup' => "users#new"
+
+  # get 'signup' => "users#new"
   root to: "static#index"
   
-  resources :users, except: [:index, :destroy] do
-    resources :rides
-    #resources :request_rides
-  end
+  resources :users, except: [:index, :destroy] 
+
+  resources :rides, only: [:index, :show]
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  namespace :my do 
+    resources :rides
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
