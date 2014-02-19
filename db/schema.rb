@@ -16,6 +16,18 @@ ActiveRecord::Schema.define(version: 20140219074321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "passengers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "ride_id"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "passengers", ["ride_id"], name: "index_passengers_on_ride_id", using: :btree
+  add_index "passengers", ["state"], name: "index_passengers_on_state", using: :btree
+  add_index "passengers", ["user_id"], name: "index_passengers_on_user_id", using: :btree
+
   create_table "rides", force: true do |t|
     t.string   "from"
     t.string   "to"
