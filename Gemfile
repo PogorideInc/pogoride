@@ -33,6 +33,7 @@ gem "pry"
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -41,7 +42,7 @@ gem 'bcrypt-ruby'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem "state_machine"
 gem "minitest"
 gem "omniauth-facebook"
 gem "koala"
