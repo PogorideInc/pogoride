@@ -1,0 +1,14 @@
+<h1>Passengers#index</h1>
+<p>Find me in app/views/passengers/index.html.erb</p>
+
+<p>Number of Passengers: <%= @ride.passengers.count %></p>
+
+<% @passengers.each do |p| %>
+  
+    ID:                     <%= p.id %><br/>
+    User ID:                <%= p.user_id %><br/>
+    Ride ID:                <%= p.ride_id %><br/>
+  	State:                  <%= p.state_name %><br/>
+ 	<hr/>
+ 	
+<% end %>

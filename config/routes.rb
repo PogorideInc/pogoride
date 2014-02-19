@@ -1,14 +1,14 @@
 LhlPogorider::Application.routes.draw do
 
-  get "static/index"
 
-
-  # get 'signup' => "users#new"
   root to: "static#index"
   
   
 
-  resources :rides, only: [:index, :show]
+  resources :rides, only: [:index, :show] do
+    resources :passengers
+  end
+
 
   resources :sessions, only: [:new, :create, :destroy]
 
