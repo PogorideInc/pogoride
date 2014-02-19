@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 describe RidesController do
@@ -34,69 +33,6 @@ describe RidesController do
     it "renders the :index template" do 
       get :index, user_id: user.id
       expect(response).to render_template :index
-    end
-
-  end
-
-  describe 'GET#new' do 
-
-    it "assigns a new ride to @ride" do 
-      get :new, user_id: user.id
-      expect(assigns(:ride)).to be_a_new(Ride)
-    end
-
-    it "renders the :new template" do 
-      get :new, user_id: user.id
-      expect(response).to render_template :new
-    end
-
-  end
-
-  describe 'POST#Create' do 
-    let!(:user) { create(:user) }
-
-    it "saves the ride to the database" do 
-      expect{
-        post :create, user_id: user.id, ride: attributes_for(:ride)
-      }.to change(Ride, :count).by(1)
-    end
-
-    it "redirects to :show template" do 
-      post :create, user_id: user.id, ride: attributes_for(:ride)
-      expect(response).to redirect_to user_ride_path(user, Ride.first)
-    end
-
-  end
-
-  describe 'PATCH#Update' do 
-    let!(:user) { create(:user) }
-    let!(:ride) { create(:ride) }
-
-    it "updates ride attributes" do 
-      patch :update, id: ride, user_id: user.id, ride: FactoryGirl.attributes_for(:ride, donation_amt: 100)
-      ride.reload
-      expect(ride.donation_amt).to eq(100)
-    end
-
-    it "redirects to :show template" do 
-      patch :update, id: ride, user_id: user.id, ride: FactoryGirl.attributes_for(:ride)
-      expect(response).to redirect_to user_ride_path(user, Ride.first)
-    end
-
-  end
-
-  describe 'DELETE#Destroy' do 
-    before :each do 
-      @ride = create(:ride)
-    end
-
-    it "deletes the ride" do 
-      expect{ delete :destroy, id: @ride, user_id: user.id }.to change(Ride, :count).by(-1) 
-    end
-
-    it "redirects to :index template" do 
-      delete :destroy, id: @ride, user_id: user.id
-      expect(response).to redirect_to user_rides_path      
     end
 
   end
