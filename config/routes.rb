@@ -3,7 +3,7 @@ LhlPogorider::Application.routes.draw do
 
   root to: "static#index"
   
-  resources :users, except: [:index, :destroy] 
+  
 
   resources :rides, only: [:index, :show] do
     resources :passengers
@@ -14,7 +14,10 @@ LhlPogorider::Application.routes.draw do
 
   namespace :my do 
     resources :rides
+    resources :users, except: [:new, :create]
   end
+
+  resources :users, except: [:index, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
