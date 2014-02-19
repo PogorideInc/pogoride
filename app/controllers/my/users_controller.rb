@@ -21,12 +21,6 @@ class My::UsersController < My::MyController
     end
   end
 
-  def destroy
-    @user = User.where(id: params[:id]).first
-    @user.destroy
-    redirect_to root_path
-  end
-
   protected
 
   def user_params
