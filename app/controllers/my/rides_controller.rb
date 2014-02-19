@@ -19,7 +19,7 @@ class My::RidesController < My::MyController
     @ride = @current_user.rides.new(ride_params)
 
     if @ride.save
-      redirect_to user_ride_path(@current_user, @ride)
+      redirect_to my_ride_path(@current_user, @ride)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class My::RidesController < My::MyController
   def update
     @ride = Ride.find(params[:id])
     if @ride.update_attributes(ride_params)
-      redirect_to user_ride_path(@current_user, @ride)
+      redirect_to my_ride_path(@current_user, @ride)
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class My::RidesController < My::MyController
   def destroy
     @ride = Ride.find(params[:id])
     @ride.destroy
-    redirect_to user_rides_path
+    redirect_to my_rides_path
   end
 
   protected

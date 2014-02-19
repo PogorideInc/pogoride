@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Ride do
-
-  it { should have_many(:ride_requests) }
   
   it "has a valid factory" do 
     FactoryGirl.create(:ride).should be_valid

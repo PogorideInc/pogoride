@@ -9,7 +9,8 @@ describe My::RidesController do
   end
 
   describe'GET#show' do
-    let!(:ride) { create(:ride) }
+    let!(:user) { create(:user) }
+    let!(:ride) { create(:ride, user_id: user.id) }
 
     it "assigns the requested ride to @ride" do
       get :show, id: ride.id, user_id: user.id
@@ -63,7 +64,7 @@ describe My::RidesController do
 
     it "redirects to :show template" do 
       post :create, user_id: user.id, ride: attributes_for(:ride)
-      expect(response).to redirect_to user_ride_path(user, Ride.first)
+      expect(response).to redirect_to my_ride_path(user, Ride.first)
     end
 
   end
@@ -80,23 +81,22 @@ describe My::RidesController do
 
     it "redirects to :show template" do 
       patch :update, id: ride, user_id: user.id, ride: FactoryGirl.attributes_for(:ride)
-      expect(response).to redirect_to user_ride_path(user, Ride.first)
+      expect(response).to redirect_to my_ride_path(user, Ride.first)
     end
 
   end
 
   describe 'DELETE#Destroy' do 
-    before :each do 
-      @ride = create(:ride)
-    end
+    let!(:user) { create(:user) }
+    let!(:ride) { create(:ride) }
 
     it "deletes the ride" do 
-      expect{ delete :destroy, id: @ride, user_id: user.id }.to change(Ride, :count).by(-1) 
+      expect{ delete :destroy, id: ride, user_id: user.id }.to change(Ride, :count).by(-1) 
     end
 
     it "redirects to :index template" do 
-      delete :destroy, id: @ride, user_id: user.id
-      expect(response).to redirect_to user_rides_path      
+      delete :destroy, id: ride, user_id: user.id
+      expect(response).to redirect_to my_rides_path      
     end
 
   end

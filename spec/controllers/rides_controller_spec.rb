@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe RidesController do
   let!(:user) { create(:user) }
 

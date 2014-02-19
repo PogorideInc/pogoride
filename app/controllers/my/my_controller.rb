@@ -1,3 +1,3 @@
-class My < ApplicationController
+class My::MyController < ApplicationController
 
 end
