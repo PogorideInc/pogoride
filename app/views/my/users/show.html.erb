@@ -26,17 +26,29 @@
     <div class="container">
       <div class="row first" style="margin-bottom: 60px;">
         <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
-            <% @rides.each do |ride| %>
-              <h3>Ride id: <%= ride.id %></h3>
-              <li>From <%=ride.from %></li>
-              <li>To <%=ride.to %></li>
-              <li>Ride_date <%=ride.ride_date %></li>
-            <% end %>
+          
+        <% @rides.each do |ride| %>
 
+         <div class="media">
+          <a class="pull-left" href="#">
+           <img class="media-object" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %></h4>
+            <p>
+              Ian Smith               <br/>
+              Donation Amount: <span class="glyphicon glyphicon-usd"><%= ride.donation_amt %></span><br/>
+              Ride Date:  <%= ride.ride_date %>             <br/>
+              Seats:  <%= ride.no_of_seats %>              <br/>
+            </p>
+          </div>
+        </div>
 
+      <% end %>
        
    
       
       </div>
     </div>
 </div>
+
