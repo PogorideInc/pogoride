@@ -1,3 +1,91 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+.userdashboard {
+  height: 50px;
+  width: 100%;
+  display: block;
+  border-bottom: 3px solid black;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  font-weight: light;
+  vertical-align: center;
+
+  .nav {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }
+}
+
+.profilecontainer {
+  margin: 10px 10px 10px 10px;
+  height: 300px;
+  width: 75%;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+  box-shadow: 0px 0px 3px;
+  .profilebox {
+    margin: 0px 20px 10px 0px;
+    display: inline-block;
+    float: left;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    text-align: center;
+  }
+}
+
+.userdetails {
+  margin-top: 50px;
+  margin-left: 20px;
+  display: inline-block;
+  float: left;
+}
+
+.joindate {
+  font-weight: lighter;
+}
+
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+
+.nav-pills > li > a {
+  border-radius: 0px;
+}
+
+.media {
+  background-color: white;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 3px;
+  // border: 1px solid black;
+  padding: 10px;
+  box-shadow: 0px 0px 3px;
+  &:hover {
+    box-shadow: 0px 0px 8px;
+  }
+}
+
+.media-object {
+  border-radius: 50%;
+  height: 100px;
+}
+
+.profilepic {
+  height: 200px;
+}
+
+.firstbandback {
+  background:url(https://www.pogoride.com/css/images/chruch.png) repeat #ddd;
+}
