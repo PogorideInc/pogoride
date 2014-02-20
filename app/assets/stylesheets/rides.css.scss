@@ -4,3 +4,38 @@
 
 @import "bootstrap";
 
+.newform-container {
+  background-color: white;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.newform-container .ride-form {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.newform-container .donate-form {
+  width: 15%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.newform-container .seat-form {
+  width: 15%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.newform-container .ride-description {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
