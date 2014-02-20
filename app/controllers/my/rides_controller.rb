@@ -19,7 +19,7 @@ class My::RidesController < My::MyController
     @ride = @current_user.rides.new(ride_params)
 
     if @ride.save
-      redirect_to my_ride_path(@current_user, @ride)
+      redirect_to my_ride_path(@ride)
     else
       render :new
     end
