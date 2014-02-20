@@ -21,10 +21,18 @@
           <div class="media-body">
             <h4 class="media-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %></h4>
             <p>
-              Ian Smith               <br/>
+              <%= ride.user.email %>              <br/>
               Donation Amount: <span class="glyphicon glyphicon-usd"><%= ride.donation_amt %></span><br/>
               Ride Date:  <%= ride.ride_date %>             <br/>
               Seats:  <%= ride.no_of_seats %>              <br/>
+              Creator id:  <%= ride.user.id%>              <br/>
+              Current User id:  <%= @user.id %>              <br/>
+              Driver ID:  <%= ride.driver_id %>              <br/>
+              Has Passengers?:  <%= ride.has_passengers? %>              <br/>
+              Ride State:  <%= ride.state_name %>              <br/>
+              <% if ride.user == @user && !ride.driver_id && !(ride.has_passengers?) %>
+              <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %> <br />
+              <% end %>
             </p>
           </div>
         </div>
