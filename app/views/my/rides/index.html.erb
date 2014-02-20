@@ -1,18 +1,38 @@
-<h1>Ride Index</h1>
+<div class="userdashboard">
+  <ul class="nav nav-pills">
+    <li><%= link_to "Profile" %></li>
+    <li class="active"><%= link_to "My Rides"%></li>
+    <li><%= link_to "All Rides" %></li>
+  </ul>
+</div>
 
-<% @rides.each do |ride| %>
-  <p>
-    ID:                     <%= ride.id %><br/>
-    From:                   <%= ride.from %><br/>
-    To:                     <%= ride.to %><br/>
-    Ride Date:              <%= ride.ride_date %><br/>
-    Number of Seats:        <%= ride.no_of_seats %><br/>
-    Number of booked seats: <%= ride.no_booked_seats %><br/>
-    Description:            <%= ride.description %><br/>
-    Donation Amount:        <%= ride.donation_amt %><br/>
-    Luggage Space:          <%= ride.luggage_space %><br/>
-    Ski Rack?               <%= ride.ski_rack %><br/>
-    Bike Rack?              <%= ride.bike_rack %><br/><hr/>
-  </p>
-<% end %>
+<div id="firstband firstbandback">
+    <div class="container">
+      <div class="row first" style="margin-bottom: 60px;">
+        <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
 
+
+        <% @rides.each do |ride| %>
+
+         <div class="media">
+          <a class="pull-left" href="#">
+           <img class="media-object" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %></h4>
+            <p>
+              Ian Smith               <br/>
+              Donation Amount: <span class="glyphicon glyphicon-usd"><%= ride.donation_amt %></span><br/>
+              Ride Date:  <%= ride.ride_date %>             <br/>
+              Seats:  <%= ride.no_of_seats %>              <br/>
+            </p>
+          </div>
+        </div>
+
+        <% end %>
+
+   
+      
+      </div>
+    </div>
+</div>
