@@ -3,7 +3,12 @@
 
 <!-- Placeholders - will be switched to pull downs, check boxes, will include the passengers registered -->
 
+
 <%= form_for [:my, @ride] do |f| %>
+  
+  <%= f.label "Driver" %>:
+  <%= check_box :user_is_driver, :user_is_driver%><br />
+  
   <%= f.label :from %>:
   <%= f.text_field  :from %><br />
 
