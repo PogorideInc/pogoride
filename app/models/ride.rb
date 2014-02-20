@@ -37,8 +37,7 @@ class Ride < ActiveRecord::Base
     if passengers.present?
       return true
     end
-
-    false
+      false
   end
 
   protected

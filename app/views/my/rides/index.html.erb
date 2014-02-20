@@ -29,8 +29,9 @@
               Current User id:  <%= @user.id %>              <br/>
               Driver ID:  <%= ride.driver_id %>              <br/>
               Has Passengers?:  <%= ride.has_passengers? %>              <br/>
+              Ride State:  <%= ride.state_name %>              <br/>
               <% if ride.user == @user && !ride.driver_id && !(ride.has_passengers?) %>
-              <%= link_to "Delete", ride, :confirm => "Are you sure?", :method => :delete %> <br />
+              <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %> <br />
               <% end %>
             </p>
           </div>
