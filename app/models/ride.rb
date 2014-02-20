@@ -33,6 +33,14 @@ class Ride < ActiveRecord::Base
 
   end
 
+  def has_passengers?
+    if passengers.present?
+      return true
+    end
+
+    false
+  end
+
   protected
 
   def ride_date_is_in_future
