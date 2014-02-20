@@ -14,5 +14,6 @@ FactoryGirl.define do
     ski_rack false
     bike_rack false
     user_id 1
+    driver_id 1
   end
 end
