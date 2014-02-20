@@ -5,6 +5,7 @@ class My::UsersController < My::MyController
 
   def show
     @user = User.where(id: params[:id]).first
+    @rides = @user.rides.where(user_id: @user.id)
   end
 
   def edit
