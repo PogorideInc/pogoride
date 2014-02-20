@@ -3,7 +3,7 @@ LhlPogorider::Application.routes.draw do
 
   root to: "static#index"
   
-  
+  get 'rides/requests' => 'rides#requests'
 
   resources :rides, only: [:index, :show] do
     resources :passengers

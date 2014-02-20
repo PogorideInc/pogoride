@@ -2,7 +2,8 @@ class My::RidesController < My::MyController
   before_filter :current_user, :if_not_user_redirect
 
   def index
-    @rides = Ride.all
+    @user = @current_user
+    @rides = @user.rides.where(driver_id: @user.id)
   end
 
   def show
@@ -17,13 +18,11 @@ class My::RidesController < My::MyController
 
   def create
     @ride = @current_user.rides.new(ride_params)
-
     if @ride.save
-      redirect_to my_ride_path(@current_user, @ride)
+      redirect_to my_ride_path(@ride)
     else
       render :new
     end
-    
   end
 
   def edit
