@@ -3,7 +3,7 @@ class My::RidesController < My::MyController
 
   def index
     @user = @current_user
-    @rides = @user.rides.where(driver_id: @user.id)
+    @rides = Ride.all
   end
 
   def show
@@ -42,6 +42,16 @@ class My::RidesController < My::MyController
     @ride = Ride.find(params[:id])
     @ride.destroy
     redirect_to my_rides_path
+  end
+
+  def requests
+    @user = @current_user
+    @rides = @user.rides.where(user_id: @user.id)
+  end
+
+  def drives
+    @user = @current_user
+    @rides = @user.rides.where(driver_id: @user.id)
   end
 
   protected

@@ -1,10 +1,9 @@
 LhlPogorider::Application.routes.draw do
 
-
-  
   
   get 'rides/requests' => 'rides#requests'
   get 'rides/drives' => 'rides#drives'
+
 
   resources :rides, only: [:index, :show] do
     resources :passengers
@@ -13,7 +12,12 @@ LhlPogorider::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :my do 
-    resources :rides
+    resources :rides do 
+      collection do 
+        get "requests"
+        get "drives"
+      end
+    end
     resources :users, except: [:new, :create]
   end
 
