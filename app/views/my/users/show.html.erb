@@ -26,6 +26,12 @@
     <div class="container">
       <div class="row first" style="margin-bottom: 60px;">
         <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
+            <% @rides.each do |ride| %>
+              <h3>Ride id: <%= ride.id %></h3>
+              <li>From <%=ride.from %></li>
+              <li>To <%=ride.to %></li>
+              <li>Ride_date <%=ride.ride_date %></li>
+            <% end %>
 
 
        
