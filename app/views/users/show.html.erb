@@ -1,7 +1,31 @@
-<h2><%= @user.username %></h2>
 
-<p><%= @user.first_name %> <%= @user.last_name %></p>
-<%= @user.email %><br />
-<%= @user.about_me %><br />
+<div class="userdashboard">
+  <ul class="nav nav-pills">
+    <li class="active"><%= link_to "Profile", user_path(@user) %></li>
+    <li><%= link_to "My Rides", my_rides_path(@ride) %></li>
+    <li><%= link_to "All Rides", rides_path(@ride) %></li>
+  </ul>
+</div>
 
-User signed up on: <%= @user.created_at %>
+<div class="profilecontainer">
+  <div class="profilebox">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <div class="profileimg">
+      <img class="media-object profilepic" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
+    </div>
+  </div>
+  <div class="userdetails">
+    <h3><%= @user.username %></h3>
+    <h4>Age:</h4>
+    <h4>Current City:</h4>
+    <h4>About Me:</h4><%= @user.about_me %><br />
+    <p class="glyphicon glyphicon-time joindate"> Joined: <%= @user.created_at.to_formatted_s(:long_ordinal) %><p>
+  </div>  
+</div>
+
+
+
+
+
+
+
