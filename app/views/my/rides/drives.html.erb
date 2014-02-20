@@ -1,0 +1,10 @@
+<h1>Shows rides that belong to me (current_user is driver)</h1>
+
+<% @rides.each do |ride| %>
+  <ul>
+    <li>From: <%= ride.from %></li>
+    <li>To: <%= ride.to %></li>
+    <li>Ride Date: <%= ride.ride_date %></li>
+    <li>driver_id: <%= ride.driver_id %></li>
+  </ul>
+<% end %>
