@@ -53,5 +53,20 @@ describe RidesController do
 
   end
 
+  describe 'GET#drives' do 
+
+    it "assigns all rides with a driver to @rides" do
+      rides = create(:ride)
+      get :drives, user_id: user.id
+      expect(assigns(:rides)).to match_array([rides])
+    end
+
+    it "renders the :drives template" do 
+      get :drives, user_id: user.id
+      expect(response).to render_template :drives
+    end
+
+  end
+
 end
  
