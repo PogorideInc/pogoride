@@ -1,14 +1,14 @@
 LhlPogorider::Application.routes.draw do
 
 
-  root to: "static#index"
   
   
+  get 'rides/requests' => 'rides#requests'
+  get 'rides/drives' => 'rides#drives'
 
   resources :rides, only: [:index, :show] do
     resources :passengers
   end
-
 
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -19,6 +19,7 @@ LhlPogorider::Application.routes.draw do
 
   resources :users, except: [:index, :destroy]
 
+  root to: "static#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

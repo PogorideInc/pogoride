@@ -1,0 +1,11 @@
+
+<h1>Drives page (ie. rides that have a driver set) (public)</h1>
+
+<% @rides.each do |ride| %>
+  <ul>
+    <li>From: <%= ride.from %></li>
+    <li>To: <%= ride.to %></li>
+    <li>Ride Date: <%= ride.ride_date %></li>
+    <li>driver_id: <%= ride.driver_id %></li>
+  </ul>
+<% end %>

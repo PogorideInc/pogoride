@@ -64,7 +64,7 @@ describe My::RidesController do
 
     it "redirects to :show template" do 
       post :create, user_id: user.id, ride: attributes_for(:ride)
-      expect(response).to redirect_to my_ride_path(user, Ride.first)
+      expect(response).to redirect_to my_ride_path(Ride.first)
     end
 
   end
