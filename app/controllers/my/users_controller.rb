@@ -1,8 +1,6 @@
 
 class My::UsersController < My::MyController
 
-  before_filter :current_user, :if_not_user_redirect
-
   def show
     @user = User.where(id: params[:id]).first
     @rides = @user.rides.where(user_id: @user.id)

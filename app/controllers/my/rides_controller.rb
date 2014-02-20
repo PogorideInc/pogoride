@@ -1,3 +1,5 @@
+require 'pry'
+
 class My::RidesController < My::MyController
   before_filter :current_user, :if_not_user_redirect
 
@@ -15,15 +17,31 @@ class My::RidesController < My::MyController
     @ride = @user.rides.new
   end
 
-  def create
-    @ride = @current_user.rides.new(ride_params)
+  def create # refactor code in main if/else to Ride model? (create_request(ride, user), create_ride(ride, user))
+    @user = current_user
+    @ride = @user.rides.new(ride_params)
 
-    if @ride.save
-      redirect_to my_ride_path(@ride)
-    else
-      render :new
-    end
+    if params[:user_is_driver][:user_is_driver] == "1" # So dirty
     
+        @ride.driver_id = @user.id
+        @ride.driver_assign
+
+        if @ride.save
+          redirect_to my_ride_path(@ride)
+        else 
+          render :new
+        end
+    else
+      @ride.save # Associated saving? 
+      @ride.passengers.new(user_id: @user.id)
+      @ride.passengers.last.accept
+
+      if @ride.save
+        redirect_to my_ride_path(@ride)
+      else
+        render :new
+      end
+    end
   end
 
   def edit
@@ -49,7 +67,7 @@ class My::RidesController < My::MyController
 
   def ride_params
     params.require(:ride).permit(
-      :from, :to, :ride_date, :no_of_seats, :no_booked_seats, :description, :donation_amt, :luggage_space, :ski_rack, :bike_rack, :user_id
+      :from, :to, :ride_date, :no_of_seats, :no_booked_seats, :description, :donation_amt, :luggage_space, :ski_rack, :bike_rack, :user_id, :ride_time
     )
   end
 
