@@ -9,7 +9,7 @@ class RidesController < ApplicationController
   end
 
   def requests
-    @ride = Ride.where(driver_id: nil)
+    @rides = Ride.where(driver_id: nil)
   end
 
 end

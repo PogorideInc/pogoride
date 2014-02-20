@@ -1,1 +1,10 @@
-"Hello world"
+<h1>Requests page (public)</h1>
+
+<% @rides.each do |ride| %>
+  <ul>
+    <li>From: <%= ride.from %></li>
+    <li>To: <%= ride.to %></li>
+    <li>Ride Date: <%= ride.ride_date %></li>
+    <li>driver_id: <%= ride.driver_id %></li>
+  </ul>
+<% end %>
