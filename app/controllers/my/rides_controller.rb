@@ -7,7 +7,7 @@ class My::RidesController < My::MyController
 
   def show
     @user = @current_user
-    @ride = @current_user.rides.where(id: params[:id]).first
+    @ride = @user.rides.where(id: params[:id]).first
   end
 
   def new
