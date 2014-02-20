@@ -1,46 +1,51 @@
-<h1>Post a Ride</h1>
 
+<div class="userdashboard">
+  <ul class="nav nav-pills">
+    <li><%= link_to "Profile" %></li>
+    <li class="active"><%= link_to "My Rides"%></li>
+    <li><%= link_to "All Rides" %></li>
+  </ul>
+</div>
 
 <!-- Placeholders - will be switched to pull downs, check boxes, will include the passengers registered -->
+<div class="newform-container">
+  <h1>Post a Ride</h1>
+  <%= form_for [:my, @ride] do |f| %>
+    
+    <%= f.label "Are you driving?" %>:
+    <%= check_box :user_is_driver, :user_is_driver%><br />
 
+    <%= f.text_field  :from, class: 'form-control form-group ride-form', placeholder: 'From' %><br />
 
-<%= form_for [:my, @ride] do |f| %>
-  
-  <%= f.label "Driver" %>:
-  <%= check_box :user_is_driver, :user_is_driver%><br />
-  
-  <%= f.label :from %>:
-  <%= f.text_field  :from %><br />
+    <%= f.text_field  :to, class: 'form-control form-group ride-form', placeholder: 'To'  %><br />
+    
+    <%= f.label :ride_date %>:
+    <%= f.date_field   :ride_date, class: 'form-group' %><br />
+    
+    <%= f.label :ride_time %>:
+    <%= f.time_field   :ride_time, class: 'form-group' %><br />
+    
+    <%= f.label :no_of_seats %>:
+    <%= f.text_field   :no_of_seats, class: 'form-control form-group seat-form' %><br />
+    
+    <%= f.label :description %>:
+    <%= f.text_area   :description, class: 'form-control form-group ride-description' %><br />
+    
+    <%= f.label :donation_amt %>:
+    <%= f.text_field  :donation_amt, class: 'form-control form-group donate-form' %><br />
+    
+    <%= f.label :luggage_space %>:
+    <%= f.check_box   :luggage_space %><br />
+    
+    <%= f.label :ski_rack %>:
+    <%= f.check_box   :ski_rack %><br />
+    
+    <%= f.label :bike_rack %>:
+    <%= f.check_box   :bike_rack %><br />
+    
+    <%= f.submit 'Submit', :class => 'btn btn-primary' %>
+  <% end %>
+  <br />
 
-  <%= f.label :to %>:
-  <%= f.text_field  :to %><br />
-  
-  <%= f.label :ride_date %>:
-  <%= f.date_field   :ride_date %><br />
-  
-  <%= f.label :ride_time %>:
-  <%= f.time_field   :ride_time %><br />
-  
-  <%= f.label :no_of_seats %>:
-  <%= f.text_field   :no_of_seats%><br />
-  
-  <%= f.label :description %>:
-  <%= f.text_area   :description %><br />
-  
-  <%= f.label :donation_amt %>:
-  <%= f.text_field  :donation_amt %><br />
-  
-  <%= f.label :luggage_space %>:
-  <%= f.check_box   :luggage_space %><br />
-  
-  <%= f.label :ski_rack %>:
-  <%= f.check_box   :ski_rack %><br />
-  
-  <%= f.label :bike_rack %>:
-  <%= f.check_box   :bike_rack %><br />
-  
-<%= f.submit %>
-<% end %>
-<br />
+</div>
 
-The following passengers are already confirmed on this ride:(name, picture)

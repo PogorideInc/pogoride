@@ -8,4 +8,12 @@ class RidesController < ApplicationController
     @ride = Ride.where(id: params[:id]).first
   end
 
+  def requests
+    @rides = Ride.where(driver_id: nil)
+  end
+
+  def drives
+    @rides = Ride.where(driver_id: true)
+  end
+
 end

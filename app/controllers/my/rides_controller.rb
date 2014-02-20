@@ -4,7 +4,8 @@ class My::RidesController < My::MyController
   before_filter :current_user, :if_not_user_redirect
 
   def index
-    @rides = Ride.all
+    @user = @current_user
+    @rides = @user.rides.where(driver_id: @user.id)
   end
 
   def show
