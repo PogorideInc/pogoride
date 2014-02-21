@@ -53,7 +53,7 @@ describe My::RidesController do
 
   end
 
-  describe 'POST#Create' do 
+  describe 'POST#Creates' do 
     let!(:user) { create(:user) }
 
     it "saves the ride to the database" do 
