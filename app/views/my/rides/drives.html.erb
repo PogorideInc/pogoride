@@ -7,4 +7,11 @@
     <li>Ride Date: <%= ride.ride_date %></li>
     <li>driver_id: <%= ride.driver_id %></li>
   </ul>
+  <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
+    <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %> <br />
+    <%= link_to "Remove me as driver", my_rides_remove_driver_path(ride.id)%>
+  <% end %>
+  <hr/>
 <% end %>
+
+  

@@ -74,6 +74,14 @@ class My::RidesController < My::MyController
     @rides = @user.rides.where(driver_id: @user.id)
   end
 
+  def remove_driver
+    @ride = Ride.find(params[:format])
+    @ride.driver_unassign
+    @ride.driver_id = nil
+    @ride.save
+    redirect_to my_rides_path
+  end
+
   protected
 
   def ride_params
