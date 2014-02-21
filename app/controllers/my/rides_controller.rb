@@ -66,9 +66,8 @@ class My::RidesController < My::MyController
   end
 
   def requests
-    #logic needs work
     @user = @current_user
-    @rides = @user.rides.where(user_id: @user.id)
+    @rides = @user.rides.where(request_id: @user.id)
   end
 
   def drives
