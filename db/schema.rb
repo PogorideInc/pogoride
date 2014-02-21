@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219194155) do
+ActiveRecord::Schema.define(version: 20140221222016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140219194155) do
     t.time     "ride_time"
     t.integer  "driver_id"
     t.string   "state"
+    t.integer  "request_id"
   end
 
   add_index "rides", ["state"], name: "index_rides_on_state", using: :btree
