@@ -13,7 +13,7 @@ class RidesController < ApplicationController
   end
 
   def drives
-    @rides = Ride.where(driver_id: true)
+    @rides = Ride.where("driver_id > 0")
   end
 
 end

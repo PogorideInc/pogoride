@@ -3,7 +3,7 @@ LhlPogorider::Application.routes.draw do
   
   get 'rides/requests' => 'rides#requests'
   get 'rides/drives' => 'rides#drives'
-
+  get 'my/rides/remove_driver'
 
   resources :rides, only: [:index, :show] do
     resources :passengers

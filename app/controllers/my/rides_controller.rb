@@ -65,6 +65,7 @@ class My::RidesController < My::MyController
   end
 
   def requests
+    #logic needs work
     @user = @current_user
     @rides = @user.rides.where(user_id: @user.id)
   end
@@ -72,6 +73,14 @@ class My::RidesController < My::MyController
   def drives
     @user = @current_user
     @rides = @user.rides.where(driver_id: @user.id)
+  end
+
+  def remove_driver
+    @ride = Ride.find(params[:format])
+    @ride.driver_unassign
+    @ride.driver_id = nil
+    @ride.save
+    redirect_to my_rides_path
   end
 
   protected

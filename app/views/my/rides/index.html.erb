@@ -12,6 +12,9 @@
         <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
 
         <% @rides.each do |ride| %>
+
+<% if ride.driver_id != nil || ride.has_passengers?%>
+
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
               <div class="front">
@@ -29,7 +32,15 @@
                           <div class="ride-info">
                             <p>
                               <%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.  <br/>
-                              Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %>            <br/>
+                              Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %>           
+                               Creator id:  <%= ride.user.id%>             
+              Current User id:  <%= @user.id %>             
+              Driver ID:  <%= ride.driver_id %>              
+              Has Passengers?:  <%= ride.has_passengers? %>              <br/>
+              Ride State:  <%= ride.state_name %>              <br/>
+              <% if ride.user == @user && ride.driver_id && !(ride.has_passengers?) %>
+              <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %><br />
+              <% end %>
                             </p>
                           </div>
                         <button type="button" class="flip-btn btn btn-info">
@@ -40,6 +51,7 @@
                   </div>
                 </div>
             </div>
+
 
 
             <div class="back">
@@ -56,6 +68,7 @@
                             Description: <%= ride.description %><br/>      
                             Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %><br/>
                             Seats remaining: <%= ride.no_of_seats %><br/>
+                            
                           </p>
                         </div>
                         <button type="button" class="flip-btn btn btn-warning">
@@ -70,7 +83,11 @@
             </div>
           </div>
         <% end %> 
-         
+         <% end %>
       </div>
     </div>
 </div>
+
+
+
+
