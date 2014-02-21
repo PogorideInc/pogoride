@@ -34,6 +34,7 @@ class My::RidesController < My::MyController
         end
     else
       @ride.save # Associated saving? 
+      @ride.request_id = @user.id
       @ride.passengers.new(user_id: @user.id)
       @ride.passengers.last.accept
 
