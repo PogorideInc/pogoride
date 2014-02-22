@@ -4,6 +4,7 @@ LhlPogorider::Application.routes.draw do
   get 'rides/requests' => 'rides#requests'
   get 'rides/drives' => 'rides#drives'
   get 'my/rides/remove_driver'
+  get 'my/rides/add_me_to_ride'
 
   resources :rides, only: [:index, :show] do
     resources :passengers
