@@ -85,7 +85,7 @@ class My::RidesController < My::MyController
 
   def add_me_to_ride
     @user = @current_user
-    @ride = Ride.where(id: params[:format]).first
+    @ride = Ride.where(id: params[:ride_id]).first
     @passenger = @ride.passengers.new(user_id: @user.id)
     if @passenger.save
       redirect_to my_rides_path
