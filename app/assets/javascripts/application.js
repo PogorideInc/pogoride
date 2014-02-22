@@ -17,8 +17,10 @@
 
 
 $(document).ready(function(){
-  $('.flip-container').on('click', function() {
-    $(this).toggleClass('flip-trigger');
+  $('.flip-btn').on('click', function() {
+    $('.flip-container').on('click', function(){
+      $(this).toggleClass('flip-trigger')
+    });
   });
 });
 

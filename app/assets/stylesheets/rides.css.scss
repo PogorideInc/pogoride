@@ -6,38 +6,51 @@
 
 .newform-container {
   background-color: white;
-  width: 60%;
+  width: 50%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 20px;
-  text-align: center;
-
+  box-shadow: 0px 0px 3px;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 3px;
+  padding-left: 60px;
+  padding-right: 60px;
+  h1 {
+    text-align: center;
+    font-weight: lighter;
+  }
+  .btn {
+    text-align: center;
+    float: center;
+  }
 }
 
 .newform-container .ride-form {
   width: 40%;
-  margin-right: auto;
-  margin-left: auto;
+  // margin-right: auto;
+  // margin-left: auto;
 }
 
 .newform-container .donate-form {
-  width: 15%;
-  margin-right: auto;
-  margin-left: auto;
+  width: 10%;
+  // margin-right: auto;
+  // margin-left: auto;
+  display: inline-block;
 }
 
 .newform-container .seat-form {
-  width: 15%;
-  margin-right: auto;
-  margin-left: auto;
+  width: 10%;
+  // margin-right: auto;
+  // margin-left: auto;
+  display: inline-block;
 }
 
 .newform-container .ride-description {
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
+  width: 75%;
+  // margin-right: auto;
+  // margin-left: auto;
 }
 
 .media {
@@ -81,11 +94,6 @@
   float: left;
 }
 
-
-
-
-
-
 /* entire container, keeps perspective */
 .flip-container {
   -webkit-perspective: 1000;
@@ -97,7 +105,7 @@
 
 .flip-container, .front, .back {
   width: 100%;
-  height: 166px;
+  height: 200px;
   margin-top: 10px; 
   margin-bottom: 10px;
 }
@@ -106,14 +114,12 @@
 .flipper {
   -webkit-transition: 0.8s;
   -webkit-transform-style: preserve-3d;
-
   position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
   -webkit-backface-visibility: hidden;
-
   position: relative;
   top: 0;
   left: 0;
