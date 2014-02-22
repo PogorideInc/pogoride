@@ -14,12 +14,13 @@
         <% @rides.each do |ride| %>
 
 <% if ride.driver_id != nil || ride.has_passengers?%>
-
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
               <div class="front">
                 <div class="panel panel-default">
                   <div class="panel-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+
+                    <%= link_to "Add Me to ride", my_rides_add_me_to_ride_path(ride.id) %>
                   </div>
                     <div class="panel-body">
 

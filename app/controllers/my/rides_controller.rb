@@ -83,6 +83,18 @@ class My::RidesController < My::MyController
     redirect_to my_rides_path
   end
 
+  def add_me_to_ride
+    @user = @current_user
+    @ride = Ride.where(id: params[:format]).first
+    @passenger = @ride.passengers.new(user_id: @user.id)
+    if @passenger.save
+      redirect_to my_rides_path
+    else
+      flash[:notice] = "Oooops - something went wrong - couldn't add you to ride"
+      redirect_to my_rides_path
+    end
+  end
+
   protected
 
   def ride_params
