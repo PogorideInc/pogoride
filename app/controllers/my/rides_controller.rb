@@ -32,12 +32,10 @@ class My::RidesController < My::MyController
           render :new
         end
     else
-      binding.pry
       @ride.save # Associated saving? 
       @ride.request_id = @user.id
       @ride.passengers.new(user_id: @user.id)
       @ride.passengers.last.accept
-      binding.pry
       if @ride.save
         redirect_to my_ride_path(@ride)
       else
