@@ -21,9 +21,8 @@ class My::RidesController < My::MyController
   def create # refactor code in main if/else to Ride model? (create_request(ride, user), create_ride(ride, user))
     @user = current_user
     @ride = @user.rides.new(ride_params)
-
     if params[:user_is_driver][:user_is_driver] == "1" # So dirty
-    
+
         @ride.driver_id = @user.id
         @ride.driver_assign
 
@@ -33,11 +32,12 @@ class My::RidesController < My::MyController
           render :new
         end
     else
+      binding.pry
       @ride.save # Associated saving? 
       @ride.request_id = @user.id
       @ride.passengers.new(user_id: @user.id)
       @ride.passengers.last.accept
-
+      binding.pry
       if @ride.save
         redirect_to my_ride_path(@ride)
       else
