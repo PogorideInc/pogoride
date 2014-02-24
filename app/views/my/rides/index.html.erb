@@ -18,10 +18,14 @@
             <div class="flipper">
               <div class="front">
                 <div class="panel panel-default">
-                  <div class="panel-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
-                  <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
-                      <%= link_to "Add Me to ride", my_rides_add_me_to_ride_path(:ride_id => ride.id) %>
-                  <% end %>                  
+                <% if ride.user == @user && (ride.passengers.count <= 1) %>
+                      <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle' %>
+                      <!-- <span class="glyphicon glyphicon-remove-circle"></span> -->
+                    <% end %> 
+                  <div class="panel-heading"><span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+                    <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
+                        <%= link_to "Join This Ride", my_rides_add_me_to_ride_path(:ride_id => ride.id), :class => 'btn btn-join' %>
+                    <% end %>                
                   </div>
                     <div class="panel-body">
 
@@ -35,14 +39,12 @@
                             <p>
                               <%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.  <br/>
                               Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %>           
-                               Creator id:  <%= ride.user.id%>             
-              Current User id:  <%= @user.id %>             
-              Driver ID:  <%= ride.driver_id %>              
-              Has Passengers?:  <%= ride.has_passengers? %>              <br/>
-              Ride State:  <%= ride.state_name %>              <br/>
-              <% if ride.user == @user && (ride.passengers.count <= 1) %>
-              <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %><br />
-              <% end %>
+                              Creator id:  <%= ride.user.id%>             
+                              Current User id:  <%= @user.id %>             
+                              Driver ID:  <%= ride.driver_id %>              
+                              Has Passengers?:  <%= ride.has_passengers? %>              <br/>
+                              Ride State:  <%= ride.state_name %>              <br/>
+                              
                             </p>
                           </div>
                         <button type="button" class="flip-btn btn btn-info">
