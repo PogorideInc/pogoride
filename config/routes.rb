@@ -17,11 +17,10 @@ LhlPogorider::Application.routes.draw do
         delete "remove_driver"
       end
     end
-    resources :users, except: [:new, :create, :destroy, :index] do 
-    end
+    resources :users, except: [:new, :create, :destroy, :index]
   end
   resources :users, except: [:index, :destroy]
-
+  #get 'my/profile' => 'my/users#show'
   root to: "static#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

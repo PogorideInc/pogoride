@@ -1,4 +1,3 @@
-require 'pry'
 
 class My::RidesController < My::MyController
   before_filter :current_user, :if_not_user_redirect
@@ -18,10 +17,10 @@ class My::RidesController < My::MyController
     @ride = @user.rides.new
   end
 
-  def create # refactor code in main if/else to Ride model? (create_request(ride, user), create_ride(ride, user))
+  def create
     @user = current_user
     @ride = @user.rides.new(ride_params)
-    is_driver = (params[:user_is_driver] == "1") # checkbox from form
+    is_driver = (params[:user_is_driver] == "1")
 
     if is_driver
 
@@ -34,7 +33,7 @@ class My::RidesController < My::MyController
           render :new
         end
     else
-      @ride.save # Associated saving? 
+      @ride.save
       @ride.request_id = @user.id
       @ride.passengers.new(user_id: @user.id)
       @ride.passengers.last.accept
@@ -76,7 +75,7 @@ class My::RidesController < My::MyController
   end
 
   def remove_driver
-    @ride = Ride.find(params[:format])
+    @ride = Ride.find(params[:id])
     @ride.driver_unassign
     @ride.driver_id = nil
     @ride.save

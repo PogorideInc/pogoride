@@ -9,7 +9,7 @@
   </ul>
   <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
     <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %> <br />
-    <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id)%>
+    <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete %>
   <% end %>
   <hr/>
 <% end %>
