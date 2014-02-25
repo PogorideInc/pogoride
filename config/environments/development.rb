@@ -1,6 +1,17 @@
 LhlPogorider::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => "pogoridelhl@gmail.com",
+    :password  => "6-DM98SJpCw7c7n8fJBsDg", # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'http://localhost:3000', # your domain to identify your server when connecting
+  }
+
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
