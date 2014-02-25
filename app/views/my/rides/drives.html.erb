@@ -1,69 +1,49 @@
-<h1>Drives</h1>
-
-<% @rides.each do |ride| %>
-  <ul>
-    <li>From: <%= ride.from %></li>
-    <li>To: <%= ride.to %></li>
-    <li>Ride Date: <%= ride.ride_date %></li>
-    <li>driver_id: <%= ride.driver_id %></li>
-  </ul>
-  <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
-    <%= link_to "Delete", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete %> <br />
-    <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete %>
-  <% end %>
-  <hr/>
-<% end %>
-
-  
 <div class="userdashboard">
   <ul class="nav nav-pills">
     <li><%= link_to "Profile" %></li>
-    <li class="active"><%= link_to "My Rides" %></li>
+    <li><%= link_to "My Rides" %></li>
     <li><%= link_to "All Rides", rides_path %></li>
   </ul>
 </div>
 
 <div id="firstband firstbandback">
-    <div class="container">
-      <div class="row first" style="margin-bottom: 60px;">
-        <h2 class="text-center" style="margin: 50px auto 10px;">Drives</h2>
-
+  <div class="container">
+    <div class="row first" style="margin-bottom: 60px;">
+      <h2 class="text-center" style="margin: 50px auto 10px;">Drives</h2>
         <% @rides.each do |ride| %>
-
-<% if ride.driver_id != nil || ride.has_passengers?%>
+        <% if ride.driver_id != nil || ride.has_passengers?%>
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
+              
               <div class="front">
                 <div class="panel panel-default">
-
-                    <% if ride.user == @user && (ride.passengers.count <= 1) %>
-                      <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle' %> 
-                    <% end %> 
-                  
-                  <div class="panel-heading"><span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
-                  <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
-                      <%= link_to "Join This Ride", add_me_to_ride_my_ride_path(ride.id), :class => 'btn btn-join' %>
-                  <% end %>                  
+                  <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
+                    <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle' %>
+                  <% end %>  
+                  <div class="panel-heading">
+                    <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+                    <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
+                      <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
+                    <% end %>               
                   </div>
-
-                    <div class="panel-body">
-                     <div class="media">
-                       <a class="pull-left" href="#">
-                         <img class="media-object" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
-                       </a>
+                  <div class="panel-body">
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
+                      </a>
                       <div class="media-body">
                         <h4 class="media-heading"></h4>
-                          <div class="ride-info">
-                            <p>
-                              <%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.<br/>
-                              Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %>           
-                              Creator id:  <%= ride.user.id%>             
-                              Current User id:  <%= @user.id %>             
-                              Driver ID:  <%= ride.driver_id %>              
-                              Has Passengers?:  <%= ride.has_passengers? %><br/>
-                              Ride State:  <%= ride.state_name %><br/> 
-                            </p>
-                          </div>
+                        <div class="ride-info">
+                          <p>
+                            <%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.<br/>
+                            Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %>           
+                            Creator id:  <%= ride.user.id%>             
+                            Current User id:  <%= @user.id %>             
+                            Driver ID:  <%= ride.driver_id %>              
+                            Has Passengers?:  <%= ride.has_passengers? %><br/>
+                            Ride State:  <%= ride.state_name %><br/> 
+                          </p>
+                        </div>
                         <button type="button" class="flip-btn btn btn-info">
                           Ride <br> Details
                         </button>
@@ -71,39 +51,38 @@
                     </div>
                   </div>
                 </div>
-            </div>
+              </div>
 
-            <div class="back">
-              <div class="panel panel-default">
-                <div class="panel-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span></div>
+              <div class="back">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+                  </div>
                   <div class="panel-body">
-
-                   <div class="media">
-                   
-                    <div class="media-body">
-                      <h4 class="media-heading"></h4>
+                    <div class="media">
+                      <div class="media-body">
+                        <h4 class="media-heading"></h4>
                         <div class="ride-info">
                           <p>
                             Description: <%= ride.description %><br/>      
                             Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %><br/>
                             Seats remaining: <%= ride.no_of_seats %><br/>
-                            
                           </p>
                         </div>
                         <button type="button" class="flip-btn btn btn-warning">
-                        View <br> Ride
-                      </button>
-                     
+                          View <br> Ride
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         <% end %> 
-         <% end %>
-      </div>
+        <% end %>
     </div>
+  </div>
 </div>
 
