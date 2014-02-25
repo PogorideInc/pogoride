@@ -18,7 +18,7 @@
               <div class="front">
                 <div class="panel panel-default">
                   <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
-                    <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle' %>
+                    <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle', :title => "Delete Ride" %>
                   <% end %>  
                   <div class="panel-heading">
                     <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
