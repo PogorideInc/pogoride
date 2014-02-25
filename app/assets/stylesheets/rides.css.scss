@@ -143,3 +143,30 @@
   // .vertical.flip-container:hover .flipper {
   //   -webkit-transform: rotateX(-360deg);
   // }
+
+  .glyphicon-remove-circle {
+    color: black;
+    font-size: 1.3em;
+    font-weight: lighter;
+    float: right;
+    margin-right: -14px;
+    margin-top: -9px;
+    opacity: .7;
+    &:hover{
+      opacity: 1;
+      color: red;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+
+  .panel-heading .btn-join {
+    
+    color: #4cae4c;
+    background-color: whitesmoke;
+    
+    &:hover {
+      background-color: #4cae4c;
+      color: white;
+    }
+  }
