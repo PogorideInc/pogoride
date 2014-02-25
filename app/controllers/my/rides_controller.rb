@@ -21,9 +21,10 @@ class My::RidesController < My::MyController
   def create # refactor code in main if/else to Ride model? (create_request(ride, user), create_ride(ride, user))
     @user = current_user
     @ride = @user.rides.new(ride_params)
+    is_driver = (params[:user_is_driver] == "1") # checkbox from form
 
-    if params[:user_is_driver][:user_is_driver] == "1" # So dirty
-    
+    if is_driver
+
         @ride.driver_id = @user.id
         @ride.driver_assign
 
@@ -37,7 +38,6 @@ class My::RidesController < My::MyController
       @ride.request_id = @user.id
       @ride.passengers.new(user_id: @user.id)
       @ride.passengers.last.accept
-
       if @ride.save
         redirect_to my_ride_path(@ride)
       else
@@ -85,7 +85,7 @@ class My::RidesController < My::MyController
 
   def add_me_to_ride
     @user = @current_user
-    @ride = Ride.where(id: params[:format]).first
+    @ride = Ride.where(id: params[:id]).first
     @passenger = @ride.passengers.new(user_id: @user.id)
     if @passenger.save
       redirect_to my_rides_path

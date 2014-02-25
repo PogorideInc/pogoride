@@ -55,6 +55,7 @@ describe My::RidesController do
 
   describe 'POST#Creates' do 
     let!(:user) { create(:user) }
+    let!(:ride) { create(:ride, :user_id => user.id)}
 
     it "saves the ride to the database" do 
       expect{
@@ -100,5 +101,4 @@ describe My::RidesController do
     end
 
   end
-
 end

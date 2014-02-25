@@ -1,16 +1,10 @@
 LhlPogorider::Application.routes.draw do
 
-  
-  get 'rides/requests' => 'rides#requests'
-  get 'rides/drives' => 'rides#drives'
-  get 'my/rides/remove_driver'
-  get 'my/rides/add_me_to_ride'
-
   resources :rides, only: [:index, :show] do
     resources :passengers
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
 
   namespace :my do 
     resources :rides do 
@@ -18,10 +12,14 @@ LhlPogorider::Application.routes.draw do
         get "requests"
         get "drives"
       end
+      member do 
+        get "add_me_to_ride"
+        delete "remove_driver"
+      end
     end
-    resources :users, except: [:new, :create]
+    resources :users, except: [:new, :create, :destroy, :index] do 
+    end
   end
-
   resources :users, except: [:index, :destroy]
 
   root to: "static#index"
