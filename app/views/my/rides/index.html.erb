@@ -18,15 +18,17 @@
             <div class="flipper">
               <div class="front">
                 <div class="panel panel-default">
+
                     <% if ride.user == @user && (ride.passengers.count <= 1) %>
                       <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle' %> 
                     <% end %> 
-                    <div class="panel-heading"><span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
-                      <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
-                          <%= link_to "Join This Ride", my_rides_add_me_to_ride_path(:ride_id => ride.id), :class => 'btn btn-join' %>
-                      <% end %>                
-                    </div>
-                   
+                  
+                  <div class="panel-heading"><span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+                  <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
+                      <%= link_to "Join This Ride", add_me_to_ride_my_ride_path(ride.id), :class => 'btn btn-join' %>
+                  <% end %>                  
+                  </div>
+
                     <div class="panel-body">
                      <div class="media">
                        <a class="pull-left" href="#">
