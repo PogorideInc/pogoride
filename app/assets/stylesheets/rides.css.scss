@@ -145,13 +145,15 @@
   // }
 
   .glyphicon-remove-circle {
-    color: red;
+    color: black;
     font-size: 1.3em;
     font-weight: lighter;
     float: right;
     margin-right: -14px;
     margin-top: -9px;
+    opacity: .7;
     &:hover{
+      opacity: 1;
       color: red;
       font-weight: normal;
       text-decoration: none;
