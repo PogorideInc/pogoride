@@ -56,7 +56,9 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'pg'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.1"
+
 
 group :development do
   gem 'quiet_assets'
