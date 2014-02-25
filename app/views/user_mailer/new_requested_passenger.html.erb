@@ -1,7 +1,16 @@
-<!-- @driver, @new_passenger, @ride -->
-
-<%= @driver.username %>, <%= @new_passenger.username %> wants to join a ride you are the driver of.
-
-Please check out your drives to review the user and request: <%= link_to "Link to Ride", my_ride_path(@ride)
-
-- PogoRide Team
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey there <%= @new_passenger.first_name %></h1>
+    <p>
+      <%= @driver.username %>, <%= @new_passenger.username %> wants to join a ride you are the driver of.
+    </p>
+    <p>
+      Please check out your drives to review the user and request: <%= link_to "Link to Ride", my_ride_path(@ride) %>.
+    </p>
+    <p>- PogoRide Team</p>
+  </body>
+</html>

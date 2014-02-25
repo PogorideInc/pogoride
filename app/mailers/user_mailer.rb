@@ -5,11 +5,12 @@ class UserMailer < ActionMailer::Base
 
   end
 
-  def new_requested_passenger(driver, new_passenger, ride)
-  	@driver = driver
-  	@new_passenger = new_passenger
+  def new_requested_passenger(new_passenger, ride)
   	@ride = ride
-  	mail(to: @driver.email, subject: "#{@new_passenger.username} wants to join your ride from #{@ride.from} to #{@ride.to}.")
+  	@driver = User.where(id: @ride.driver_id).first
+  	@new_passenger = new_passenger
+  	
+  	mail(to: @driver.email, subject: "Some one wants to join the ride.")
   end
 
 
