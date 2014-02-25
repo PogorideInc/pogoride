@@ -2,6 +2,7 @@ class RidesController < ApplicationController
 
   def index
     @rides = Ride.all
+    @user = current_user if session[:user_id]
   end
 
   def show
