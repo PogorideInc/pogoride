@@ -13,7 +13,7 @@
   <%= form_for [:my, @ride] do |f| %>
     
     <%= f.label "Are you driving?" %>:
-    <%= check_box :user_is_driver, :user_is_driver%><br />
+    <%= check_box_tag :user_is_driver %><br />
 
     <%= f.text_field  :from, class: 'form-control form-group ride-form', placeholder: 'From' %><br />
 

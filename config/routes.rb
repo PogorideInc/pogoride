@@ -1,11 +1,5 @@
 LhlPogorider::Application.routes.draw do
 
-  
-  #get 'rides/requests' => 'rides#requests'
-  #get 'rides/drives' => 'rides#drives'
-  #get 'my/rides/:id/remove_driver' => ''
-  #get 'my/rides/add_me_to_ride'
-
   resources :rides, only: [:index, :show] do
     resources :passengers
   end
@@ -18,15 +12,14 @@ LhlPogorider::Application.routes.draw do
         get "requests"
         get "drives"
       end
-      # DELETE /my/rides/5/driver (Restful vs remove_driver is not)
-      #resource :driver, only [:destroy] # my/drivers controller
-      # member do 
-      #   delete 'remove_driver'
-      # end
+      member do 
+        get "add_me_to_ride"
+        delete "remove_driver"
+      end
     end
-    resources :users, except: [:new, :create]
+    resources :users, except: [:new, :create, :destroy, :index] do 
+    end
   end
-
   resources :users, except: [:index, :destroy]
 
   root to: "static#index"

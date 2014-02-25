@@ -20,7 +20,7 @@
                 <div class="panel panel-default">
                   <div class="panel-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
                   <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
-                      <%= link_to "Add Me to ride", my_rides_add_me_to_ride_path(:ride_id => ride.id) %>
+                      <%= link_to "Add Me to ride", add_me_to_ride_my_ride_path(ride.id) %>
                   <% end %>                  
                   </div>
                     <div class="panel-body">
