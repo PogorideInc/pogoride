@@ -56,6 +56,7 @@ gem 'devise_invitable'
 gem 'pg'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+gem "paperclip", "~> 4.1"
 
 group :development do
   gem 'quiet_assets'
