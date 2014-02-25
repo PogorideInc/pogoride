@@ -26,8 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-  @user = User.where(id: params[:id]).first
-
+    @user = User.where(id: params[:id]).first
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
@@ -45,7 +44,8 @@ class UsersController < ApplicationController
       :email, 
       :about_me, 
       :password, 
-      :password_confirmation
+      :password_confirmation,
+      :avatar
       )
   end
 
