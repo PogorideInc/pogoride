@@ -154,7 +154,7 @@
     opacity: .7;
     &:hover{
       opacity: 1;
-      color: red;
+      color: #B40404;
       font-weight: normal;
       text-decoration: none;
     }
@@ -167,6 +167,17 @@
     
     &:hover {
       background-color: #4cae4c;
+      color: white;
+    }
+  }
+
+  .panel-heading .btn-remove {
+    
+    color: #B40404;
+    background-color: whitesmoke;
+    
+    &:hover {
+      background-color: #B40404;
       color: white;
     }
   }
