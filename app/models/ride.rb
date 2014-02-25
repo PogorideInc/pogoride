@@ -40,6 +40,12 @@ class Ride < ActiveRecord::Base
       false
   end
 
+  def passenger_email_array
+    passenger_emails = []
+    self.passengers.each { |x| passenger_emails << x.user.email }
+    passenger_emails
+  end
+
   protected
 
   def ride_date_is_in_future
