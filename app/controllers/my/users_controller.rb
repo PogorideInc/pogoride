@@ -13,7 +13,6 @@ class My::UsersController < My::MyController
 
   def update
     @user = User.where(id: params[:id]).first
-
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
@@ -31,7 +30,7 @@ class My::UsersController < My::MyController
       :email, 
       :about_me, 
       :password, 
-      :password_confirmation
+      :password_confirmation,
       :avatar
       )
   end

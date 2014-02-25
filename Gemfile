@@ -49,10 +49,10 @@ gem "koala"
 gem "capybara"
 gem "pg"
 gem "friendly_id"
-gem "devise"
+#gem "devise"
 gem 'bootstrap-sass', '>= 3.0.0.0'
-gem 'devise'
-gem 'devise_invitable'
+#gem 'devise'
+#gem 'devise_invitable'
 gem 'pg'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
