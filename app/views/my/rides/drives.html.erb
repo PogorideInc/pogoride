@@ -31,7 +31,7 @@
                   <% end %>  
                   <div class="panel-heading">
                     <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
-                    <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
+                    <% if ride.driver_id == @user.id %>
                       <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
                     <% end %>               
                   </div>
