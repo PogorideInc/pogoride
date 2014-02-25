@@ -76,9 +76,10 @@ class My::RidesController < My::MyController
 
   def remove_driver
     @ride = Ride.find(params[:id])
+    drivers_user_id = @ride.driver_id
     @ride.driver_unassign
     @ride.driver_id = nil
-    @ride.save
+    UserMailer.driver_left(@ride, drivers_user_id, passenger_email_array(@ride)).deliver if @ride.save
     redirect_to my_rides_path
   end
 
@@ -96,6 +97,13 @@ class My::RidesController < My::MyController
   end
 
   protected
+
+  def passenger_email_array(ride)
+    @ride = ride
+    passenger_emails = []
+    @ride.passengers.each { |x| passenger_emails << x.user.email }
+    passenger_emails
+  end
 
   def ride_params
     params.require(:ride).permit(
