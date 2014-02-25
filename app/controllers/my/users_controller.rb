@@ -14,7 +14,7 @@ class My::UsersController < My::MyController
   def update
     @user = User.where(id: params[:id]).first
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      redirect_to my_user_path(@user)
     else
       render :edit
     end
