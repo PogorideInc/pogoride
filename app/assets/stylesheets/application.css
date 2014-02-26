@@ -31,11 +31,13 @@
 }
 
 body {
-  background:url(https://www.pogoride.com/css/images/chruch.png) repeat #ddd; 
+  /*background:url(https://www.pogoride.com/css/images/chruch.png) repeat #ddd; */
+  background-color: rgba(226,226,230,1);
   font-family: 'Pontano Sans', sans-serif; 
   font-weight: 400; 
   font-size: 16px; 
   color: #555;
+
 }
 
 h1,h2,h3 {
