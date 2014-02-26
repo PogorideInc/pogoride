@@ -58,6 +58,11 @@
   padding: 5px;
 }
 
+.small-pic {
+  width: 85px;
+  height: 100%;
+}
+
 .panel {
   margin-left: auto;
   margin-right: auto;
@@ -158,6 +163,11 @@
       font-weight: normal;
       text-decoration: none;
     }
+  }
+
+  .panel-heading {
+    font-weight: bolder;
+    font-size: 1.1em;
   }
 
   .panel-heading .btn-join {
