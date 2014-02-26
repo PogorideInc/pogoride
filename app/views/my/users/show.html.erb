@@ -19,7 +19,7 @@
   <div class="profilebox">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <div class="profileimg">
-      <img class="media-object profilepic" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
+      <%= image_tag @user.avatar.url(:medium) %>
     </div>
   </div>
   <div class="userdetails">
@@ -31,31 +31,9 @@
   </div>  
 </div>
 
-<div id="firstband firstbandback">
-    <div class="container">
-      <div class="row first" style="margin-bottom: 60px;">
-        <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
-          
-        <% @rides.each do |ride| %>
 
-         <div class="media">
-          <a class="pull-left" href="#">
-           <img class="media-object" src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/7/005/043/253/0a19061.jpg" alt="...">
-          </a>
-          <div class="media-body">
-            <h4 class="media-heading"><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %></h4>
-            <p>
-              Ian Smith               <br/>
-              Donation Amount: <span class="glyphicon glyphicon-usd"><%= ride.donation_amt %></span><br/>
-              Ride Date:  <%= ride.ride_date %>             <br/>
-              Seats:  <%= ride.no_of_seats %>              <br/>
-            </p>
-          </div>
-        </div>
 
-      <% end %>
-
-      <%= image_tag @user.avatar.url(:thumb) %>
+      
        
    
       
