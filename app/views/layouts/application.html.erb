@@ -20,7 +20,11 @@
         <nav class="navbar">
           <ul class="nav">
             <li><a class="modallogin" id="modallogin" data-toggle="modal" href="myModal" title="Sign Up">Sign Up</a></li>
-            <li><a class="modalsignin" data-toggle="modal" href="myModalSignIn" title="Login">Login</a></li>
+              <% if session[:user_id] %>
+              <li><%= link_to "Sign out", { :controller => :sessions, :action => :destroy }, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Sign in", new_session_path %></li>
+              <% end %>
           </ul>
         </nav>
       </div>
