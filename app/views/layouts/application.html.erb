@@ -33,6 +33,7 @@
 
     <!--  Search forms -->
     <!-- FIXME: Form needs completed, treat current form as a placeholder -->
+<!--
     <div role="main" id="homeContent">
         <div class="container contMain">
             
@@ -41,7 +42,7 @@
                 <h2 class="whitetxt">Find your ride.</h2>
              </div>
           </div>
-          
+ 
           <div class="row">         
             <div class="col-lg-12 searchBox" >
               <h4 class="whitetxt">Book rides in British Columbia and Washington today. Beta.</h4>   
@@ -130,9 +131,16 @@
               </div>  
             </div>
           </div>
-        </div><!--container close-->
-    </div>
+        </div>
+    </div> -->
+
     <!--  Search forms end -->
+
+    <%= form_tag rides_path, :method => 'get' do %>
+      <%= label_tag(:search, "Search for:") %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "search", :name => nil %>
+    <% end %>
 
   <%= yield %>
 

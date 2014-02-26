@@ -46,6 +46,14 @@ class Ride < ActiveRecord::Base
     passenger_emails
   end
 
+  def self.search(search)
+    if search
+      where("rides.from ilike ?", "%#{search}%")
+    else
+      find(:all)
+    end  
+  end
+
   protected
 
   def ride_date_is_in_future
