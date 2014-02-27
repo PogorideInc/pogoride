@@ -84,9 +84,15 @@
   font-size: 1.5em;
 }
 
-.btn-info {
+.media-body .btn-info {
   float: right;
   position: relative;
+  background-color: #428bca;
+  border-color: #428bca;
+  &:hover {
+    background-color: #4BA3EF;
+    border-color: #428bca;
+  }
 }
 
 .btn-warning {
@@ -165,6 +171,12 @@
     }
   }
 
+  .flip-container .panel-default {
+    border-color: rgb(176, 176, 176);
+    border: 1px solid rgb(176, 176, 176);
+
+  }
+
   .panel-heading {
     font-weight: bolder;
     font-size: 1.1em;
@@ -209,6 +221,8 @@
 
   .ride-header {
     text-align: center;
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .driver-info {

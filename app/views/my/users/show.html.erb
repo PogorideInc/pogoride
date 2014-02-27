@@ -15,13 +15,12 @@
   </ul>
 </div>
 
-<div class="profilecontainer">
-  <div class="profilebox">
+
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <div class="profileimg">
       <%= image_tag @user.avatar.url(:medium) %>
     </div>
-  </div>
+
   <div class="userdetails">
     <h3><%= @user.username %></h3>
     <h4>Age:</h4>
@@ -29,9 +28,5 @@
     <h4>About Me:</h4><%= @user.about_me %><br />
     <p class="glyphicon glyphicon-time joindate"> Joined: <%= @user.created_at.to_formatted_s(:long_ordinal) %><p>
   </div>  
-</div>
-  
-      </div>
-    </div>
-</div>
+
 
