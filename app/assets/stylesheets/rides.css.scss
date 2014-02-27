@@ -84,9 +84,15 @@
   font-size: 1.5em;
 }
 
-.btn-info {
+.media-body .btn-info {
   float: right;
   position: relative;
+  background-color: #428bca;
+  border-color: #428bca;
+  &:hover {
+    background-color: #4BA3EF;
+    border-color: #428bca;
+  }
 }
 
 .btn-warning {
@@ -165,6 +171,12 @@
     }
   }
 
+  .flip-container .panel-default {
+    border-color: rgb(176, 176, 176);
+    border: 1px solid rgb(176, 176, 176);
+
+  }
+
   .panel-heading {
     font-weight: bolder;
     font-size: 1.1em;
@@ -195,3 +207,25 @@
  .nav-pills .all-rides-nav {
   float:right;
  }
+
+  .ridecontainer {
+    margin: 10px 10px 10px 10px;
+    width: 75%;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    height: 600px;
+  }
+
+  .ride-header {
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .driver-info {
+    margin: 0px 30px 30px 0px;
+    float: left;
+  }
