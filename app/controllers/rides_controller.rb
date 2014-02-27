@@ -7,6 +7,7 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.where(id: params[:id]).first
+    @user = current_user if session[:user_id]
   end
 
   def requests

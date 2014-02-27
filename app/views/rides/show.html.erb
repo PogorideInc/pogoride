@@ -1,15 +1,37 @@
-<h1>Ride Page</h1>
+<div class="userdashboard">
+  <ul class="nav nav-pills">
+    <li><%= link_to "Profile", my_user_path(@user.id) %></li>
+    <li class="active dropdown">
+      <%= link_to 'Rides <b class="caret"></b>'.html_safe, "", :class => 'dropdown-toggle', :'data-toggle' => 'dropdown'%>
+      <ul class="dropdown-menu" role="menu">
+        <li class="dropdown-link"><%= link_to "My Rides", my_rides_path(@ride) %></li>
+        <li class="dropdown-link"><%= link_to "My Requests", requests_my_rides_path(@ride) %></li>
+        <li class="dropdown-link"><%= link_to "My Drives", drives_my_rides_path(@ride) %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Need A Ride?", new_my_ride_path %></li>
+    <li><%= link_to "Post A Drive", new_my_ride_path %></li>
+    <li class="all-rides-nav"><%= link_to "All Rides", rides_path %></li>
+  </ul>
+</div>
 
-<p>
-    From:                   <%= @ride.from %><br/>
-    To:                     <%= @ride.to %><br/>
-    Ride Date:              <%= @ride.ride_date %><br/>
-    Number of Seats:        <%= @ride.no_of_seats %><br/>
-    Number of booked seats: <%= @ride.no_booked_seats %><br/>
-    Description:            <%= @ride.description %><br/>
-    Donation Amount:        <%= @ride.donation_amt %><br/>
-    Luggage Space:          <%= @ride.luggage_space %><br/>
-    Ski Rack?               <%= @ride.ski_rack %><br/>
-    Bike Rack?              <%= @ride.bike_rack %><br/><br/>
-</p>
-
+<div class="ridecontainer">
+    <h1 class="ride-header"><%= @ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= @ride.to %></h1>
+    
+    <div class="driver-info">
+        <h4>Driver: <%= @ride.user.first_name %> <%= @ride.user.last_name %></h4>
+        <%= image_tag @ride.user.avatar.url(:thumb) %>
+    </div>
+    <div>
+        <p>
+            Leaving:              <%= @ride.ride_date.to_formatted_s(:long_ordinal) %><br/>
+            Number of Seats:        <%= @ride.no_of_seats %><br/>
+            Number of booked seats: <%= @ride.no_booked_seats %><br/>
+            Description:            <%= @ride.description %><br/>
+            Donation Amount:        <%= @ride.donation_amt %><br/>
+            Luggage Space:          <%= @ride.luggage_space %><br/>
+            Ski Rack?               <%= @ride.ski_rack %><br/>
+            Bike Rack?              <%= @ride.bike_rack %><br/><br/>
+        </p>
+    </div>
+</div>

@@ -195,3 +195,23 @@
  .nav-pills .all-rides-nav {
   float:right;
  }
+
+  .ridecontainer {
+    margin: 10px 10px 10px 10px;
+    width: 75%;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    box-shadow: 0px 0px 3px;
+    height: 600px;
+  }
+
+  .ride-header {
+    text-align: center;
+  }
+
+  .driver-info {
+    margin: 0px 30px 30px 0px;
+    float: left;
+  }
