@@ -20,11 +20,11 @@
         <nav class="navbar">
           <ul class="nav">
             <li><a class="modallogin" id="modallogin" data-toggle="modal" href="myModal" title="Sign Up">Sign Up</a></li>
-              <% if session[:user_id] %>
-              <li><%= link_to "Sign out", { :controller => :sessions, :action => :destroy }, method: :delete %></li>
-              <% else %>
+            <% if session[:user_id] %>
+              <li><%= link_to("Signout", "/session", method: :delete) %></li>
+            <% else %>
               <li><%= link_to "Sign in", new_session_path %></li>
-              <% end %>
+            <% end %>
           </ul>
         </nav>
       </div>
@@ -137,10 +137,16 @@
     <!--  Search forms end -->
 
     <%= form_tag rides_path, :method => 'get' do %>
-      <%= label_tag(:search, "Search for:") %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "search", :name => nil %>
-    <% end %>
+      <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "from location", class: "form-control" %>
+      <%= text_field_tag "search[to]", params.has_key?("search") && params[:search].has_key?("to") ? params[:search][:to] : "", placeholder: "to location", class: "form-control" %>
+
+      <%= date_field_tag "search[date]", params.has_key?("search") && params[:search].has_key?("date") ? params[:search][:date] : "", placeholder: "date", class: "form-control" %>
+
+      <%= number_field_tag 'search[seats]', params.has_key?("search") && params[:search].has_key?("seats") ? params[:search][:seats] : "", placeholder: "number of seats", class: "form-control" %>
+
+
+      <%= submit_tag "submit", class: "btn btn-primary" %>
+    <% end %>  
 
   <%= yield %>
 

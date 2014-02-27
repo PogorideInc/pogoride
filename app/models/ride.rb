@@ -33,6 +33,14 @@ class Ride < ActiveRecord::Base
 
   end
 
+  def driver
+    if driver_id.present?
+      return User.find(driver_id)
+    end
+
+    return nil
+  end
+
   def has_passengers?
     if passengers.present?
       return true
@@ -45,14 +53,27 @@ class Ride < ActiveRecord::Base
     self.passengers.each { |x| passenger_emails << x.user.email }
     passenger_emails
   end
-
+=begin
   def self.search(search)
     if search
       where("rides.from ilike ?", "%#{search}%")
     else
-      find(:all)
+      Ride.all
     end  
   end
+=end
+
+
+  def self.search(options)
+    query = self
+    query = query.where(from: options[:from]) unless options[:from].blank?
+    query = query.where(to: options[:to]) unless options[:to].blank?
+    query = query.where(no_of_seats: options[:seats]) unless options[:seats].blank?
+    query = query.where(ride_date: options[:date]) unless options[:date].blank?
+
+    return query
+  end
+
 
   protected
 

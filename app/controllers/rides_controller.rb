@@ -2,8 +2,11 @@
 class RidesController < ApplicationController
 
   def index
-    @rides = Ride.search(params[:search])
-    #@rides = Ride.all
+    if params[:search]
+      @rides = Ride.search(params[:search])
+    else
+      @rides = Ride.all 
+    end
     @user = current_user if session[:user_id]
   end
 
