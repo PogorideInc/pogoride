@@ -13,6 +13,9 @@
     Bike Rack?              <%= @ride.bike_rack %><br/><br/>
     Driver ID:              <%= @ride.driver_id %><br/><br/>
     Ride State:             <%= @ride.state_name %><br/><br/>
-    <%= link_to "Delete Ride", my_ride_path(@user, @ride), :method => :delete %>
+    Number of Passengers    <%= @ride.passengers.count %><br/>
+    <% if @ride.driver_id == @user.id  && @ride.passengers == nil %>
+        <%= link_to "Delete Ride", my_ride_path(@user, @ride), :method => :delete %>
+    <% end %>
 </p>
 

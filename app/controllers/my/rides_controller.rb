@@ -9,7 +9,7 @@ class My::RidesController < My::MyController
 
   def show
     @user = @current_user
-    @ride = @user.rides.where(id: params[:id]).first
+    @ride = Ride.where(id: params[:id]).first
   end
 
   def new
@@ -26,6 +26,7 @@ class My::RidesController < My::MyController
 
         @ride.driver_id = @user.id
         @ride.driver_assign
+        @ride.no_booked_seats = 0
 
         if @ride.save
           redirect_to my_ride_path(@ride)
@@ -36,6 +37,7 @@ class My::RidesController < My::MyController
       @ride.save
       @ride.request_id = @user.id
       @ride.passengers.new(user_id: @user.id)
+      @ride.no_booked_seats = 1
       @ride.passengers.last.accept
       if @ride.save
         redirect_to my_ride_path(@ride)
@@ -87,6 +89,7 @@ class My::RidesController < My::MyController
     @user = @current_user
     @ride = Ride.where(id: params[:id]).first
     @passenger = @ride.passengers.new(user_id: @user.id)
+    @ride.no_booked_seats += 1 if @ride.no_booked_seats 
     if @passenger.save
       UserMailer.new_requested_passenger(@user, @ride).deliver
       redirect_to my_rides_path
