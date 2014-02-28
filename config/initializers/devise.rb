@@ -254,6 +254,6 @@ Devise.setup do |config|
 
   require "omniauth-facebook"
   config.omniauth :facebook, "409425279193640", "8dceee645bc546e60b757dbd956dff38",
-    { :scope => 'email, read_friendlists', :display => 'popup' }
+    { :info_fields => 'age_range, friendlists' , :scope => 'email, offline_access', :display => 'popup' }
 
 end

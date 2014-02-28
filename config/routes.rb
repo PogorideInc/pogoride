@@ -16,12 +16,13 @@ LhlPogorider::Application.routes.draw do
       member do 
         get "add_me_to_ride"
         delete "remove_driver"
+        get "accept_passenger"
+        get "reject_passenger"
       end
     end
     resources :users, except: [:new, :create, :destroy, :index]
   end
   resources :users, except: [:index, :destroy]
-  #get 'my/profile' => 'my/users#show'
   root to: "static#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

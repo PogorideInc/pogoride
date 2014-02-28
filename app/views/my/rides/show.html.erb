@@ -1,11 +1,22 @@
-<h1>Ride Page</h1>
+<h1>Ride Page hello</h1>
 
 <p>
+    Driver:                        <%= image_tag @ride.user.avatar.url(:thumb) %> <br/><br/>
+    Passengers:             <% @ride.passengers.each do |passenger| %>
+                                <%= image_tag passenger.user.avatar.url(:thumb) %>
+                                name: <%= passenger.user.first_name %>
+                                Current state: <%= passenger.state_name %>
+
+                                <%= link_to "Accept", accept_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-remove' %>
+
+                                <%= link_to "Reject", reject_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-remove' %>
+                            <% end %>
+
     From:                   <%= @ride.from %><br/>
     To:                     <%= @ride.to %><br/>
     Ride Date:              <%= @ride.ride_date %><br/>
     Number of Seats:        <%= @ride.no_of_seats %><br/>
-    Number of booked seats: <%= @ride.no_booked_seats %><br/>
+    
     Description:            <%= @ride.description %><br/>
     Donation Amount:        <%= @ride.donation_amt %><br/>
     Luggage Space:          <%= @ride.luggage_space %><br/>
@@ -13,6 +24,9 @@
     Bike Rack?              <%= @ride.bike_rack %><br/><br/>
     Driver ID:              <%= @ride.driver_id %><br/><br/>
     Ride State:             <%= @ride.state_name %><br/><br/>
-    <%= link_to "Delete Ride", my_ride_path(@user, @ride), :method => :delete %>
+    Number of Passengers    <%= @ride.passengers.count %><br/>
+    <% if @ride.driver_id == @user.id  && @ride.passengers == nil %>
+        <%= link_to "Delete Ride", my_ride_path(@user, @ride), :method => :delete %>
+    <% end %>
 </p>
 
