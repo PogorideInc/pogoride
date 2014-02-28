@@ -253,7 +253,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "409425279193640", "8dceee645bc546e60b757dbd956dff38",
-    { :info_fields => 'age_range, friendlists' , :scope => 'email, offline_access', :display => 'popup' }
+  config.omniauth :facebook, "409425279193640", "8dceee645bc546e60b757dbd956dff38"
+    #{ :scope => 'basic_info', :info_fields => 'age_range'} #, :scope => 'basic_info, email, offline_access' }
 
 end
