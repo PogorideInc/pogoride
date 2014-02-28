@@ -15,6 +15,8 @@ LhlPogorider::Application.routes.draw do
       member do 
         get "add_me_to_ride"
         delete "remove_driver"
+        get "accept_passenger"
+        get "reject_passenger"
       end
     end
     resources :users, except: [:new, :create, :destroy, :index]
