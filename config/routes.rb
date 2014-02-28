@@ -20,7 +20,6 @@ LhlPogorider::Application.routes.draw do
     resources :users, except: [:new, :create, :destroy, :index]
   end
   resources :users, except: [:index, :destroy]
-  #get 'my/profile' => 'my/users#show'
   root to: "static#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

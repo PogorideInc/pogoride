@@ -31,9 +31,9 @@
                 <% end %> 
                 <div class="panel-heading">
                   <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
-                  <% if !ride.passengers.pluck(:user_id).include?( @user.id ) %>
+                  <% if !ride.passengers.pluck(:user_id).include?( @user.id ) && ride.driver_id != @user.id %>
                       <%= link_to "Join This Ride", add_me_to_ride_my_ride_path(ride.id), :class => 'btn btn-join' %>
-                  <% end %>                  
+                  <% end %>
                 </div>
                 <div class="panel-body">
                   <div class="media">
@@ -50,6 +50,7 @@
                           Current User id:  <%= @user.id %>             
                           Driver ID:  <%= ride.driver_id %>              
                           Has Passengers?:  <%= ride.has_passengers? %><br/>
+                          Number of passengers: <%= ride.passengers.count %><br/>
                           Ride State:  <%= ride.state_name %><br/> 
                         </p>
                       </div>
