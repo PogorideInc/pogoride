@@ -10,6 +10,7 @@ class My::RidesController < My::MyController
   def show
     @user = @current_user
     @ride = Ride.where(id: params[:id]).first
+    @driver = User.where(id: @ride.driver_id).first
   end
 
   def new
