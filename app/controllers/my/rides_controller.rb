@@ -99,6 +99,18 @@ class My::RidesController < My::MyController
     end
   end
 
+  def reject_passenger
+    @ride = Ride.where(id: params[:id]).first
+    @ride.passengers.find(params[:passenger_id]).reject
+    redirect_to my_ride_path(@ride)
+  end
+
+  def accept_passenger
+    @ride = Ride.where(id: params[:id]).first
+    @ride.passengers.find(params[:passenger_id]).accept
+    redirect_to my_ride_path(@ride)
+  end
+
   protected
 
   def ride_params
