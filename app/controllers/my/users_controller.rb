@@ -1,6 +1,7 @@
 
 class My::UsersController < My::MyController
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   def show
     @user = User.where(id: params[:id]).first

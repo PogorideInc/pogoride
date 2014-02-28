@@ -4,6 +4,7 @@ LhlPogorider::Application.routes.draw do
     resources :passengers
   end
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resource :session, only: [:new, :create, :destroy]
 
   namespace :my do 
