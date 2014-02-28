@@ -19,7 +19,7 @@ LhlPogorider::Application.routes.draw do
         get "reject_passenger"
       end
     end
-    resources :users, except: [:new, :create, :destroy, :index]
+    resources :users, except: [:new, :create, :destroy, :index], :path => "profile"
   end
   resources :users, except: [:index, :destroy]
   root to: "static#index"

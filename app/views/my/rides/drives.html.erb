@@ -20,7 +20,7 @@
     <div class="row first" style="margin-bottom: 60px;">
       <h2 class="text-center" style="margin: 50px auto 10px;">Drives</h2>
         <% @rides.each do |ride| %>
-        <% if ride.driver_id != nil || ride.has_passengers?%>
+        <% if ride.driver_id != nil || ride.has_passengers? %>
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
               
