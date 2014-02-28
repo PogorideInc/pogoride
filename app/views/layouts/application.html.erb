@@ -6,6 +6,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link rel="icon" type="image/png" href="https://www.pogoride.com/favicon.ico" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
   <body>
@@ -27,126 +28,38 @@
             <% end %>
           </ul>
         </nav>
+
+        <div class="main-search">
+          <%= form_tag rides_path, :method => 'get' do %>
+            <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "from location", class: "form-control" %>
+            <%= text_field_tag "search[to]", params.has_key?("search") && params[:search].has_key?("to") ? params[:search][:to] : "", placeholder: "to location", class: "form-control" %>
+
+            <%= date_field_tag "search[date]", params.has_key?("search") && params[:search].has_key?("date") ? params[:search][:date] : "", placeholder: "date", class: "form-control" %>
+
+            <%= number_field_tag 'search[seats]', params.has_key?("search") && params[:search].has_key?("seats") ? params[:search][:seats] : "", placeholder: "number of seats", class: "form-control" %>
+
+
+            <%= submit_tag "submit", class: "btn btn-primary" %>
+          <% end %>  
+        </div>
+
       </div>
     </header> 
     <!-- Header End -->
 
-    <!--  Search forms -->
-    <!-- FIXME: Form needs completed, treat current form as a placeholder -->
-<!--
-    <div role="main" id="homeContent">
-        <div class="container contMain">
-            
-          <div class="row">
-             <div class="col-lg-12 findInn">
-                <h2 class="whitetxt">Find your ride.</h2>
-             </div>
-          </div>
- 
-          <div class="row">         
-            <div class="col-lg-12 searchBox" >
-              <h4 class="whitetxt">Book rides in British Columbia and Washington today. Beta.</h4>   
-              <form id="searchARideForm" name="searchARideForm" method="get" action="/index/view-ride-result">
-                
-                <div class="common-row searchbig"> 
-                  <div class="ui-widget">
-                    <select id="combobox" name="from">
-                      <option value=""></option>
-                      <option selected="selected" value="Vancouver">Vancouver</option>
-                      <option  value="Bellingham">Bellingham</option>
-                      <option  value="Kelowna">Kelowna</option>
-                      <option  value="Squamish">Squamish</option>
-                      <option  value="Seattle">Seattle</option>
-                      <option  value="Victoria">Victoria</option>
-                      <option  value="Whistler">Whistler</option>
-                      <option  value="">Cypress</option>
-                      <option  value="#TheHTML500">#TheHTML500</option>
-                    </select>
-                  </div> 
-                </div>
-           
-                <div class="common-row searchbig">   
-                  <div class="ui-widget">
-                    <select id="combobox2" name="to">
-                      <option value=""></option>
-                      <option  value="Vancouver">Vancouver</option>
-                      <option  value="Bellingham">Bellingham</option>
-                      <option  value="Kelowna">Kelowna</option>
-                      <option  value="Squamish">Squamish</option>
-                      <option  value="Seattle">Seattle</option>
-                      <option  value="Victoria">Victoria</option>
-                      <option  value="Whistler">Whistler</option>
-                      <option selected="selected" value="">Cypress</option>
-                      <option  value="#TheHTML500">#TheHTML500</option>
-                    </select>
-                  </div>
-                </div>
+   <div class="main-search">
+          <%= form_tag rides_path, :method => 'get' do %>
+            <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "from location", class: "form-control" %>
+            <%= text_field_tag "search[to]", params.has_key?("search") && params[:search].has_key?("to") ? params[:search][:to] : "", placeholder: "to location", class: "form-control" %>
 
-                <div class="common-row datesm">
-                  <input id="start_time" class="form_input" type="text" readonly="readonly"  value="" name="time"  placeholder="Date">
-                </div>
+            <%= date_field_tag "search[date]", params.has_key?("search") && params[:search].has_key?("date") ? params[:search][:date] : "", placeholder: "date", class: "form-control" %>
 
-                <div class="common-row searchsm">  
-                  <div class="ui-widget">
-                    <select id="combobox3" name="seats">
-                      <option value=""></option>
-                      <option  value="1">1</option>
-                      <option  value="2">2</option>
-                      <option  value="3">3</option>
-                      <option  value="4">4</option>
-                      <option  value="5">5</option>
-                      <option  value="6">6</option>
-                      <option  value="7">7</option>
-                    </select>
-                  </div>   
-                </div>
-            
-                <input type="hidden" name="seeallflag" value="0">
-                
-                <div class="common-row searchBtn">
-                  <div class="input-box">
-                    <div class="button">
-                      <input type="submit" tabindex="4" value="Search" id="submitbutton" name="submit" class="btn btn-primary">
-                    </div>
-                  </div>
-                </div>
+            <%= number_field_tag 'search[seats]', params.has_key?("search") && params[:search].has_key?("seats") ? params[:search][:seats] : "", placeholder: "number of seats", class: "form-control" %>
 
-              </form>
-            </div>
 
-            <div style="display:none;" id="search-error" class="error"></div>
-              <div class="">
-                <div class="col-lg-2 searchBox">
-                  <form action="/index/view-ride-result" method="get" name="seeAllRides" id="seeAllRides">            
-                    <div class="common-row searchBtn">
-                      <input type="hidden" name="seeallflag" value="1">
-                      <div class="input-box">
-                        <div class="button">
-                          <input type="submit" class="btn btn-primary" name="submit" id="searchall" value="All Rides" tabindex="" style="height:47px;">
-                        </div> 
-                      </div>
-                    </div>
-                  </form>
-                </div>  
-              </div>  
-            </div>
-          </div>
+            <%= submit_tag "submit", class: "btn btn-primary" %>
+          <% end %>  
         </div>
-    </div> -->
-
-    <!--  Search forms end -->
-
-    <%= form_tag rides_path, :method => 'get' do %>
-      <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "from location", class: "form-control" %>
-      <%= text_field_tag "search[to]", params.has_key?("search") && params[:search].has_key?("to") ? params[:search][:to] : "", placeholder: "to location", class: "form-control" %>
-
-      <%= date_field_tag "search[date]", params.has_key?("search") && params[:search].has_key?("date") ? params[:search][:date] : "", placeholder: "date", class: "form-control" %>
-
-      <%= number_field_tag 'search[seats]', params.has_key?("search") && params[:search].has_key?("seats") ? params[:search][:seats] : "", placeholder: "number of seats", class: "form-control" %>
-
-
-      <%= submit_tag "submit", class: "btn btn-primary" %>
-    <% end %>  
 
   <%= yield %>
 
