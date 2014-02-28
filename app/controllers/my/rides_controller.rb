@@ -90,7 +90,7 @@ class My::RidesController < My::MyController
     @ride = Ride.where(id: params[:id]).first
     @passenger = @ride.passengers.new(user_id: @user.id)
     @ride.no_booked_seats += 1 if @ride.no_booked_seats 
-    if @passenger.save
+    if @passenger.save && @ride.save
       UserMailer.new_requested_passenger(@user, @ride).deliver
       redirect_to my_rides_path
     else
