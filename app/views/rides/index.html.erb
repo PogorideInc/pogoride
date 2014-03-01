@@ -29,10 +29,11 @@
                 <div class="front">
                   <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %>
-                    
+
                     <% if session[:user_id] %>
                       <% if ride.state == 'q' && ride.driver_id == nil && !ride.passengers.pluck(:user_id).include?(@user.id) %>
-                        <%= link_to "I'll drive you" %>
+                        <%= link_to "I'll drive you", add_driver_my_ride_path(ride) %>
+
                       <% end %>
 
                       <% if ride.driver_id == @user.id %>
