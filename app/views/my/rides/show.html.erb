@@ -54,6 +54,8 @@
     <%= @ride.description %>
 </div>
 
+
+
 <p>
 <h4 class="passenger-heading">Passengers</h4>             
     <% @ride.passengers.each do |passenger| %>
@@ -63,14 +65,18 @@
             </div>
             <div class="pass-info">
                 <%= passenger.user.first_name %> - <%= passenger.state_name %>
+                <% if @ride.driver_id == @user.id %>
                 <div class="pass-buttons">
                     <%= link_to "Accept", accept_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-success' %>
                     <%= link_to "Reject", reject_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-danger' %>
                 </div>
+                <% end %>
             </div>
         </div>
     <% end %>
 </p>
+
+
 
 <hr>
 <div class="ride-info-cont">

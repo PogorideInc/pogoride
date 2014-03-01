@@ -47,20 +47,6 @@
     </header> 
     <!-- Header End -->
 
-   <div class="main-search">
-          <%= form_tag rides_path, :method => 'get' do %>
-            <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "from location", class: "form-control" %>
-            <%= text_field_tag "search[to]", params.has_key?("search") && params[:search].has_key?("to") ? params[:search][:to] : "", placeholder: "to location", class: "form-control" %>
-
-            <%= date_field_tag "search[date]", params.has_key?("search") && params[:search].has_key?("date") ? params[:search][:date] : "", placeholder: "date", class: "form-control" %>
-
-            <%= number_field_tag 'search[seats]', params.has_key?("search") && params[:search].has_key?("seats") ? params[:search][:seats] : "", placeholder: "number of seats", class: "form-control" %>
-
-
-            <%= submit_tag "submit", class: "btn btn-primary" %>
-          <% end %>  
-        </div>
-
   <%= yield %>
 
     <!--Footer-->
