@@ -20,7 +20,7 @@
     <div class="row first" style="margin-bottom: 60px;">
       <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
       <% @rides.each do |ride| %>
-      <% if ride.driver == @user || ride.passengers.includes(@user) %>
+      <% if ride.driver_id == @user.id || ride.passengers.includes(@user) %>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             
@@ -31,6 +31,9 @@
                 <% end %> 
                 <div class="panel-heading">
                   <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+                  <% if ride.driver_id == @user.id %>
+                      <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
+                  <% end %>   
                   <% if ride.driver_id == @user.id %>
                     <%= link_to "Ride control panel", my_ride_path(ride) %>
                   <% end %>
@@ -49,9 +52,6 @@
                         <ul>
                           <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
                           <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>                    
-                          <li>Current User id:  <%= @user.id %></li>             
-                          <li>Driver ID:  <%= ride.driver_id %></li>             
-                          <li>Number of passengers: <%= ride.passengers.count %></li><br/>
                         </p>
                       </div>
                       <button type="button" class="flip-btn btn btn-info">
@@ -73,7 +73,7 @@
                       <h4 class="media-heading"></h4>
                       <div class="ride-info">
                         <p>
-                          Description: <%= ride.description %><br/>      
+                          Description: <%= truncate(ride.description, length: 140, seperator: ' ') { link_to 'more', my_ride_path(ride)} %><br/>      
                           Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %><br/>
                           Seats remaining: <%= ride.no_of_seats %><br/>
                         </p>
