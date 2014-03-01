@@ -90,7 +90,6 @@ class My::RidesController < My::MyController
     @user = @current_user
     @ride = Ride.where(id: params[:id]).first
     @passenger = @ride.passengers.new(user_id: @user.id)
-    @ride.no_booked_seats += 1 if @ride.no_booked_seats 
     if @passenger.save && @ride.save
       UserMailer.new_requested_passenger(@user, @ride).deliver
       redirect_to my_rides_path
@@ -110,6 +109,17 @@ class My::RidesController < My::MyController
     @ride = Ride.where(id: params[:id]).first
     @ride.passengers.find(params[:passenger_id]).accept
     redirect_to my_ride_path(@ride)
+  end
+
+  def add_driver
+    @user = @current_user
+    @ride = Ride.find(params[:id])
+    drivers_user_id = @ride.driver_id
+    @ride.driver_assign
+    @ride.driver_id = @user.id
+    @ride.save
+    #UserMailer.driver_left(@ride, drivers_user_id, @ride.passenger_email_array).deliver if @ride.save
+    redirect_to my_rides_path
   end
 
   protected
