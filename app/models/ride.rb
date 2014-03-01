@@ -53,16 +53,6 @@ class Ride < ActiveRecord::Base
     self.passengers.each { |x| passenger_emails << x.user.email }
     passenger_emails
   end
-=begin
-  def self.search(search)
-    if search
-      where("rides.from ilike ?", "%#{search}%")
-    else
-      Ride.all
-    end  
-  end
-=end
-
 
   def self.search(options)
     query = self

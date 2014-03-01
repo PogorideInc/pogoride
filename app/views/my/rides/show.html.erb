@@ -45,7 +45,7 @@
                 Bike Rack <i class="fa fa-square-o"></i><br/>
             <% end %>
 
-            <br />Seats Remaining: <%= (@ride.no_of_seats - @ride.passengers.where(state: "A").count %>
+            <br />Seats Remaining: <%= (@ride.no_of_seats - @ride.passengers.where(state: "A").count) %>
         </p>
     </div>
 
