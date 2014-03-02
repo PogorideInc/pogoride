@@ -113,13 +113,16 @@ class My::RidesController < My::MyController
 
   def add_driver
     @user = @current_user
-    @ride = Ride.find(params[:id])
-    drivers_user_id = @ride.driver_id
+    @ride = Ride.where(id: params[:id]).first
     @ride.driver_assign
     @ride.driver_id = @user.id
-    @ride.save
-    #UserMailer.driver_left(@ride, drivers_user_id, @ride.passenger_email_array).deliver if @ride.save
-    redirect_to my_rides_path
+    drivers_user_id = 
+    if @ride.save
+      UserMailer.driver_added(@ride, @ride.driver_id, @ride.passenger_email_array).deliver
+      redirect_to my_rides_path
+    else 
+      redirect_to my_ride_path(@ride)
+    end 
   end
 
   protected

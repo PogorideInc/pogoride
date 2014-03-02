@@ -15,15 +15,20 @@ class UserMailer < ActionMailer::Base
   	mail(to: @driver.email, subject: "Some one wants to join the ride.")
   end
 
+  def driver_added(ride, drivers_user_id, passenger_email_array)
+    @ride = ride
+    @driver = User.where(id: drivers_user_id).first
+
+    mail(to: passenger_email_array, subject: "A Driver has Signed Up for your Ride!")
+  end
+
   def driver_left(ride, drivers_user_id, passenger_email_array)
     @ride = ride
     @driver = User.where(id: drivers_user_id).first
 
-    mail(to: passenger_email_array, subject: "Head-Up: You're Driver Has Left.")
+    mail(to: passenger_email_array, subject: "Heads-Up: You're Driver Has Left.")
   end 
 
   def acceptance_letter
-
-  end
 
 end
