@@ -31,4 +31,6 @@ class UserMailer < ActionMailer::Base
 
   def acceptance_letter
 
+  end
+
 end
