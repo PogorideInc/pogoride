@@ -1,16 +1,8 @@
-<h1>Sign In</h1>
-
-<%= form_tag session_path do %>
-
-<div>
-  <%= label_tag "email", "Email: " %>
-  <%= text_field_tag "email" %>
+<div class="signin-form">
+  <h1>Sign In</h1>
+  <%= form_tag session_path do %>
+      <%= text_field_tag('email', nil, class: 'input-medium form-group form-control', placeholder:'Email') %>
+      <%= password_field_tag('password', nil, class: 'input-medium form-group form-control', placeholder:'Password') %>
+      <%= submit_tag "Log In", :class => 'btn btn-primary'%>
+  <% end %>
 </div>
-
-<div>
-  <%= label_tag "password", "Password:" %>
-  <%= password_field_tag :password %>
-</div>
-
-<div><%= submit_tag "Log In"%></div>
-<% end %>

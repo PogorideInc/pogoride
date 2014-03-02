@@ -74,3 +74,37 @@
 body {
   background-color: white;
 }
+
+.signin-form {
+  text-align: center;
+  margin-bottom: 30px;
+  .input-medium {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+.signup-form {
+  text-align: center;
+  margin-bottom: 30px;
+  .input-medium {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
+  }
+  label {
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
+  }
+}

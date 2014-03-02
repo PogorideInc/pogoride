@@ -14,9 +14,8 @@
     <!-- Header -->
     <header>
       <div class="hcontainer">
-        <script type="text/javascript" src="/public/js/jquery/bootstrap-modal.js"></script>
         <div class="headerLogo">
-          <h1 id="logo"><a href="https://www.pogoride.com"><%= image_tag("logo-beta.png", :alt => "Pogoride") %></a></h1>
+          <h1 id="logo"><a href="/"><%= image_tag("logo-beta.png", :alt => "Pogoride") %></a></h1>
         </div>
         <nav class="navbar">
           <ul class="nav">
@@ -28,7 +27,12 @@
             <% end %>
           </ul>
         </nav>
-
+        <div class="row">
+          <div class="col-lg-12 findInn">
+            <h2 class="header-text">Find your ride.</h2>
+          </div>
+        </div>
+        <h4 class="header-text">Book rides in British Columbia and Washington today. Beta.</h4>   
         <div class="main-search">
           <%= form_tag rides_path, :method => 'get' do %>
             <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "from location", class: "form-control" %>
@@ -40,7 +44,9 @@
 
 
             <%= submit_tag "submit", class: "btn btn-primary" %>
+            <%= link_to "All Rides", rides_path, :class => 'btn btn-primary btn-rides' %>
           <% end %>  
+
         </div>
 
       </div>

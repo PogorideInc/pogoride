@@ -15,33 +15,31 @@
   </ul>
 </div>
 
-
-<!-- Placeholders - will be switched to pull downs, check boxes, will include the passengers registered -->
-<div class="newform-container">
+<div class="ride-form">
   <h1>Post a Ride</h1>
   <%= form_for [:my, @ride] do |f| %>
     
     <%= f.label "Are you driving?" %>:
     <%= check_box_tag :user_is_driver %><br />
 
-    <%= f.text_field  :from, class: 'form-control form-group ride-form', placeholder: 'From' %><br />
+    <%= f.text_field  :from, class: 'form-control form-group ride-form input-medium', placeholder: 'From' %>
 
-    <%= f.text_field  :to, class: 'form-control form-group ride-form', placeholder: 'To'  %><br />
+    <%= f.text_field  :to, class: 'form-control form-group ride-form input-medium', placeholder: 'To'  %>
     
     <%= f.label :ride_date %>:
-    <%= f.date_field   :ride_date, class: 'form-group' %><br />
+    <%= f.date_field   :ride_date, class: 'form-group form-control input-medium' %>
     
     <%= f.label :ride_time %>:
-    <%= f.time_field   :ride_time, class: 'form-group' %><br />
+    <%= f.time_field   :ride_time, class: 'form-group form-control input-medium' %>
     
     <%= f.label :no_of_seats %>:
-    <%= f.text_field   :no_of_seats, class: 'form-control form-group seat-form' %><br />
+    <%= f.text_field   :no_of_seats, class: 'form-control form-group seat-form input-small' %>
     
     <%= f.label :description %>:
-    <%= f.text_area   :description, class: 'form-control form-group ride-description', :rows => "4" %><br />
+    <%= f.text_area   :description, class: 'form-control form-group description-input', :rows => "4" %>
     
     <%= f.label :donation_amt %>:
-    <%= f.text_field  :donation_amt, class: 'form-control form-group donate-form' %><br />
+    <%= f.text_field  :donation_amt, class: 'form-control form-group donate-form input-small' %>
     
     <%= f.label :luggage_space %>:
     <%= f.check_box   :luggage_space %><br />
@@ -54,7 +52,7 @@
     
     <%= f.submit 'Submit', :class => 'btn btn-primary' %>
   <% end %>
-  <br />
-
 </div>
+
+
 

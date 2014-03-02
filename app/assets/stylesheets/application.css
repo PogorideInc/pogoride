@@ -53,6 +53,7 @@ h1 {
 #logo img {
   max-width: 400px; 
   height: auto;
+  margin-left: 5%;
 }
 
 h1 a {
@@ -66,12 +67,14 @@ h1 a:hover, h1 a:active, h1 a:focus {
 
 h2 {
   font-family: 'Open Sans', sans-serif; 
-  font-weight: 300; 
+  font-weight: lighter; 
   font-size: 3em;
 }
 
-.whitetxt {
-  color: #fff
+.header-text {
+  color: #fff;
+  margin-left: 50px;
+  font-family: 'Open Sans', sans-serif; 
 }
 
 .findInn h2 {
