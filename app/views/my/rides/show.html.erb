@@ -63,7 +63,7 @@
     <% @ride.passengers.each do |passenger| %>
         <div class="passenger-info-cont">
             <div class="small-pic-cont">
-                <%= image_tag passenger.user.avatar.url(:thumb), :class => 'small-pic' %>
+                <%= image_tag passenger.user.avatar.url(:thumb), :class => 'small-pic-pass' %>
             </div>
             <div class="pass-info">
                 <%= passenger.user.first_name %> - <%= passenger.state_name %>
