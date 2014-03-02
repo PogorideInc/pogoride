@@ -32,7 +32,7 @@
                   <div class="panel-heading">
                     <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %>
                     <% if ride.driver_id == @user.id %>
-                    <%= link_to "Ride control panel", my_ride_path(ride) %>
+                    <%= link_to "View this ride", my_ride_path(ride) %>
                     <% end %>
                     <span class="ride-cost">$<%= ride.donation_amt %></span>
                     <% if ride.driver_id == @user.id %>
