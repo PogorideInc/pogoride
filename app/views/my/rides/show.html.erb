@@ -67,8 +67,11 @@
                 <%= passenger.user.first_name %> - <%= passenger.state_name %>
                 <% if @ride.driver_id == @user.id %>
                 <div class="pass-buttons">
-                    <%= link_to "Accept", accept_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-success' %>
+                    <% if passenger.state == "Q" %>
+                        <%= link_to "Accept", accept_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-success' %>
+                
                     <%= link_to "Reject", reject_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-danger' %>
+                    <% end %>
                 </div>
                 <% end %>
             </div>
