@@ -21,7 +21,7 @@
     
     <div class="driver-info">
         <div class="medium-pic-cont">
-            <%= image_tag @ride.user.avatar.url(:medium)%>
+            <%= image_tag @driver.avatar.url(:medium)%>
         </div>
         <% if @driver %>
             <h4 class="driver-heading"><%= @driver.first_name %> <%= @driver.last_name %> is driving.</h4>
