@@ -20,14 +20,16 @@
 <h1 class="ride-header"><%= @ride.from %> to <%= @ride.to %><br /><span class="header-date"><%= @ride.ride_date.to_formatted_s(:long_ordinal) %></span></h1>
     
     <div class="driver-info">
-        <div class="medium-pic-cont">
-            <%= image_tag @driver.avatar.url(:medium)%>
-        </div>
+    
         <% if @driver %>
-            <h4 class="driver-heading"><%= @driver.first_name %> <%= @driver.last_name %> is driving.</h4>
-        <% else %>
-            <h4 class="driver-heading">This ride is looking for a driver.</h4>
+            <div class="medium-pic-cont">
+                <%= image_tag @driver.avatar.url(:medium)%>
+            </div>
+                <h4 class="driver-heading"><%= @driver.first_name %> <%= @driver.last_name %> is driving.</h4>
+            <% else %>
+                <h4 class="driver-heading">This ride is looking for a driver.</h4>
         <% end %>
+
         <p class="storage-info">
             <% if @ride.luggage_space %>    
                 Luggage Space <i class="fa fa-check-square-o"></i><br/>
