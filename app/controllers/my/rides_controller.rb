@@ -91,7 +91,7 @@ class My::RidesController < My::MyController
     @ride = Ride.where(id: params[:id]).first
     @passenger = @ride.passengers.new(user_id: @user.id)
     if @passenger.save && @ride.save
-      UserMailer.new_requested_passenger(@user, @ride).deliver
+      UserMailer.new_requested_passenger(@user, @ride).deliver if @ride.driver_id
       redirect_to my_rides_path
     else
       flash[:notice] = "Oooops - something went wrong - couldn't add you to ride"
