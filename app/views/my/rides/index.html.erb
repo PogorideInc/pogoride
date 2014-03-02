@@ -38,7 +38,7 @@
                   <% if ride.driver_id == @user.id %>
                       <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
                   <% end %>   
-                  <% if ride.driver_id == @user.id %>
+                  <% if ride.driver_id == @user.id || ride.passengers.pluck(:user_id).include?(@user.id) %>
                     <%= link_to "Ride control panel", my_ride_path(ride) %>
                   <% end %>
                   <% if !ride.passengers.pluck(:user_id).include?( @user.id ) && ride.driver_id != @user.id %>
