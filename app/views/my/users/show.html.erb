@@ -22,7 +22,7 @@
   </div>
 
   <div class="userdetails">
-    <h3><%= @user.username %></h3><br />
+    <h3><%= @user.username %></h3><%= link_to "Edit Profile", edit_my_user_path %><br />
     <h4>About Me:</h4><%= @user.about_me %><br />
   </div> 
 
