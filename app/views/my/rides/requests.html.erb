@@ -1,3 +1,5 @@
+<!-- Main Navigation Dashboard -->
+
 <div class="userdashboard">
   <ul class="nav nav-pills">
     <li><%= link_to "Profile", my_user_path(@user.id) %></li>
@@ -15,6 +17,8 @@
   </ul>
 </div>
 
+<!-- Ride cards -->
+
 <div id="firstband firstbandback">
   <div class="container">
     <div class="row first" style="margin-bottom: 60px;">
@@ -26,6 +30,8 @@
           
           <div class="flipper">
             
+          <!-- Ride card front-->
+
             <div class="front">
               <div class="panel panel-default">
                 <% if ride.user == @user && (ride.passengers.count <= 1) %>
@@ -54,6 +60,8 @@
                   </div>
                 </div>
             </div>
+
+            <!-- Ride card back-->
 
             <div class="back">
               <div class="panel panel-default">
@@ -86,4 +94,6 @@
     </div>
   </div>
 </div>
+
+<!-- End Ride cards -->
 
