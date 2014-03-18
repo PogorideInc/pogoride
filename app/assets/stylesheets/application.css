@@ -16,19 +16,7 @@
 
 /*Top level / Global CSS */
 
-.container {
-  max-width: 1200px; 
-  margin: 0 auto; 
-  display: block;
-}
 
-.row {
-  margin: 0;
-}
-
-.row .row {
-  margin: 0;
-}
 
 body {
   /*background:url(https://www.pogoride.com/css/images/chruch.png) repeat #ddd; */

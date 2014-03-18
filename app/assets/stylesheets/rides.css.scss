@@ -65,6 +65,7 @@
   margin-right: auto;
   width: 75%;
   box-shadow: 0px 0px 3px;
+  -webkit-transition: all 0.2s ease;
   &:hover {
     box-shadow: 0px 0px 8px;
   }
@@ -148,58 +149,52 @@
     -webkit-transform-origin: 100% 83px; /* half of height */
 }
 
-  // .vertical.flip-container:hover .flipper {
-  //   -webkit-transform: rotateX(-360deg);
-  // }
-
-  .glyphicon-remove-circle {
-    color: black;
-    font-size: 1.3em;
-    font-weight: lighter;
-    float: right;
-    margin-right: -14px;
-    margin-top: -9px;
-    opacity: .7;
-    &:hover{
-      opacity: 1;
-      color: #B40404;
-      font-weight: normal;
-      text-decoration: none;
-    }
-  }
-
-  .flip-container .panel-default {
-    border-color: rgb(176, 176, 176);
-    border: 1px solid rgb(176, 176, 176);
-
-  }
-
-  .panel-heading {
-    font-weight: bolder;
-    font-size: 1.1em;
-  }
-
-  .panel-heading .btn-join {
-    
-    color: #4cae4c;
-    background-color: whitesmoke;
-    
-    &:hover {
-      background-color: #4cae4c;
-      color: white;
-    }
-  }
-
-  .panel-heading .btn-remove {
-    
+.glyphicon-remove-circle {
+  color: black;
+  font-size: 1.3em;
+  font-weight: lighter;
+  float: right;
+  margin-right: -14px;
+  margin-top: -9px;
+  opacity: .7;
+  &:hover{
+    opacity: 1;
     color: #B40404;
-    background-color: whitesmoke;
-    
-    &:hover {
-      background-color: #B40404;
-      color: white;
-    }
+    font-weight: normal;
+    text-decoration: none;
   }
+}
+
+.flip-container .panel-default {
+  border-color: rgb(176, 176, 176);
+  border: 1px solid rgb(176, 176, 176);
+
+}
+
+.panel-heading {
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+.panel-heading .btn-join {
+  color: #4cae4c;
+  background-color: whitesmoke;
+  -webkit-transition: all 0.5s ease;
+  &:hover {
+    background-color: #4cae4c;
+    color: white;
+  }
+}
+
+.panel-heading .btn-remove {
+  color: #B40404;
+  background-color: whitesmoke;
+  -webkit-transition: all 0.5s ease;
+  &:hover {
+    background-color: #B40404;
+    color: white;
+  }
+}
 
  .nav-pills .all-rides-nav {
   float:right;

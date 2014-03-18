@@ -12,57 +12,73 @@
   position: relative;
 }
 
-header .nav {
-  float:right;
-  li {
-    margin-right: 10px;  
-    float: left;
-    a {
-      background: #f5f5f5; 
-      border-radius: 4px; 
-      font-family: 'Droid Sans', sans-serif; 
-      font-weight: 400; 
-      color: #0184d1;
-      position: relative; 
-      border: 2px solid #0184d1;
-      padding: 7px;
-      text-decoration: none;
-      &:hover {
-        box-shadow: 0px 0px 4px 0px;
+header {
+  .nav {
+    float:right;
+    li {
+      margin-right: 10px;  
+      float: left;
+      a {
+        background: #f5f5f5; 
+        border-radius: 4px; 
+        font-family: 'Droid Sans', sans-serif; 
+        font-weight: 400; 
+        color: #0184d1;
+        position: relative; 
+        border: 2px solid #0184d1;
+        padding: 7px;
+        text-decoration: none;
+        &:hover {
+          box-shadow: 0px 0px 4px 0px;
+        }
       }
     }
   }
+  .navbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .header-text {
+    margin: 5px 20px 5px 30px;
+  }
 }
 
-header .navbar {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-/*------- FORM imput CSS -------*/
 
-.btn-primary {
-  padding: 10px 20px; 
-  font-size: 1.25em; 
-  background-color: #0184d1;
-}
+
+/*------- FORM imput SCSS -------*/
 
 .main-search {
-  width: 75%;
-  margin-top: 50px;
+  width: 90%;
+  margin-top: 0px;
   margin-left: 50px;
+  padding: 10px;
   z-index: 99;
   .form-control {
-    display: inline-block;
-    width: 18%;
-    margin-right: 5px;
+    margin: 5px;
   }
   .btn-rides {
     border: 2px solid white;
+    margin-top: 5px;
+    margin-right: 0px;
     background-color: rgba(0,0,0,0.3);
     -webkit-transition: all 0.5s ease;
     &:hover {
      border: 2px solid white; 
     }
-  }
+  } 
 }
+
+.btn-primary {
+  padding: 10px 20px; 
+  font-size: 1.25em; 
+  background-color: #0184d1;
+  margin: 5px;
+  // float: right;
+}
+
+.row div {
+  padding-left: 0px;
+  padding-right: 5px;
+} 
+
