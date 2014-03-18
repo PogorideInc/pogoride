@@ -91,6 +91,10 @@
     background-color: #4BA3EF;
     border-color: #428bca;
   }
+  &:focus {
+    background-color: #4BA3EF;
+    border-color: #428bca;
+  }
 }
 
 .btn-warning {
@@ -332,7 +336,7 @@
   .description-input {
     width: 40%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto
   }
   h1 {
     text-align: center;
@@ -342,5 +346,23 @@
   label {
     font-weight: lighter;
     font-family: 'Open Sans', sans-serif;
+  }
+}
+
+.panel-body ul {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.panel-body p {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.panel {
+  @media (max-width: 767px) {
+    margin-top: 50px;
   }
 }
