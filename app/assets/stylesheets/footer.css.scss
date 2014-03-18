@@ -1,6 +1,7 @@
 @import "bootstrap";
 
-/*------- Footer CSS -------*/
+/*------- Footer SCSS -------*/
+
 footer {
   color: #ddd;
   position: inherit;
@@ -44,7 +45,7 @@ footer {
   height: 270px;
 }
 
-footer .footfacebook, footer .foottwitter{ 
+footer .footfacebook, footer .foottwitter { 
   -webkit-transition: background 0.3s ease; 
   -moz-transition: background 0.3s ease; 
   -ms-transition: background 0.3s ease; 
@@ -59,18 +60,21 @@ footer .footfacebook, footer .foottwitter{
 
 footer .row div{  
   margin-top: 20px;
+  background-color: #282828;
 }
 
-a.foottwitter{ 
+a.foottwitter { 
   background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat 0 0; 
-  &:hover{ 
+  margin-top: 0px;
+  &:hover { 
     background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat 0 -39px; 
   }
 }
 
-a.footfacebook{ 
+a.footfacebook { 
   background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat -39px 0;
-  &:hover{ 
+  margin-top: 0px;
+  &:hover { 
     background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat -39px -39px;
   }
 }
