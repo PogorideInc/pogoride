@@ -25,29 +25,30 @@
     text-align: center;
     float: center;
   }
-}
-
-.newform-container .ride-form {
-  width: 40%;
-}
-
-.newform-container .donate-form {
-  width: 10%;
-  display: inline-block;
-}
-
-.newform-container .seat-form {
-  width: 10%;
-  display: inline-block;
-}
-
-.newform-container .ride-description {
-  width: 75%;
+  .ride-form {
+    width: 40%;
+  }
+  .donate-form {
+    width: 10%;
+    display: inline-block;
+  }
+  .seat-form {
+    width: 10%;
+    display: inline-block;
+  }
+  .ride-description {
+    width: 75%;
+  }
 }
 
 .media {
   background-color: white;
   padding: 5px;
+  margin: 5px;
+}
+
+.media-object {
+  height: 85px;
 }
 
 .small-pic {
@@ -69,10 +70,6 @@
   &:hover {
     box-shadow: 0px 0px 8px;
   }
-}
-
-.media-object {
-  height: 85px;
 }
 
 .ride-cost {

@@ -59,10 +59,12 @@ footer .footfacebook, footer .foottwitter{
 
 footer .row div{  
   margin-top: 20px;
+  background-color: #282828;
 }
 
 a.foottwitter{ 
   background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat 0 0; 
+  margin-top: 0px;
   &:hover{ 
     background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat 0 -39px; 
   }
@@ -70,6 +72,7 @@ a.foottwitter{
 
 a.footfacebook{ 
   background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat -39px 0;
+  margin-top: 0px;
   &:hover{ 
     background: url('https://www.pogoride.com/css/images/socialmedia.png') no-repeat -39px -39px;
   }
