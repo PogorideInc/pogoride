@@ -4,28 +4,7 @@
 
 @import "bootstrap";
 
-.userdashboard {
-  height: 50px;
-  width: 100%;
-  display: block;
-  border-bottom: 2px solid #282828;
-  margin-left:auto;
-  margin-right:auto;
-  text-align: center;
-  font-weight: light;
-  vertical-align: center;
-  @media (max-width: 767px) {
-    height: 120px;
-    // border-spacing: 3px;
-  }
-  .nav {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-  }
-}
+// User Profile 
 
 .profilecontainer {
   margin: 10px 10px 10px 10px;
@@ -68,27 +47,6 @@
   font-weight: lighter;
 }
 
-.navbar-nav {
-  float: left;
-  margin: 0;
-}
-
-.nav-pills > li > a {
-  border-radius: 3px;
-  -webkit-transition: all 0.2s ease;
-}
-
-.nav-pills > li > a:hover {
-  border-radius: 3px;
-  background-color: whitesmoke;
-  border-bottom: 3px solid #DADADA;
-}
-
-.nav-pills > li.active > a {
-  border-radius: 3px;
-  border-bottom: 3px solid #0E5EA4;
-}
-
 .profileimg {
   width: 200px;
   height: 100%;
@@ -102,6 +60,8 @@
 body {
   background-color: white;
 }
+
+// User Sign In
 
 .signin-form {
   text-align: center;
@@ -117,6 +77,8 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
 }
+
+// User Sign Up
 
 .signup-form {
   text-align: center;
@@ -136,6 +98,3 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
 }
-
-//edit profile page 
-
