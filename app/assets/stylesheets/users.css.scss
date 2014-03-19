@@ -4,23 +4,7 @@
 
 @import "bootstrap";
 
-.userdashboard {
-  height: 50px;
-  width: 100%;
-  display: block;
-  border-bottom: 3px solid #282828;
-  margin-left:auto;
-  margin-right:auto;
-  text-align: center;
-  font-weight: light;
-  vertical-align: center;
-
-  .nav {
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-  }
-}
+// User Profile 
 
 .profilecontainer {
   margin: 10px 10px 10px 10px;
@@ -52,7 +36,6 @@
 }
 
 .userdetails {
-  margin-top: 10px;
   margin-left: 50px;
   display: inline-block;
   height: 300px;
@@ -62,15 +45,6 @@
 
 .joindate {
   font-weight: lighter;
-}
-
-.navbar-nav {
-  float: left;
-  margin: 0;
-}
-
-.nav-pills > li > a {
-  border-radius: 0px;
 }
 
 .profileimg {
@@ -87,6 +61,8 @@ body {
   background-color: white;
 }
 
+// User Sign In
+
 .signin-form {
   text-align: center;
   margin-bottom: 30px;
@@ -101,6 +77,8 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
 }
+
+// User Sign Up
 
 .signup-form {
   text-align: center;
@@ -120,6 +98,3 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
 }
-
-//edit profile page 
-

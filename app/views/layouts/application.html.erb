@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
   <link rel="icon" type="image/png" href="https://www.pogoride.com/favicon.ico" />
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
@@ -30,11 +31,11 @@
           </ul>
         </nav>
 
-        <div class="row">
-          <div class="col-lg-10">
+        <!-- <div class="row"> -->
+          <!-- <div class="col-lg-10"> -->
             <h2 class="header-text">Find your ride.</h2>
-          </div>
-        </div>
+          <!-- </div> -->
+        <!-- </div> -->
 
         <h4 class="header-text">Book rides in British Columbia and Washington today. Beta.</h4>   
        
@@ -60,7 +61,7 @@
             </div>
 
             <div class="col-sm-2 col-xs-12">
-              <%= submit_tag "submit", class: "btn btn-primary" %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
            
               <%= link_to "All Rides", rides_path, :class => 'btn btn-primary btn-rides' %>
             </div> 
@@ -73,6 +74,41 @@
       </div>
     </header> 
     <!-- Header End -->
+
+    <% if session[:user_id] && (current_page?(root_path) == false)  %>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button> 
+            <%= link_to @user.first_name + " " + @user.last_name, my_user_path(@user.id), class: "navbar-brand" %>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rides <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-link <%=is_active(my_rides_path(@ride))%>"><%= link_to "My Rides", my_rides_path(@ride) %></li>
+                  <li class="dropdown-link <%=is_active(requests_my_rides_path(@ride))%>"><%= link_to "My Requests", requests_my_rides_path(@ride) %></li>
+                  <li class="dropdown-link <%=is_active(drives_my_rides_path(@ride))%>"><%= link_to "My Drives", drives_my_rides_path(@ride) %></li>
+                </ul>
+              </li>
+              <li class=""><%= link_to "Need A Ride?", new_my_ride_path %></li>
+              <li class="<%=is_active(new_my_ride_path)%>"><%= link_to "Post A Drive", new_my_ride_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="<%=is_active(rides_path)%>"><%= link_to "All Rides", rides_path %></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    <% end %>
 
   <%= yield %>
 
