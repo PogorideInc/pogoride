@@ -41,6 +41,12 @@ h1 {
   margin-left: 5%;
 }
 
+@media (max-width: 767px) {
+  #logo img {   
+    max-width: 260px; 
+  }
+}
+
 h1 a {
   color: #fff;
 }
