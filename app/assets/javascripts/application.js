@@ -16,13 +16,3 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-
-
-$(document).ready(function(){
-  $('.flip-btn').on('click', function() {
-    $('.flip-container').on('click', function(){
-      $(this).toggleClass('flip-trigger')
-    });
-  });
-});
-

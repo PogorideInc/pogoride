@@ -1,89 +1,12 @@
-<!-- Ride cards -->
-
 <div id="firstband firstbandback">
   <div class="container">
     <div class="row first" style="margin-bottom: 60px;">
       <h2 class="text-center" style="margin: 50px auto 10px;">Drives</h2>
         <% @rides.each do |ride| %>
-        <% if ride.driver_id != nil || ride.has_passengers? %>
-          <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-            <div class="flipper">
-              
-              <!-- Ride card front -->
-
-              <div class="front">
-                <div class="panel panel-default">
-                  <% if !(ride.has_passengers?) && ride.driver_id == @user.id %>
-                    <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle', :title => "Delete Ride" %>
-                  <% end %>  
-                  <div class="panel-heading">
-                    <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %>
-                    <% if ride.driver_id == @user.id %>
-                    <%= link_to "View this ride", my_ride_path(ride) %>
-                    <% end %>
-                    <span class="ride-cost">$<%= ride.donation_amt %></span>
-                    <% if ride.driver_id == @user.id %>
-                      <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
-                    <% end %>               
-                  </div>
-                  <div class="panel-body">
-                    <div class="media">
-                      <a class="pull-left" href="#">
-                        <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
-                      </a>
-                      <div class="media-body">
-                        <h4 class="media-heading"></h4>
-                        <div class="ride-info">
-                          <ul>
-                            <li><%= ride.user.username %> has <%= ride.no_of_seats %>seats remaining.</li>
-                            <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>         
-                            <li>Created by:  <%= ride.user.first_name%></li>                              
-                            <li>Number of Passengers:  <%= ride.passengers.count %></li>
-                          </ul>
-                        </div>
-                        <button type="button" class="flip-btn btn btn-info">
-                          Ride <br> Details
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ride card back -->
-
-              <div class="back">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="media">
-                      <div class="media-body">
-                        <h4 class="media-heading"></h4>
-                        <div class="ride-info">
-                          <p>
-                            Description: <%= ride.description %><br/>      
-                            Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %><br/>
-                            Seats remaining: <%= ride.no_of_seats %><br/>
-                          </p>
-                        </div>
-                        <button type="button" class="flip-btn btn btn-warning">
-                          View <br> Ride
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        <% end %> 
+          <% if ride.driver_id != nil || ride.has_passengers? %>
+            <%= render partial: "rides/ridecard", locals: {ride: ride, user: @user} %>
+          <% end %> 
         <% end %>
     </div>
   </div>
 </div>
-
-<!-- End Ride cards -->
-
