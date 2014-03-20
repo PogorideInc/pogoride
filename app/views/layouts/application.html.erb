@@ -22,21 +22,18 @@
 
         <nav class="navbar">
           <ul class="nav">
-            <li><%= link_to "Sign Up", new_user_path %></li>
             <% if session[:user_id] %>
+              <li><%= link_to "Profile", my_user_path(session[:user_id]) %></li>
               <li><%= link_to("Signout", "/session", method: :delete) %></li>
             <% else %>
+              <li><%= link_to "Sign Up", new_user_path %></li>
               <li><%= link_to "Sign in", new_session_path %></li>
             <% end %>
           </ul>
         </nav>
 
-        <!-- <div class="row"> -->
-          <!-- <div class="col-lg-10"> -->
-            <h2 class="header-text">Find your ride.</h2>
-          <!-- </div> -->
-        <!-- </div> -->
-
+        <h2 class="header-text">Find your ride.</h2>
+       
         <h4 class="header-text">Book rides in British Columbia and Washington today. Beta.</h4>   
        
         <div class="main-search container">
