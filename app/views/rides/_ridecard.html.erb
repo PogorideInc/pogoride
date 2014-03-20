@@ -1,0 +1,47 @@
+<div class="front">
+  <div class="panel panel-default">
+    <% if ride.user == @user && (ride.passengers.count <= 1) %>
+      <%= link_to "", my_ride_path(ride), :confirm => "Are you sure?", :method => :delete, :class => 'glyphicon glyphicon-remove-circle', :title => "Delete Ride" %>
+    <% end %> 
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
+
+      <% if ride.state == 'q' && ride.driver_id == nil && !ride.passengers.pluck(:user_id).include?(@user.id) %>
+        <%= link_to "I'll drive you", add_driver_my_ride_path(ride) %>
+      <% end %>
+
+      <% if ride.driver_id == @user.id %>
+          <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
+      <% end %>   
+      <% if ride.driver_id == @user.id || ride.passengers.pluck(:user_id).include?(@user.id) %>
+        <%= link_to "View this ride", my_ride_path(ride) %>
+      <% end %>
+      
+      <% if !ride.passengers.pluck(:user_id).include?( @user.id ) && ride.driver_id != @user.id %>
+          <%= link_to "Join This Ride", add_me_to_ride_my_ride_path(ride.id), :class => 'btn btn-join' %>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <div class="media">
+        <a class="pull-left" href="#">
+          <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"></h4>
+          <div class="ride-info">
+            <ul>
+              <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
+              <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>                    
+              <li>Passengers: <% ride.passengers.each do |p| %>
+              <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
+              <% end %>
+            </p>
+          </div>
+          <%= link_to "Ride Details", my_ride_path(ride), :class => 'btn btn-primary btn-search' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
