@@ -1,8 +1,8 @@
 <div id="firstband firstbandback">
   <div class="container">
     <div class="row first" style="margin-bottom: 60px;">
-      <h2 class="text-center" style="margin: 50px auto 10px;">My Rides</h2>
-      <% @rides.each do |ride| %>
+      <h1 class="text-center">My Rides</h1>
+      <% @rides.reverse_each do |ride| %>
         <% if ride.driver_id == @user.id || ride.passengers.pluck(:user_id).include?(@user.id) || ride.user == @user%>
           <%= render partial: "rides/ridecard", locals: {ride: ride, user: @user} %>
         <% end %>
