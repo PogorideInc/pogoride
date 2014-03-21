@@ -20,10 +20,10 @@
       <div class="panel-body">
         <div class="media">
           <a class="pull-left" href="#">
-            <% if ride.driver_id != nil %>
+            <% if ride.driver_id == nil %>
               <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
             <% else %>
-              <%= image_tag 'logo.png', :class => 'small-pic' %>
+              <%= image_tag ride.driver.avatar.url(:medium), :class => 'small-pic' %>
             <% end %>
           </a>
           <div class="media-body">
@@ -33,11 +33,11 @@
                 <% if ride.driver_id == nil %>
                   <li><%= ride.user.username %> is looking for a ride.</li>
                 <% else %>
-                  <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
+                  <li><%= ride.driver.username %> has <%= ride.no_of_seats %> seats remaining.</li>
                 <% end %>
                 <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>                    
                 <li>Passengers: <% ride.passengers.each do |p| %>
-                <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
+                  <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
                 <% end %>
               </p>
             </div>
@@ -59,11 +59,7 @@
       <div class="panel-body">
         <div class="media">
           <a class="pull-left" href="#">
-            <% if ride.driver_id != nil %>
               <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
-            <% else %>
-              <%= image_tag 'logo.png', :class => 'small-pic' %>
-            <% end %>
           </a>
           <div class="media-body">
             <h4 class="media-heading"></h4>
@@ -76,7 +72,7 @@
                 <% end %>
                 <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>                    
                 <li>Passengers: <% ride.passengers.each do |p| %>
-                <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
+                  <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
                 <% end %>
               </p>
             </div>
