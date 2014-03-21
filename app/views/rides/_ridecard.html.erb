@@ -11,13 +11,10 @@
           <%= link_to "I'll drive you", add_driver_my_ride_path(ride) %>
         <% end %>
         <% if ride.driver_id == @user.id %>
-            <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-remove' %>
+            <%= link_to "Remove me as driver", remove_driver_my_ride_path(ride.id), :method => :delete, :class => 'btn btn-primary btn-remove' %>
         <% end %>   
-        <% if ride.driver_id == @user.id || ride.passengers.pluck(:user_id).include?(@user.id) %>
-          <%= link_to "View this ride", my_ride_path(ride) %>
-        <% end %>
         <% if !ride.passengers.pluck(:user_id).include?( @user.id ) && ride.driver_id != @user.id %>
-            <%= link_to "Join This Ride", add_me_to_ride_my_ride_path(ride.id), :class => 'btn btn-join' %>
+            <%= link_to "Join This Ride", add_me_to_ride_my_ride_path(ride.id), :class => 'btn btn-primary btn-join' %>
         <% end %>
       </div>
       <div class="panel-body">
@@ -36,7 +33,7 @@
                 <% end %>
               </p>
             </div>
-            <%= link_to "Ride Details", my_ride_path(ride), :class => 'btn btn-primary btn-search' %>
+            <%= link_to "Ride<br />Details".html_safe, my_ride_path(ride), :class => 'btn btn-primary btn-details' %>
           </div>
         </div>
       </div>
@@ -67,7 +64,7 @@
                 <% end %>
               </p>
             </div>
-            <%= link_to "Ride Details", my_ride_path(ride), :class => 'btn btn-primary btn-search' %>
+            <%= link_to "Ride<br />Details".html_safe, my_ride_path(ride), :class => 'btn btn-primary btn-search' %>
           </div>
         </div>
       </div>
