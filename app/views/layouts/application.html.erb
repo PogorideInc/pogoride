@@ -13,7 +13,7 @@
   <body>
 
     <!-- Header -->
-    <header>
+    <header class="masthead">
       <div class="hcontainer">
         
         <div class="headerLogo">
@@ -73,7 +73,8 @@
     <!-- Header End -->
 
     <% if session[:user_id] && (current_page?(root_path) == false)  %>
-      <nav class="navbar navbar-default" role="navigation">
+      <div id="nav">
+      <nav class="navbar navbar-default navbar-static" role="navigation">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -105,6 +106,7 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
+      </div>
     <% end %>
 
   <%= yield %>

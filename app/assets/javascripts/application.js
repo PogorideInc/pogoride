@@ -16,3 +16,12 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$( document ).ready(function() {
+  $('#nav').affix({
+    offset: {
+      top: $('.hcontainer').height()
+    }
+  }); 
+});

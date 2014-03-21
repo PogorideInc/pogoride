@@ -101,6 +101,13 @@ body {
 
 // User Navigation
 
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
