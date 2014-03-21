@@ -130,147 +130,127 @@
   font-size: 1.1em;
 }
 
-.panel-heading .btn-join {
-  color: #4cae4c;
-  background-color: whitesmoke;
-  -webkit-transition: all 0.5s ease;
-  &:hover {
-    background-color: #4cae4c;
-    color: white;
-  }
+.nav-pills .all-rides-nav {
+float:right;
 }
 
-.panel-heading .btn-remove {
-  color: #B40404;
-  background-color: whitesmoke;
-  -webkit-transition: all 0.5s ease;
-  &:hover {
-    background-color: #B40404;
-    color: white;
-  }
-}
-
- .nav-pills .all-rides-nav {
-  float:right;
- }
-
-  .ridecontainer {
-    margin: 10px 10px 10px 10px;
-    width: 75%;
-    padding: 20px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: white;
-    box-shadow: 0px 0px 3px;
-    height: 1000px;
-  }
-
-  .ride-header {
-    text-align: center;
-    font-weight: lighter;
-    font-family: 'Open Sans', sans-serif;
-    .header-date {
-      font-style: italic;
-      font-size: .7em
-    }
-  }
-
-  .driver-info {
-    margin: 0px 30px 30px 0px;
-    float: left;
-    padding: 15px;
-    padding-top: 0px;
-    font-family: 'Open Sans', sans-serif;
-    .storage-info {
-      text-align: left;
-      padding-left: 10px;
-      padding-right: 10px;
-      .fa {
-        float: right;
-      }
-    }
-  }
-
-  .medium-pic-cont {
-    width: 175px;
-    height: 175px;
-    overflow: hidden;
-    margin: 10px;
-    img {
-      width: 175px;
-      height: auto;
-    }
-  }
-
-  .small-pic-cont {
-    padding-right: 50px;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    margin: 5px;
-    position: absolute;
-    .small-pic {
-      position: absolute;
-    }
-  }
-
-  .driver-heading {
-    text-align: center;
-    font-weight: lighter;
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  .passenger-heading {
-    text-align: right;
-    font-weight: lighter;
-    font-family: 'Open Sans', sans-serif;
-    margin-right: 165px;
-    margin-top: 50px;
-  }
-
-  .description-heading {
-      text-align: left;
-      font-weight: lighter;
-      font-family: 'Open Sans', sans-serif;
-  }
-
-  .ride-description {
-    margin-top: 50px;
-    height: 200px;
-    position: relative;
-    float: left;
-    width: 45%;
-    
-  }
-
-  .passenger-info-cont {
-    display: block;
-    float: right;
-    border-top: 1px solid grey;
-    text-align: center;
-    width: 30%;
-    height: 60px;
-    margin-right: 30px;
-    .pass-info {
-      margin: 10px;
-      .pass-buttons{
-        float: right;
-      }
-    }
-  }
-
-  .ride-info-cont {
-    position: relative;
-    height: 300px;
-    width: 100%;
-    float: left;
-  }
-
- .page-cont {
+.ridecontainer {
+  margin: 10px 10px 10px 10px;
+  width: 75%;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+  box-shadow: 0px 0px 3px;
   height: 1000px;
- }
+}
 
- .ride-form {
+.ride-header {
+  text-align: center;
+  font-weight: lighter;
+  font-family: 'Open Sans', sans-serif;
+  .header-date {
+    font-style: italic;
+    font-size: .7em
+  }
+}
+
+.driver-info {
+  margin: 0px 30px 30px 0px;
+  float: left;
+  padding: 15px;
+  padding-top: 0px;
+  font-family: 'Open Sans', sans-serif;
+  .storage-info {
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    .fa {
+      float: right;
+    }
+  }
+}
+
+.medium-pic-cont {
+  width: 175px;
+  height: 175px;
+  overflow: hidden;
+  margin: 10px;
+  img {
+    width: 175px;
+    height: auto;
+  }
+}
+
+.small-pic-cont {
+  padding-right: 50px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin: 5px;
+  position: absolute;
+  .small-pic {
+    position: absolute;
+  }
+}
+
+.driver-heading {
+  text-align: center;
+  font-weight: lighter;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.passenger-heading {
+  text-align: right;
+  font-weight: lighter;
+  font-family: 'Open Sans', sans-serif;
+  margin-right: 165px;
+  margin-top: 50px;
+}
+
+.description-heading {
+    text-align: left;
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.ride-description {
+  margin-top: 50px;
+  height: 200px;
+  position: relative;
+  float: left;
+  width: 45%;
+  
+}
+
+.passenger-info-cont {
+  display: block;
+  float: right;
+  border-top: 1px solid grey;
+  text-align: center;
+  width: 30%;
+  height: 60px;
+  margin-right: 30px;
+  .pass-info {
+    margin: 10px;
+    .pass-buttons{
+      float: right;
+    }
+  }
+}
+
+.ride-info-cont {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  float: left;
+}
+
+.page-cont {
+height: 1000px;
+}
+
+.ride-form {
   text-align: center;
   margin-bottom: 30px;
   .input-medium {
@@ -296,6 +276,45 @@
   label {
     font-weight: lighter;
     font-family: 'Open Sans', sans-serif;
+  }
+}
+
+.btn-primary.btn-details {
+  background-color: #0184d1;
+  margin: 5px;
+  height: 55px;
+  width: 70px;
+  border-bottom: 3px solid #164873;
+  float: right;
+}
+
+.btn-primary.btn-join {
+  color: #4cae4c;
+  background-color: whitesmoke;
+  margin: 5px;
+  border: none;
+  border-bottom: 3px solid whitesmoke;
+  -webkit-transition: all 0.5s ease;
+  &:hover {
+    background-color: #4cae4c;
+    color: whitesmoke;
+    border: none;
+    border-bottom: 3px solid #197119;
+  }
+}
+
+.btn-primary.btn-remove {
+  color: #B40404;
+  background-color: whitesmoke;
+  margin: 5px;
+  border: none;
+  border-bottom: 3px solid whitesmoke;
+  -webkit-transition: all 0.5s ease;
+  &:hover {
+    background-color: #B40404;
+    color: whitesmoke;
+    border: none;
+    border-bottom: 3px solid #750101;
   }
 }
 
