@@ -20,13 +20,21 @@
       <div class="panel-body">
         <div class="media">
           <a class="pull-left" href="#">
-            <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
+            <% if ride.driver_id != nil %>
+              <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
+            <% else %>
+              <%= image_tag 'logo.png', :class => 'small-pic' %>
+            <% end %>
           </a>
           <div class="media-body">
             <h4 class="media-heading"></h4>
             <div class="ride-info">
               <ul>
-                <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
+                <% if ride.driver_id == nil %>
+                  <li><%= ride.user.username %> is looking for a ride.</li>
+                <% else %>
+                  <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
+                <% end %>
                 <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>                    
                 <li>Passengers: <% ride.passengers.each do |p| %>
                 <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
@@ -51,13 +59,21 @@
       <div class="panel-body">
         <div class="media">
           <a class="pull-left" href="#">
-            <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
+            <% if ride.driver_id != nil %>
+              <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
+            <% else %>
+              <%= image_tag 'logo.png', :class => 'small-pic' %>
+            <% end %>
           </a>
           <div class="media-body">
             <h4 class="media-heading"></h4>
             <div class="ride-info">
               <ul>
-                <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
+                <% if ride.driver_id == nil %>
+                  <li><%= ride.user.username %> is looking for a ride.</li>
+                <% else %>
+                  <li><%= ride.user.username %> has <%= ride.no_of_seats %> seats remaining.</li>
+                <% end %>
                 <li>Leaving: <%= ride.ride_date.to_formatted_s(:long_ordinal) %></li>                    
                 <li>Passengers: <% ride.passengers.each do |p| %>
                 <%= image_tag p.user.avatar.url(:thumb), :class => 'micro-pic', :title => p.user.username %>
