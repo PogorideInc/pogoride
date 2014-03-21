@@ -45,7 +45,11 @@ header {
   }
 }
 
-
+body header {
+  h1 {
+    text-align: left;
+  }
+}
 
 /*------- FORM imput SCSS -------*/
 

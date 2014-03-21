@@ -1,7 +1,7 @@
 <div id="firstband firstbandback">
     <div class="container">
       <div class="row first" style="margin-bottom: 60px;">
-        <h2 class="text-center" style="margin: 50px auto 10px;">All Rides</h2>  
+        <h1 class="text-center">All Rides</h1>  
         <% if @rides.present? %>      
         <% @rides.reverse_each do |ride| %>        
           <%= render partial: "ridecard", locals: {ride: ride, user: @user} %>
