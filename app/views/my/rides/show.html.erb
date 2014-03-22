@@ -10,6 +10,9 @@
             </div>
                 <h4 class="driver-heading"><%= @driver.first_name %> <%= @driver.last_name %> is driving.</h4>
             <% else %>
+                <div class="medium-pic-cont">
+                    <%= image_tag "logo.png"%>
+                </div>
                 <h4 class="driver-heading">This ride is looking for a driver.</h4>
         <% end %>
 
@@ -34,41 +37,40 @@
         </p>
     </div>
 
-<div class="ride-description">
-    <h4 class="description-heading">Description</h4>
-    <%= @ride.description %>
-</div>
+  <div class="ride-description">
+      <h4 class="description-heading">Description</h4>
+      <%= @ride.description %>
+  </div>
 
 
 
-<p>
-<h4 class="passenger-heading">Passengers</h4>             
+
+  <div class="passenger-info-cont">
+    <h4 class="passenger-heading">Passengers</h4>      
     <% @ride.passengers.each do |passenger| %>
-        <div class="passenger-info-cont">
-            <div class="small-pic-cont">
-                <%= image_tag passenger.user.avatar.url(:thumb), :class => 'small-pic-pass' %>
-            </div>
-            <div class="pass-info">
-                <%= passenger.user.first_name %> - <%= passenger.state_name %>
-                <% if @ride.driver_id == @user.id %>
-                <div class="pass-buttons">
-                    <% if passenger.state == "Q" %>
-                        <%= link_to "Accept", accept_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-success' %>
-                
-                    <%= link_to "Reject", reject_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-danger' %>
-                    <% end %>
-                </div>
-                <% end %>
-            </div>
-        </div>
+      <div class="small-pic-cont">
+        <%= image_tag passenger.user.avatar.url(:thumb), :class => 'small-pic-pass' %>
+      </div>
+      <div class="pass-info">
+        <%= passenger.user.first_name %> - <%= passenger.state_name %>
+        <% if @ride.driver_id == @user.id %>
+          <div class="pass-buttons">
+            <% if passenger.state == "Q" %>
+              <%= link_to "Accept", accept_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-success' %>
+              <%= link_to "Reject", reject_passenger_my_ride_path(:passenger_id => passenger.id), :class => 'btn btn-danger' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-</p>
+  </div>
 
-<div class="ride-info-cont">
-    <p>
+
+<!--   <div class="ride-info-cont">
+      <p>
         <% if @ride.driver_id == @user.id  && @ride.passengers == nil %>
             <%= link_to "Delete Ride", my_ride_path(@user, @ride), :method => :delete %>
         <% end %>
-    </p>
-</div>
+      </p>
+  </div> -->
 </div>
