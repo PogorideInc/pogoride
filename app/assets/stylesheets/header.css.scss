@@ -61,6 +61,8 @@ body header {
   z-index: 99;
   .form-control {
     margin: 5px;
+    height: 40px;
+    font-size: 1.2em;
   }
   .btn-rides {
     border: 1px solid white;
@@ -78,8 +80,8 @@ body header {
 }
 
 .btn-primary.btn-search {
-  // padding: 10px 20px; 
-  // font-size: 1.25em; 
+  padding: 6px 10px; 
+  font-size: 1.25em; 
   background-color: #0184d1;
   margin: 5px;
   border-bottom: 3px solid #164873;
