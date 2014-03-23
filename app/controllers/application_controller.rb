@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def if_not_user_redirect
   	unless current_user
-		  redirect_to root_path
+		  redirect_to new_session_path
     end
   end
 
