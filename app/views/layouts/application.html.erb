@@ -89,14 +89,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rides <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-link <%=is_active(my_rides_path(@ride))%>"><%= link_to "My Rides", my_rides_path(@ride) %></li>
-                  <li class="dropdown-link <%=is_active(requests_my_rides_path(@ride))%>"><%= link_to "My Requests", requests_my_rides_path(@ride) %></li>
-                  <li class="dropdown-link <%=is_active(drives_my_rides_path(@ride))%>"><%= link_to "My Drives", drives_my_rides_path(@ride) %></li>
-                </ul>
-              </li>
+
+              <li class="<%=is_active(my_rides_path(@ride))%>"><%= link_to "My Rides", my_rides_path(@ride) %></li>
               <li class=""><%= link_to "Need A Ride?", new_my_ride_path %></li>
               <li class="<%=is_active(new_my_ride_path)%>"><%= link_to "Post A Drive", new_my_ride_path %></li>
             </ul>
@@ -175,7 +169,7 @@
       olark.identify('5666-666-10-2350');/*]]>*/</script><noscript><a href="https://www.olark.com/site/5666-666-10-2350/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a>
       </noscript>
     <!-- Olark -->
-  
+
     <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
     <script src="main.js"></script>
   </body>
