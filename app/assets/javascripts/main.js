@@ -6,10 +6,12 @@ $(function(){
 
 	$('#Container').mixItUp();
 
+  // Attach navbar to top
+  
   $('#nav').affix({
     offset: {
       top: $('.hcontainer').height()
     }
   });
-  
+
 });

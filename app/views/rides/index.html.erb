@@ -1,5 +1,3 @@
-
-
 <h1 class="text-center">All Rides</h1>
 
 <div class="controls">
@@ -8,11 +6,10 @@
   <button class="filter active" data-filter=".category-2">Offers</button>
 </div>
 
-
-  <% if @rides.present? %>
-    <div id="Container">
-      <% @rides.reverse_each do |ride| %>
-        <%= render partial: "ridecard", locals: {ride: ride, user: @user} %>
-      <% end %>
-    </div>
-  <% end %>
+<% if @rides.present? %>
+  <div id="Container" class="container">
+    <% @rides.reverse_each do |ride| %>
+      <%= render partial: "ridecard", locals: {ride: ride, user: @user} %>
+    <% end %>
+  </div>
+<% end %>

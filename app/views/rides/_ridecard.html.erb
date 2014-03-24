@@ -49,17 +49,15 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 <% else %>
 
-  <% if ride.state == 'q' && ride.driver_id == nil %>
-    <div class="front mix category-1">
+  <% if ride.state == 'q' %>
+    <div class="panel panel-default mix category-1">
   <% else %>
-    <div class="front mix category-2"
+    <div class="panel panel-default mix category-2">
   <% end %>
-    <div class="panel panel-default">
-
       <div class="panel-heading">
         <span class="glyphicon glyphicon-road"></span><%= ride.from %><span class="glyphicon glyphicon-arrow-right"></span><%= ride.to %><span class="ride-cost">$<%= ride.donation_amt %></span>
       </div>
@@ -88,6 +86,5 @@
         </div>
       </div>
     </div>
-  </div>
 
 <% end %>
