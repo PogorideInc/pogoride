@@ -63,7 +63,7 @@
 
 .small-pic-pass {
     width: 50px;
-    height: auto; 
+    height: auto;
 }
 
 .panel {
@@ -391,5 +391,38 @@
 .panel {
   @media (max-width: 767px) {
     margin-top: 50px;
+  }
+}
+
+#Container .mix{
+	display: none;
+}
+
+.controls{
+  padding: 2%;
+  color: #eee;
+  text-align: center;
+  button{
+  display: inline-block;
+  padding: .4em .8em;
+  background: #666;
+  border: 0;
+  color: #ddd;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+
+  button.active{
+    background: #0184d1;
+  }
+
+  button:focus{
+    outline: 0 none;
+  }
+
+  button + label{
+    margin-left: 1em;
   }
 }
