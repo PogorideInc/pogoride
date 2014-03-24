@@ -15,7 +15,7 @@
     <!-- Header -->
     <header class="masthead">
       <div class="hcontainer">
-        
+
         <div class="headerLogo">
           <h1 id="logo"><a href="/"><%= image_tag("logo-beta.png", :alt => "Pogoride") %></a></h1>
         </div>
@@ -33,14 +33,14 @@
         </nav>
 
         <h2 class="header-text">Find your ride.</h2>
-       
-        <h4 class="header-text">Book rides in British Columbia and Washington today. Beta.</h4>   
-       
+
+        <h4 class="header-text">Book rides in British Columbia and Washington today. Beta.</h4>
+
         <div class="main-search container">
           <div class="row">
-           
+
             <%= form_tag rides_path, :method => 'get' do %>
-           
+
             <div class="col-sm-3 col-xs-12">
               <%= text_field_tag "search[from]", params.has_key?("search") && params[:search].has_key?("from") ? params[:search][:from] : "", placeholder: "From where?", class: "form-control searchbig common-row" %>
             </div>
@@ -59,17 +59,17 @@
 
             <div class="col-sm-2 col-xs-12">
               <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
-           
-              <%= link_to "All Rides", rides_path, :class => 'btn btn-primary btn-rides' %>
-            </div> 
 
-            <% end %> 
-            
+              <%= link_to "All Rides", rides_path, :class => 'btn btn-primary btn-rides' %>
+            </div>
+
+            <% end %>
+
           </div>
         </div>
 
       </div>
-    </header> 
+    </header>
     <!-- Header End -->
 
     <% if session[:user_id] && (current_page?(root_path) == false)  %>
@@ -83,7 +83,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button> 
+            </button>
             <%= link_to @user.first_name + " " + @user.last_name, my_user_path(@user.id), class: "navbar-brand" %>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -116,7 +116,7 @@
       <div class="footer">
         <div class="container">
           <div class="row" >
-            
+
             <div class="col-sm-3 col-xs-12">
               <h4>Pogoride</h4>
               <hr />
@@ -139,7 +139,7 @@
               </ul>
             </div>
 
-            <div> 
+            <div>
               <ul>
                 <li><p class="flinks"><a href="https://www.facebook.com/Pogoride" class="footfacebook"></a><a href="https://twitter.com/pogoride" class="foottwitter"></a></li></br>
                 <li><small><a href="#">Terms & Privacy</a></small></li>
@@ -150,7 +150,7 @@
 
           </div>
         </div>
-      </div>  
+      </div>
     </footer>
     <!-- Footer ends -->
 
@@ -175,6 +175,8 @@
       olark.identify('5666-666-10-2350');/*]]>*/</script><noscript><a href="https://www.olark.com/site/5666-666-10-2350/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a>
       </noscript>
     <!-- Olark -->
-
+  
+    <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
