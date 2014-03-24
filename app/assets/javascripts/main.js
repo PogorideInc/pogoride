@@ -6,4 +6,10 @@ $(function(){
 
 	$('#Container').mixItUp();
 
+  $('#nav').affix({
+    offset: {
+      top: $('.hcontainer').height()
+    }
+  });
+  
 });

@@ -1,6 +1,6 @@
 <% if session[:user_id] %>
 
-  <% if ride.driver_id == nil %>
+  <% if ride.state == 'q' %>
     <div class="panel panel-default mix category-1">
   <% else %>
     <div class="panel panel-default mix category-2">

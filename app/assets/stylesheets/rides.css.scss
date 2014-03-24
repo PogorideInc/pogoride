@@ -130,10 +130,6 @@
   font-size: 1.1em;
 }
 
-.nav-pills .all-rides-nav {
-  float:right;
-}
-
 .ridecontainer {
   margin: 10px 10px 10px 10px;
   width: 75%;
@@ -389,6 +385,9 @@
 }
 
 .panel {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
   @media (max-width: 767px) {
     margin-top: 50px;
   }

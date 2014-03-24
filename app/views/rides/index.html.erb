@@ -1,17 +1,18 @@
-<div id="firstband firstbandback">
-    <div class="container" id="Container">
-<!--       <div class="row first" style="margin-bottom: 60px;"> -->
-        <h1 class="text-center">All Rides</h1>
-        <div class="controls">
-          <button class="filter" data-filter="all">All</button>
-          <button class="filter" data-filter=".category-1">Requests</button>
-          <button class="filter active" data-filter=".category-2">Offers</button>
-        </div>
-        <% if @rides.present? %>
-          <% @rides.reverse_each do |ride| %>
-            <%= render partial: "ridecard", locals: {ride: ride, user: @user} %>
-          <% end %>
-        <% end %>
-<!--       </div> -->
-    </div>
+
+
+<h1 class="text-center">All Rides</h1>
+
+<div class="controls">
+  <button class="filter" data-filter="all">All</button>
+  <button class="filter" data-filter=".category-1">Requests</button>
+  <button class="filter active" data-filter=".category-2">Offers</button>
 </div>
+
+
+  <% if @rides.present? %>
+    <div id="Container">
+      <% @rides.reverse_each do |ride| %>
+        <%= render partial: "ridecard", locals: {ride: ride, user: @user} %>
+      <% end %>
+    </div>
+  <% end %>
