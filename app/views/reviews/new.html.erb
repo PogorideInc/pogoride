@@ -2,10 +2,10 @@
   <h1>Write a Review</h1>
   <%= form_for [:user, @review] do |f| %>
 
-    <%= f.label :rating %>:
+    <%= f.label "Rating (1-5)" %>:
     <%= f.text_field   :rating, class: 'form-control form-group' %>
 
-    <%= f.label :content %>:
+    <%= f.label "Review" %>:
     <%= f.text_area   :content, class: 'form-control form-group description-input', :rows => "4" %>
 
     <%= f.submit 'Submit', :class => 'btn btn-primary' %>

@@ -4,9 +4,29 @@
     <%= image_tag @user.avatar.url(:medium) %>
   </div>
 
+<% if @reviews.size >= 1 %> <!-- set number of ratings before average shows up -->
+  <div class="star_rating">
+    <% combined_rating = 0 %>
+    <% @reviews.each do |r| %>
+      <% combined_rating += r.rating %>
+    <% end %>
+    <% average_rating = combined_rating / @reviews.size %>
+    <% average_rating.times do %>
+      <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    <% if average_rating < 5 %>
+      <% (5 - average_rating).times do %>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
   <div class="userdetails">
     <h4>About Me:</h4><%= @user.about_me %><br />
   </div>
+
+  <h4><%= link_to "Write a review", new_user_review_path(@user.id) %></h4>
 
   <% @reviews.each do |r| %>
     <div class="media">
@@ -14,8 +34,20 @@
         <%= image_tag(r.user.avatar.url(:thumb), :class => 'media-object') %>
       </a>
       <div class="media-body">
-        <h4 class="media-heading">Review by: <%= r.author %></h4>
-        <%= r.content %>
+        <h4 class="media-heading">
+
+        <% (r.rating).times do %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% if (r.rating) < 5 %>
+          <% (5 - (r.rating)).times do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        <% end %>
+
+        </h4>
+        <%= r.content %> <br />
+        <h5>Review by: <%= r.author %></h5>
       </div>
     </div>
   <% end %>
