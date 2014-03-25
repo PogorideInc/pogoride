@@ -1,5 +1,8 @@
 class Review < ActiveRecord::Base
   belongs_to :user
+  belongs_to :for_user, class_name: 'User'
+
+  scope :reviews_for, ->(user) { where("for_user = ?", user) }
 
   validates :user,
     presence: true
