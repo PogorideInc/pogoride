@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.where(id: params[:id]).first
+    @reviews = Review.where(for_user_id: @user.id)
   end
 
   def new
@@ -38,12 +39,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :first_name, 
-      :last_name, 
-      :username, 
-      :email, 
-      :about_me, 
-      :password, 
+      :first_name,
+      :last_name,
+      :username,
+      :email,
+      :about_me,
+      :password,
       :password_confirmation,
       :avatar
       )

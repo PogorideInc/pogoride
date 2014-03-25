@@ -6,13 +6,13 @@ LhlPogorider::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  namespace :my do 
-    resources :rides do 
-      collection do 
+  namespace :my do
+    resources :rides do
+      collection do
         get "requests"
         get "drives"
       end
-      member do 
+      member do
         get "add_me_to_ride"
         delete "remove_driver"
         get "add_driver"
@@ -22,7 +22,10 @@ LhlPogorider::Application.routes.draw do
     end
     resources :users, except: [:new, :create, :destroy, :index], :path => "profile"
   end
-  resources :users, except: [:index, :destroy]
+  resources :users, except: [:index, :destroy] do
+    resources :reviews, only: [:new, :create]
+  end
+
   root to: "static#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -65,7 +68,7 @@ LhlPogorider::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
