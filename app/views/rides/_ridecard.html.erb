@@ -22,13 +22,13 @@
       </div>
       <div class="panel-body">
         <div class="media">
-          <a class="pull-left" href="#">
-            <% if ride.driver_id == nil %>
-              <%= image_tag ride.user.avatar.url(:medium), :class => 'small-pic' %>
-            <% else %>
-              <%= image_tag ride.driver.avatar.url(:medium), :class => 'small-pic' %>
-            <% end %>
-          </a>
+
+          <% if ride.driver_id == nil %>
+            <%= link_to(image_tag(ride.user.avatar.url(:medium), :class => 'small-pic', :title => ride.user.username), user_path(ride.user), :class => 'pull-left') %>
+          <% else %>
+            <%= link_to(image_tag(ride.driver.avatar.url(:medium), :class => 'small-pic', :title => ride.driver.username), user_path(ride.driver), :class => 'pull-left') %>
+          <% end %>
+
           <div class="media-body">
             <h4 class="media-heading"></h4>
             <div class="ride-info">
