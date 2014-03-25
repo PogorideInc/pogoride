@@ -8,5 +8,17 @@
     <h4>About Me:</h4><%= @user.about_me %><br />
   </div>
 
+  <% @reviews.each do |r| %>
+    <div class="media">
+      <a class="pull-left" href="#">
+        <%= image_tag(r.user.avatar.url(:thumb), :class => 'media-object') %>
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Review by: <%= r.author %></h4>
+        <%= r.content %>
+      </div>
+    </div>
+  <% end %>
+
   <p class="glyphicon glyphicon-time joindate"> Joined: <%= @user.created_at.to_formatted_s(:long_ordinal) %><p>
 </div>
