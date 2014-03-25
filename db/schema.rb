@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225200146) do
+ActiveRecord::Schema.define(version: 20140325165456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20140225200146) do
   add_index "passengers", ["ride_id"], name: "index_passengers_on_ride_id", using: :btree
   add_index "passengers", ["state"], name: "index_passengers_on_state", using: :btree
   add_index "passengers", ["user_id"], name: "index_passengers_on_user_id", using: :btree
+
+  create_table "reviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "content"
+    t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "rides", force: true do |t|
     t.string   "from"
