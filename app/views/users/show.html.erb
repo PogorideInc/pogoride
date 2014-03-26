@@ -34,20 +34,18 @@
         <%= image_tag(r.user.avatar.url(:thumb), :class => 'media-object') %>
       </a>
       <div class="media-body">
-        <h4 class="media-heading">
-
-        <% (r.rating).times do %>
-          <span class="glyphicon glyphicon-star"></span>
-        <% end %>
-        <% if (r.rating) < 5 %>
-          <% (5 - (r.rating)).times do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
+        <h3 class="media-heading">
+          <% (r.rating).times do %>
+            <span class="glyphicon glyphicon-star"></span>
           <% end %>
-        <% end %>
-
-        </h4>
+          <% if (r.rating) < 5 %>
+            <% (5 - (r.rating)).times do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
+          <% end %>
+        </h3>
         <%= r.content %> <br />
-        <h5>Review by: <%= r.author %></h5>
+        <h5>By: <%= r.author %></h5>
       </div>
     </div>
   <% end %>
